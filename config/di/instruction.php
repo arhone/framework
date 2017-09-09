@@ -1,23 +1,32 @@
 <?php
 
+$vendor = __DIR__ . '/../../vendor';
 return [
     'Router' => [
-        'require' => __DIR__ . '/../vendor/arhone/router/Router.php',
-        'class'   => 'arhone\router\Router',
-        'method'  => [
-            'routing' => [
-                [
-                    'array' => include __DIR__ . '/../router/routing.php'
-                ],
-                ['Test'],
-                [
-                    'class' => 'Test'
-                ]
+        'instruction' => $vendor . '/arhone/router/config/di/instruction.php'
+    ],
+    'Tpl' => [
+        'instruction' => $vendor . '/arhone/tpl/config/di/instruction.php'
+    ],
+    'Cache' => [
+        'instruction' => $vendor . '/arhone/cache/config/di/instruction.php'
+    ],
+    'Config' => [
+        'instruction' => $vendor . '/arhone/config/config/di/instruction.php'
+    ],
+    'return' => [
+        'class' => 'arhone\tpl\Tpl',
+        'construct' => [
+            [
+                'instruction' => 'cache/config/di/instruction.php'
             ]
         ],
-        'clone'   => true
+        'method' => [
+            'config' => [
+                'pathDir' => '/template/default'
+            ]
+        ]
     ],
-    'Test' => ['Test1'],
     'Test1' => ['Callback'],
     'String' => [
         'string' => 'строка'
