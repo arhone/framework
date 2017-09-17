@@ -1,51 +1,7 @@
 <?php
-use arhone\di\DI as DI;
 include __DIR__ . '/../vendor/autoload.php';
 
-//$DI = new DI();
-//$DI->instruction(include __DIR__ . '/../config/di/instruction.php');
+$Builder = new arhone\builder\Builder(include __DIR__ . '/../config/builder/config.php');
+$Builder->instruction(include __DIR__ . '/../config/builder/instruction.php');
 
-class Tpl {
-    public function get ($tpl) {
-        return $tpl;
-    }
-}
-
-class App {
-    public function __construct(\Tpl $Tpl, \Service $Service) {
-        $this->Tpl     = $Tpl;
-        $this->Service = $Service;
-    }
-    public function run () {
-        echo $this->Service->getIndex();
-    }
-}
-
-class Service {
-    public function __construct(\Tpl $Tpl) {
-        $this->Tpl = $Tpl;
-    }
-    public function getIndex() {
-        return $this->Tpl->get('Ура');
-    }
-}
-
-DI::make([
-    'class' => 'App',
-    'construct' => [
-        [
-            'class' => 'Tpl'
-        ],
-        [
-            'class' => 'Service',
-            'construct' => [
-                [
-                    'class' => 'Tpl'
-                ]
-            ]
-        ]
-    ],
-    'method' => [
-        'run' => []
-    ]
-]);
+echo $Builder->make('Controller')->run($_REQUEST['uri'] ?? '/');

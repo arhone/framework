@@ -1,5 +1,13 @@
 {
     "require": {
-        "arhone/di": "^1.0"
+        "arhone/builder": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "arhone\\builder\\": ""
+        },
+        "classmap": [
+            "Builder.php"
+        ]
     }
 }

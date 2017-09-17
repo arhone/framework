@@ -4,9 +4,9 @@ return [
     '/home/(.*)/(.*)' => [
         [
             'controller' => 'moduleNewsIndexController',
-            'method' => 'getContent',
-            'argument' => [1,0],
-            'block' => 'content'
+            'method'     => 'getContent',
+            'argument'   => [1,0],
+            'block'      => 'content'
         ],
         [],
         []
