@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "4458ecc7f0896be4a8c54c9eb5250ddd",
+    "content-hash": "94ece11078c0910b819da2afe7bf5faa",
     "packages": [
         {
-            "name": "arhone/di",
-            "version": "1.0.5",
+            "name": "arhone/builder",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/arhone/di.git",
-                "reference": "7cceb6a23fabbff8cc93b51c0b42cad8e9c1203b"
+                "url": "https://github.com/arhone/builder.git",
+                "reference": "179ce7e953133b337c75fbbb4c47fcabfda47b27"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/arhone/di/zipball/7cceb6a23fabbff8cc93b51c0b42cad8e9c1203b",
-                "reference": "7cceb6a23fabbff8cc93b51c0b42cad8e9c1203b",
+                "url": "https://api.github.com/repos/arhone/builder/zipball/179ce7e953133b337c75fbbb4c47fcabfda47b27",
+                "reference": "179ce7e953133b337c75fbbb4c47fcabfda47b27",
                 "shasum": ""
             },
             "require": {
@@ -26,10 +26,10 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "arhone\\di\\": ""
+                    "arhone\\builder\\": ""
                 },
                 "classmap": [
-                    "DI.php"
+                    "Builder.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -42,9 +42,9 @@
                     "email": "info@arh.one"
                 }
             ],
-            "description": "Внедрение зависимостей в PHP",
-            "homepage": "https://github.com/arhone/di",
-            "time": "2017-09-04T15:19:21+00:00"
+            "description": "Сборщик пакетов - Внедрение зависимостей (PHP)",
+            "homepage": "https://github.com/arhone/builder",
+            "time": "2017-09-20T13:01:46+00:00"
         }
     ],
     "packages-dev": [],
