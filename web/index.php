@@ -14,23 +14,10 @@ $Builder->instruction(include __DIR__ . '/../config/builder/instruction.php');
 $Tpl    = $Builder->make('Tpl');
 $Router = $Builder->make('Router');
 
-$Router->routing([
-    '/([a-z]+)/([0-9]+)' => [
-        [
-            'controller' => 'NewsIndexController',
-            'argument' => [1, 2]
-        ]
-    ]
-]);
+$Router->routing(include 'module/yandex/config/router/routing.php');
 
-$Router->add('/([a-z]+)/([0-9]+)', [
-    'echo' => 'Второй'
-]);
-$Router->add('/([a-z]+)/([0-9]+)', [
-    'echo' => 'Третий'
-]);
 
-$Router->run('/test/1', function ($match, $option) {
-    print_r($match);
-    echo $option['echo'] . '<br>';
+$Router->run('/yandex/news', function ($match, $option) use ($Builder) {
+    $Module = $Builder->make($option['controller']);
+    echo $Module->$option['method']() . '<br>';
 });
