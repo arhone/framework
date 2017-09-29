@@ -1,10 +1,11 @@
 <?php
 
 return [
-    '/yandex/news' => [
+    '/(yandex)/(news)' => [
         [
             'controller' => 'YandexNewsController',
-            'method'     => 'get'
+            'method'     => 'get',
+            'argument'   => [1]
         ]
     ]
 ];

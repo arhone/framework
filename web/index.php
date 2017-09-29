@@ -20,5 +20,7 @@ $Router->routing(include 'module/yandex/config/router/routing.php');
 
 $Router->run('/yandex/news', function ($match, $option) use ($Builder) {
     $Module = $Builder->make($option['controller']);
-    echo $Module->{$option['method']}(...$match) . '<br>';
+    $option['method'] = $option['method'] ?? 'action';
+    $option['argument'] = $option['argument'] ?? array_flip($match);
+    echo $Module->{$option['method']}(...array_intersect_key($match, array_flip($option['argument']))) . '<br>';
 });
