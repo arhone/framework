@@ -3,9 +3,9 @@ namespace module\yandex\controller;
 
 class YandexNewsController {
 
-    public function get () {
+    public function get ($url) {
 
-        return 'YandexNewsController';
+        return 'YandexNewsController' . $url;
 
     }
 

@@ -2,6 +2,7 @@
 
 return [
     'YandexNewsController' => [
-        'class' => '\module\yandex\controller\YandexNewsController'
+        'require' => 'module\yandex\controller\YandexNewsController.php',
+        'class' => 'module\yandex\controller\YandexNewsController'
     ]
 ];
