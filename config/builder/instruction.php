@@ -7,5 +7,8 @@ return [
     ],
     'Tpl' => [
         'class' => 'arhone\tpl\Tpl'
+    ],
+    'Router' => [
+        'class' => 'arhone\router\Router'
     ]
 ];

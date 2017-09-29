@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "47d7642448d1167e8e912755293102b9",
+    "content-hash": "41ac7258403253041fbaa5e16d12cf84",
     "packages": [
         {
             "name": "arhone/builder",
@@ -45,6 +45,46 @@
             "description": "Сборщик пакетов - Внедрение зависимостей (PHP)",
             "homepage": "https://github.com/arhone/builder",
             "time": "2017-09-20T13:01:46+00:00"
+        },
+        {
+            "name": "arhone/router",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/arhone/router.git",
+                "reference": "28a3002f4345b123b341347550c370a0fc043e3a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/arhone/router/zipball/28a3002f4345b123b341347550c370a0fc043e3a",
+                "reference": "28a3002f4345b123b341347550c370a0fc043e3a",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "arhone\\router\\": ""
+                },
+                "classmap": [
+                    "Router.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Алексей Арх",
+                    "email": "info@arh.one"
+                }
+            ],
+            "description": "Маршрутизатор PHP",
+            "homepage": "https://github.com/arhone/router",
+            "time": "2017-09-07T14:02:04+00:00"
         },
         {
             "name": "arhone/tpl",
