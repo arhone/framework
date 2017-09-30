@@ -6,13 +6,13 @@ return [
             'controller' => 'YandexNewsController',
             'method'     => 'get',
             'argument'   => [2],
-            'blog'       => 'body'
+            'block'      => 'body'
         ],
         [
             'controller' => 'YandexNewsController',
             'method'     => 'get',
             'argument'   => [1],
-            'blog'       => 'title'
+            'block'      => 'title'
         ]
     ]
 ];
