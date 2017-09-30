@@ -1,11 +1,11 @@
 <?php
-namespace module\yandex\controller;
+namespace yandex\controller;
 
 class YandexNewsController {
 
-    public function get ($url) {
+    public function get ($method) {
 
-        return 'YandexNewsController' . $url;
+        return 'YandexNewsController:' . $method;
 
     }
 
