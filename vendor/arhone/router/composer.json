@@ -1,0 +1,25 @@
+{
+    "name": "arhone/router",
+    "description": "Маршрутизатор PHP",
+    "homepage": "https://github.com/arhone/router",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Алексей Арх",
+            "email": "info@arh.one"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "arhone\\router\\": ""
+        },
+        "classmap": [
+            "Router.php"
+        ]
+    },
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^7.0"
+    }
+}
