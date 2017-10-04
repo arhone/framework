@@ -16,7 +16,8 @@ return [
     'Tpl' => [
         'class' => 'arhone\tpl\Tpl'
     ],
-    'Router' => [
-        'class' => 'arhone\router\Router'
+    'Trigger' => [
+        'require' => __DIR__ . '/../vendor/arhone/trigger/Trigger.php',
+        'class' => 'arhone\trigger\Trigger'
     ]
 ];

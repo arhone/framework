@@ -1,6 +1,6 @@
 {
-    "name": "arhone/router",
-    "description": "Маршрутизатор PHP",
+    "name": "arhone/trigger",
+    "description": "Триггер PHP",
     "homepage": "https://github.com/arhone/router",
     "type": "library",
     "license": "MIT",
@@ -12,10 +12,10 @@
     ],
     "autoload": {
         "psr-4": {
-            "arhone\\router\\": ""
+            "arhone\\trigger\\": ""
         },
         "classmap": [
-            "Router.php"
+            "Trigger.php"
         ]
     },
     "minimum-stability": "stable",

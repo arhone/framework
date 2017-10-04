@@ -1,7 +1,7 @@
 <?php declare(strict_types = 1);
 namespace arhone\framework;
 use arhone\builder\Builder;
-use arhone\router\Router;
+use arhone\trigger\Trigger;
 use arhone\tpl\Tpl;
 
 /**
@@ -31,9 +31,9 @@ class Controller {
     protected $Builder;
 
     /**
-     * @var $Router Router
+     * @var $Trigger Trigger
      */
-    protected $Router;
+    protected $Trigger;
 
     /**
      * @var $Tpl Tpl
@@ -44,13 +44,13 @@ class Controller {
      * Controller constructor.
      *
      * @param Builder $Builder
-     * @param Router $Router
+     * @param Trigger $Trigger
      * @param Tpl $Tpl
      */
-    public function __construct (Builder $Builder, Router $Router,  Tpl $Tpl) {
+    public function __construct (Builder $Builder, Trigger $Trigger,  Tpl $Tpl) {
 
         $this->Builder = $Builder;
-        $this->Router  = $Router;
+        $this->Trigger = $Trigger;
         $this->Tpl     = $Tpl;
 
     }
@@ -62,6 +62,10 @@ class Controller {
     public function run ($rout) {
 
         $this->autoload();
+        $container = (object)[
+            'Builder' => $this->Builder,
+            'Tpl'     => $this->Tpl
+        ];
 
         foreach (array_diff(scandir($this->config['directory']['module']), ['..', '.']) as $module) {
 
@@ -74,9 +78,33 @@ class Controller {
                     } elseif ($config == 'config.php') {
                         //$this->Config->add(include $this->config['directory']['module'] . '/' . $module . '/config/config.php');
                     } elseif ($config == 'handler.php') {
-                        //$this->Handler->add(include $this->config['directory']['module'] . '/' . $module . '/config/handler.php');
-                    } elseif ($config == 'router.php') {
-                        $this->Router->routing(include $this->config['directory']['module'] . '/' . $module . '/config/router.php');
+
+                        $handlerList = include $this->config['directory']['module'] . '/' . $module . '/config/handler.php';
+                        foreach ($handlerList as $action => $instruction) {
+
+                            $this->Trigger->handler($action, function ($match, $data) use ($instruction, $container) {
+
+                                if (isset($instruction['controller']) && isset($instruction['method'])) {
+
+                                    $Module = $container->Builder->make($instruction['controller']);
+                                    $data = $Module->{$instruction['method']}(...array_intersect_key($match, array_flip($instruction['argument'] ?? array_flip($match))));
+
+                                    if (isset($instruction['blog']) && is_string($data)) {
+
+                                        $container->Tpl->variable($instruction['blog'], $data);
+
+                                    } elseif (is_object($data)) {
+
+                                        return 'response';
+
+                                    }
+
+                                }
+
+                            });
+
+                        }
+
                     }
 
                 }
@@ -85,34 +113,12 @@ class Controller {
 
         }
 
-        $Builder = $this->Builder;
-        $Tpl = $this->Tpl;
-        $this->Router->run($rout, function ($match, $instruction) use ($Builder, $Tpl) {
+        if ($this->Tpl->has('CONTENT')) {
+            $this->Tpl->display($this->config['directory']['template'] . DIRECTORY_SEPARATOR . 'default/index.tpl');
+        } else {
+            $this->Trigger->event(404);
+        }
 
-            if (isset($instruction['controller']) && isset($instruction['method'])) {
-
-                $Module = $this->Builder->make($instruction['controller']);
-                $data = $Module->{$instruction['method']}(...array_intersect_key($match, array_flip($instruction['argument'] ?? array_flip($match))));
-
-                if (isset($instruction['blog']) && is_string($data)) {
-
-                    $this->Tpl->variable($instruction['blog'], $data);
-
-                } elseif (is_object($data)) {
-
-                    echo 'response';
-
-                } else {
-
-                    echo 404;
-
-                }
-
-            }
-
-        });
-
-        $this->Tpl->display($this->config['directory']['template'] . DIRECTORY_SEPARATOR . 'default/index.tpl');
 
     }
 

@@ -1,14 +1,18 @@
 <?php
 
 return [
-    'yandex.news' => [
+    'POST:/(yandex)/(news)' => [
         [
-            'handler' => 'YandexHandler',
-            'method'  => 'news'    
+            'controller' => 'YandexNewsController',
+            'method'     => 'get',
+            'argument'   => [2],
+            'block'      => 'body'
         ],
         [
-            'handler' => 'YandexHandler',
-            'method'  => 'news'
+            'controller' => 'YandexNewsController',
+            'method'     => 'get',
+            'argument'   => [1],
+            'block'      => 'title'
         ]
     ]
 ];
