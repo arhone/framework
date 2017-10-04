@@ -8,10 +8,10 @@ use arhone\tpl\Tpl;
 /**
  * Arhone Framework
  *
- * Class Controller
+ * Class Model
  * @package arhone\framework
  */
-class Controller {
+class Model {
 
     /**
      * Конфигурация класса
@@ -27,13 +27,11 @@ class Controller {
     ];
 
     /**
-     * @var $Model Model
      * @var $Builder Builder
      * @var $Cache Cache
      * @var $Trigger Trigger
      * @var $Tpl Tpl
      */
-    protected $Model;
     protected $Builder;
     protected $Cache;
     protected $Trigger;
@@ -42,47 +40,17 @@ class Controller {
     /**
      * Controller constructor.
      *
-     * @param Model $Model
      * @param Builder $Builder
      * @param Cache $Cache
      * @param Trigger $Trigger
      * @param Tpl $Tpl
      */
-    public function __construct (Model $Model, Builder $Builder, Cache $Cache, Trigger $Trigger,  Tpl $Tpl) {
+    public function __construct (Builder $Builder, Cache $Cache, Trigger $Trigger,  Tpl $Tpl) {
 
-        $this->Model   = $Model;
         $this->Builder = $Builder;
-        $this->Cache   = $Cache;
+        $this->Cache = $Cache;
         $this->Trigger = $Trigger;
         $this->Tpl     = $Tpl;
-
-    }
-
-    /**
-     * @param $rout
-     * @return string
-     */
-    public function run ($rout) {
-
-        $this->autoload();
-
-        $container = (object)[
-            'Builder' => $this->Builder,
-            'Tpl'     => $this->Tpl
-        ];
-
-        if(!$data = $this->Cache->get('arhone.framework.config')) {
-
-            $data = $this->searchConfigurationFiles();
-
-        }
-
-        if ($this->Tpl->has('CONTENT')) {
-            $this->Tpl->display($this->config['directory']['template'] . DIRECTORY_SEPARATOR . 'default/index.tpl');
-        } else {
-            $this->Trigger->event(404);
-        }
-
 
     }
 
