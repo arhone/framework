@@ -1,6 +1,7 @@
 <?php declare(strict_types = 1);
 namespace arhone\framework;
 use arhone\builder\Builder;
+use arhone\cache\Cache;
 use arhone\trigger\Trigger;
 use arhone\tpl\Tpl;
 
@@ -27,29 +28,27 @@ class Controller {
 
     /**
      * @var $Builder Builder
-     */
-    protected $Builder;
-
-    /**
+     * @var $Cache Cache
      * @var $Trigger Trigger
-     */
-    protected $Trigger;
-
-    /**
      * @var $Tpl Tpl
      */
+    protected $Builder;
+    protected $Cache;
+    protected $Trigger;
     protected $Tpl;
 
     /**
      * Controller constructor.
      *
      * @param Builder $Builder
+     * @param Cache $Cache
      * @param Trigger $Trigger
      * @param Tpl $Tpl
      */
-    public function __construct (Builder $Builder, Trigger $Trigger,  Tpl $Tpl) {
+    public function __construct (Builder $Builder, Cache $Cache, Trigger $Trigger,  Tpl $Tpl) {
 
         $this->Builder = $Builder;
+        $this->Cache = $Cache;
         $this->Trigger = $Trigger;
         $this->Tpl     = $Tpl;
 
@@ -62,46 +61,51 @@ class Controller {
     public function run ($rout) {
 
         $this->autoload();
+
         $container = (object)[
             'Builder' => $this->Builder,
             'Tpl'     => $this->Tpl
         ];
 
-        foreach (array_diff(scandir($this->config['directory']['module']), ['..', '.']) as $module) {
+        if(!$data = $this->Cache->get('arhone.framework.config')) {
 
-            if (is_dir($this->config['directory']['module'] . '/' . $module . '/config')) {
+            foreach (array_diff(scandir($this->config['directory']['module']), ['..', '.']) as $module) {
 
-                foreach (array_diff(scandir($this->config['directory']['module'] . '/' . $module . '/config'), ['..', '.']) as $config) {
+                if (is_dir($this->config['directory']['module'] . '/' . $module . '/config')) {
 
-                    if ($config == 'builder.php') {
-                        $this->Builder->instruction(include $this->config['directory']['module'] . '/' . $module . '/config/builder.php');
-                    } elseif ($config == 'config.php') {
-                        //$this->Config->add(include $this->config['directory']['module'] . '/' . $module . '/config/config.php');
-                    } elseif ($config == 'handler.php') {
+                    foreach (array_diff(scandir($this->config['directory']['module'] . '/' . $module . '/config'), ['..', '.']) as $config) {
 
-                        $handlerList = include $this->config['directory']['module'] . '/' . $module . '/config/handler.php';
-                        foreach ($handlerList as $action => $instruction) {
+                        if ($config == 'builder.php') {
+                            $this->Builder->instruction(include $this->config['directory']['module'] . '/' . $module . '/config/builder.php');
+                        } elseif ($config == 'config.php') {
+                            //$this->Config->add(include $this->config['directory']['module'] . '/' . $module . '/config/config.php');
+                        } elseif ($config == 'handler.php') {
 
-                            $this->Trigger->handler($action, function ($match, $data) use ($instruction, $container) {
+                            $handlerList = include $this->config['directory']['module'] . '/' . $module . '/config/handler.php';
+                            foreach ($handlerList as $action => $instruction) {
 
-                                if (isset($instruction['controller']) && isset($instruction['method'])) {
+                                $this->Trigger->handler($action, function ($match, $data) use ($instruction, $container) {
 
-                                    $Module = $container->Builder->make($instruction['controller']);
-                                    $data = $Module->{$instruction['method']}(...array_intersect_key($match, array_flip($instruction['argument'] ?? array_flip($match))));
+                                    if (isset($instruction['controller']) && isset($instruction['method'])) {
 
-                                    if (isset($instruction['blog']) && is_string($data)) {
+                                        $Module = $container->Builder->make($instruction['controller']);
+                                        $data = $Module->{$instruction['method']}(...array_intersect_key($match, array_flip($instruction['argument'] ?? array_flip($match))));
 
-                                        $container->Tpl->variable($instruction['blog'], $data);
+                                        if (isset($instruction['blog']) && is_string($data)) {
 
-                                    } elseif (is_object($data)) {
+                                            $container->Tpl->variable($instruction['blog'], $data);
 
-                                        return 'response';
+                                        } elseif (is_object($data)) {
+
+                                            return 'response';
+
+                                        }
 
                                     }
 
-                                }
+                                });
 
-                            });
+                            }
 
                         }
 
@@ -118,6 +122,14 @@ class Controller {
         } else {
             $this->Trigger->event(404);
         }
+
+
+    }
+
+    /**
+     *
+     */
+    public function scanConfig () {
 
 
     }

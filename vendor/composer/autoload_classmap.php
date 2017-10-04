@@ -7,6 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'arhone\\builder\\Builder' => $vendorDir . '/arhone/builder/Builder.php',
-    'arhone\\router\\Router' => $vendorDir . '/arhone/router/Router.php',
     'arhone\\tpl\\Tpl' => $vendorDir . '/arhone/tpl/Tpl.php',
+    'arhone\\trigger\\Trigger' => $vendorDir . '/arhone/trigger/Trigger.php',
 );

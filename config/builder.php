@@ -13,11 +13,13 @@ return [
             ['Tpl']
         ]
     ],
+    'Cache' => [
+        'class' => 'arhone\cache\CacheFile'
+    ],
     'Tpl' => [
         'class' => 'arhone\tpl\Tpl'
     ],
     'Trigger' => [
-        'require' => __DIR__ . '/../vendor/arhone/trigger/Trigger.php',
         'class' => 'arhone\trigger\Trigger'
     ]
 ];

@@ -4,11 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "41ac7258403253041fbaa5e16d12cf84",
+    "content-hash": "9e6d0c0b5236a9ccdd2719c379d04738",
     "packages": [
         {
             "name": "arhone/builder",
-            "version": "1.0.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/arhone/builder.git",
@@ -47,17 +47,18 @@
             "time": "2017-09-20T13:01:46+00:00"
         },
         {
-            "name": "arhone/router",
-            "version": "1.0.0",
+            "name": "arhone/cache",
+            "version": "dev-master",
+            "target-dir": "arhone/cache",
             "source": {
                 "type": "git",
-                "url": "https://github.com/arhone/router.git",
-                "reference": "28a3002f4345b123b341347550c370a0fc043e3a"
+                "url": "https://github.com/arhone/cache.git",
+                "reference": "a7d520e94426f462560d2f3a6b791b851fc7874e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/arhone/router/zipball/28a3002f4345b123b341347550c370a0fc043e3a",
-                "reference": "28a3002f4345b123b341347550c370a0fc043e3a",
+                "url": "https://api.github.com/repos/arhone/cache/zipball/a7d520e94426f462560d2f3a6b791b851fc7874e",
+                "reference": "a7d520e94426f462560d2f3a6b791b851fc7874e",
                 "shasum": ""
             },
             "require": {
@@ -65,12 +66,9 @@
             },
             "type": "library",
             "autoload": {
-                "psr-4": {
-                    "arhone\\router\\": ""
-                },
-                "classmap": [
-                    "Router.php"
-                ]
+                "psr-0": {
+                    "arhone\\cache\\": ""
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -82,9 +80,9 @@
                     "email": "info@arh.one"
                 }
             ],
-            "description": "Маршрутизатор PHP",
-            "homepage": "https://github.com/arhone/router",
-            "time": "2017-09-07T14:02:04+00:00"
+            "description": "абота с кешем в PHP",
+            "homepage": "https://github.com/arhone/cache",
+            "time": "2017-08-04T07:31:59+00:00"
         },
         {
             "name": "arhone/tpl",
@@ -125,13 +123,56 @@
             "description": "Нативный PHP шаблонизатор",
             "homepage": "https://github.com/arhone/tpl",
             "time": "2017-09-27T12:45:10+00:00"
+        },
+        {
+            "name": "arhone/trigger",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/arhone/trigger.git",
+                "reference": "9c1a74af38de16b0494bb99c06ec74d9a6edba43"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/arhone/trigger/zipball/9c1a74af38de16b0494bb99c06ec74d9a6edba43",
+                "reference": "9c1a74af38de16b0494bb99c06ec74d9a6edba43",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "arhone\\trigger\\": ""
+                },
+                "classmap": [
+                    "Trigger.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Алексей Арх",
+                    "email": "info@arh.one"
+                }
+            ],
+            "description": "Триггер (PHP 7)",
+            "homepage": "https://github.com/arhone/trigger",
+            "time": "2017-10-04T12:17:19+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "arhone/tpl": 20
+        "arhone/builder": 20,
+        "arhone/tpl": 20,
+        "arhone/trigger": 20,
+        "arhone/cache": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

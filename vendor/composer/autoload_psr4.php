@@ -6,7 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'arhone\\trigger\\' => array($vendorDir . '/arhone/trigger'),
     'arhone\\tpl\\' => array($vendorDir . '/arhone/tpl'),
-    'arhone\\router\\' => array($vendorDir . '/arhone/router'),
     'arhone\\builder\\' => array($vendorDir . '/arhone/builder'),
 );
