@@ -8,7 +8,7 @@
     <title><?=$title ?? 'Сайт'?></title>
 </head>
 <body>
-    <?=$Trigger->stack('ad')?>
+    <?=$Trigger->event('ad')?>
     <?=$this->content ?? ''?>
 </body>
 <footer>

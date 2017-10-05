@@ -9,7 +9,8 @@ return [
         'class' => 'arhone\framework\Model',
         'construct' => [
             ['Builder'],
-            ['Router'],
+            ['Cache'],
+            ['Trigger'],
             ['Tpl']
         ]
     ],
