@@ -1,13 +1,8 @@
 {
     "require": {
-        "arhone/builder": "^1.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "arhone\\builder\\": ""
-        },
-        "classmap": [
-            "Builder.php"
-        ]
+        "arhone/builder": "dev-master",
+        "arhone/tpl": "dev-master",
+        "arhone/trigger": "dev-master",
+        "arhone/cache": "dev-master"
     }
 }
