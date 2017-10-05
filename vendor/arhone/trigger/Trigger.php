@@ -36,42 +36,43 @@ class Trigger {
 
     /**
      * Добавляет обработчик
-     *
-     * @param string|int $action
+     * 
+     * @param $action
      * @param callable $callback
+     * @param bool $break
      */
-    public function handler ($action, callable $callback) {
+    public function handler ($action, callable $callback, bool $break = false) {
 
-        self::$handler[$action][] = $callback;
+        self::$handler[$action][] = [
+            'callback' => $callback,
+            'break'    => $break
+        ];
 
     }
 
     /**
      * Запуск обработчиков события
-     *
-     * @param string|int $action
+     * 
+     * @param $action
      * @param null $data
-     * @param bool $stack
-     * @return mixed
+     * @return null
      */
-    public function event ($action, $data = null, $stack = false) {
+    public function event ($action, $data = null) {
 
         foreach (self::$handler as $key => $handlerList) {
 
             if (preg_match('~^' . $key . '$~ui', $action, $match)) {
 
-                foreach ($handlerList as $callback) {
+                foreach ($handlerList as $handler) {
 
-                    if ($stack) {
+                    $data = $handler['callback']->__invoke($match, $data);
+                    
+                    if ($handler['break'] && $data !== null) {
 
-                        $data = $callback->__invoke($match, $data);
-
-                    } elseif ($response = $callback->__invoke($match, $data)) {
-
-                        return $response;
+                        return $data;
 
                     }
-
+                    
                 }
 
             }
