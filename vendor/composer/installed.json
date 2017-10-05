@@ -1,0 +1,168 @@
+[
+    {
+        "name": "arhone/tpl",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/arhone/tpl.git",
+            "reference": "d68ebc8e18c638b8183320c1217599b70ba080d7"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/arhone/tpl/zipball/d68ebc8e18c638b8183320c1217599b70ba080d7",
+            "reference": "d68ebc8e18c638b8183320c1217599b70ba080d7",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7.0"
+        },
+        "time": "2017-09-27T12:45:10+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "arhone\\tpl\\": ""
+            },
+            "classmap": [
+                "Tpl.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Алексей Арх",
+                "email": "info@arh.one"
+            }
+        ],
+        "description": "Нативный PHP шаблонизатор",
+        "homepage": "https://github.com/arhone/tpl"
+    },
+    {
+        "name": "arhone/builder",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/arhone/builder.git",
+            "reference": "179ce7e953133b337c75fbbb4c47fcabfda47b27"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/arhone/builder/zipball/179ce7e953133b337c75fbbb4c47fcabfda47b27",
+            "reference": "179ce7e953133b337c75fbbb4c47fcabfda47b27",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7.0"
+        },
+        "time": "2017-09-20T13:01:46+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "arhone\\builder\\": ""
+            },
+            "classmap": [
+                "Builder.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Алексей Арх",
+                "email": "info@arh.one"
+            }
+        ],
+        "description": "Сборщик пакетов - Внедрение зависимостей (PHP)",
+        "homepage": "https://github.com/arhone/builder"
+    },
+    {
+        "name": "arhone/trigger",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/arhone/trigger.git",
+            "reference": "9c1a74af38de16b0494bb99c06ec74d9a6edba43"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/arhone/trigger/zipball/9c1a74af38de16b0494bb99c06ec74d9a6edba43",
+            "reference": "9c1a74af38de16b0494bb99c06ec74d9a6edba43",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7.0"
+        },
+        "time": "2017-10-04T12:17:19+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "arhone\\trigger\\": ""
+            },
+            "classmap": [
+                "Trigger.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Алексей Арх",
+                "email": "info@arh.one"
+            }
+        ],
+        "description": "Триггер (PHP 7)",
+        "homepage": "https://github.com/arhone/trigger"
+    },
+    {
+        "name": "arhone/cache",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "target-dir": "arhone/cache",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/arhone/cache.git",
+            "reference": "a7d520e94426f462560d2f3a6b791b851fc7874e"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/arhone/cache/zipball/a7d520e94426f462560d2f3a6b791b851fc7874e",
+            "reference": "a7d520e94426f462560d2f3a6b791b851fc7874e",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7.0"
+        },
+        "time": "2017-08-04T07:31:59+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "arhone\\cache\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Алексей Арх",
+                "email": "info@arh.one"
+            }
+        ],
+        "description": "абота с кешем в PHP",
+        "homepage": "https://github.com/arhone/cache"
+    }
+]
