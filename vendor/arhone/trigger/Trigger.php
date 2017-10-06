@@ -36,12 +36,12 @@ class Trigger {
 
     /**
      * Добавляет обработчик
-     * 
+     *
      * @param $action
      * @param callable $callback
      * @param bool $break
      */
-    public function handler ($action, callable $callback, bool $break = false) {
+    public function add ($action, callable $callback, bool $break = false) {
 
         self::$handler[$action][] = [
             'callback' => $callback,
@@ -51,13 +51,13 @@ class Trigger {
     }
 
     /**
-     * Запуск обработчиков события
-     * 
+     * Запуск триггера
+     *
      * @param $action
      * @param null $data
      * @return null
      */
-    public function event ($action, $data = null) {
+    public function run ($action, $data = null) {
 
         foreach (self::$handler as $key => $handlerList) {
 
@@ -65,14 +65,23 @@ class Trigger {
 
                 foreach ($handlerList as $handler) {
 
-                    $data = $handler['callback']->__invoke($match, $data);
-                    
-                    if ($handler['break'] && $data !== null) {
+                    $result = $handler['callback']->__invoke($match, $data);
 
-                        return $data;
+                    if ($result !== null) {
+
+                        if ($handler['break']) {
+
+                            return $result;
+
+                        } else {
+
+                            $data = $result;
+
+                        }
+
 
                     }
-                    
+
                 }
 
             }
