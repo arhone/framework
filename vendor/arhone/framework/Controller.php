@@ -106,7 +106,7 @@ class Controller {
                         $handlerList = include $this->config['directory']['module'] . '/' . $module . '/config/handler.php';
                         foreach ($handlerList as $action => $instruction) {
 
-                            $this->Trigger->handler($action, function ($match, $data) use ($instruction, $container) {
+                            $this->Trigger->add($action, function ($match, $data) use ($instruction, $container) {
 
                                 if (isset($instruction['controller']) && isset($instruction['method'])) {
 
