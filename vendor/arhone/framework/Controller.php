@@ -77,10 +77,10 @@ class Controller {
 
         }
 
-        if ($this->Tpl->has('CONTENT')) {
+        if ($this->Tpl->hasBlock('CONTENT')) {
             $this->Tpl->display($this->config['directory']['template'] . DIRECTORY_SEPARATOR . 'default/index.tpl');
         } else {
-            $this->Trigger->event(404);
+            $this->Trigger->run('HTTP:GET:/404.html');
         }
 
 
@@ -115,7 +115,7 @@ class Controller {
 
                                     if (isset($instruction['blog']) && is_string($data)) {
 
-                                        $container->Tpl->variable($instruction['blog'], $data);
+                                        $container->Tpl->block($instruction['blog'], $data);
 
                                     } elseif (is_object($data)) {
 
