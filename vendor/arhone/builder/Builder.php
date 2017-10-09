@@ -1,5 +1,4 @@
 <?php declare(strict_types = 1);
-
 namespace arhone\builder;
 
 /**
@@ -124,6 +123,7 @@ class Builder {
             }
 
             $instruction['class'] = '\\' . $instruction['class'];
+
             $Object = new $instruction['class'](...self::makeAll($instruction['construct'] ?? []));
 
             if (isset($instruction['property'])) {
