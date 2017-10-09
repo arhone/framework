@@ -8,5 +8,6 @@ $baseDir = dirname($vendorDir);
 return array(
     'arhone\\trigger\\' => array($vendorDir . '/arhone/trigger'),
     'arhone\\tpl\\' => array($vendorDir . '/arhone/tpl'),
+    'arhone\\cache\\' => array($vendorDir . '/arhone/cache'),
     'arhone\\builder\\' => array($vendorDir . '/arhone/builder'),
 );

@@ -49,16 +49,15 @@
         {
             "name": "arhone/cache",
             "version": "dev-master",
-            "target-dir": "arhone/cache",
             "source": {
                 "type": "git",
                 "url": "https://github.com/arhone/cache.git",
-                "reference": "a7d520e94426f462560d2f3a6b791b851fc7874e"
+                "reference": "8189793a319d07bdc4211683de25ab38a294e86c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/arhone/cache/zipball/a7d520e94426f462560d2f3a6b791b851fc7874e",
-                "reference": "a7d520e94426f462560d2f3a6b791b851fc7874e",
+                "url": "https://api.github.com/repos/arhone/cache/zipball/8189793a319d07bdc4211683de25ab38a294e86c",
+                "reference": "8189793a319d07bdc4211683de25ab38a294e86c",
                 "shasum": ""
             },
             "require": {
@@ -66,9 +65,12 @@
             },
             "type": "library",
             "autoload": {
-                "psr-0": {
+                "psr-4": {
                     "arhone\\cache\\": ""
-                }
+                },
+                "classmap": [
+                    "Cache.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -80,9 +82,9 @@
                     "email": "info@arh.one"
                 }
             ],
-            "description": "абота с кешем в PHP",
+            "description": "Работы с кешем (PHP 7)",
             "homepage": "https://github.com/arhone/cache",
-            "time": "2017-08-04T07:31:59+00:00"
+            "time": "2017-10-04T12:16:30+00:00"
         },
         {
             "name": "arhone/tpl",

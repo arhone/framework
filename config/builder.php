@@ -20,7 +20,8 @@ return [
         'construct' => [
             ['Model'],
             ['Builder'],
-            ['Router'],
+            ['Cache'],
+            ['Trigger'],
             ['Tpl']
         ]
     ],
