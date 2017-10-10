@@ -1,0 +1,26 @@
+{
+    "name": "arhone/framework",
+    "description": "Фреймворк (PHP 7)",
+    "homepage": "https://github.com/arhone/framework",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Алексей Арх",
+            "email": "info@arh.one"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "arhone\\framework\\": ""
+        },
+        "classmap": [
+            "Controller.php",
+            "Model.php"
+        ]
+    },
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^7.0"
+    }
+}
