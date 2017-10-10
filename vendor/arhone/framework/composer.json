@@ -21,6 +21,10 @@
     },
     "minimum-stability": "stable",
     "require": {
-        "php": "^7.0"
+        "php": "^7.2",
+        "arhone/builder": "dev-master",
+        "arhone/cache": "dev-master",
+        "arhone/trigger": "dev-master",
+        "arhone/tpl": "dev-master"
     }
 }
