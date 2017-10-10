@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'POST:/(yandex)/(news)' => [
+    'HTTP:GET:/' => [
         [
             'controller' => 'YandexNewsController',
             'method'     => 'get',

@@ -22,7 +22,15 @@ return [
             ['Builder'],
             ['Cache'],
             ['Trigger'],
-            ['Tpl']
+            ['Tpl'],
+            ['array' => [
+                'directory' => [
+                    'extension' => __DIR__ . '/../web/extension',
+                    'library'   => __DIR__ . '/../web/library',
+                    'module'    => __DIR__ . '/../web/module',
+                    'template'  => __DIR__ . '/../web/template',
+                ]
+            ]]
         ]
     ],
     'Cache' => [

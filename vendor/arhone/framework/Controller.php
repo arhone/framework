@@ -21,6 +21,7 @@ class Controller {
     protected $config = [
         'directory' => [
             'extension' => __DIR__ . '/../../../web/extension',
+            'library'   => __DIR__ . '/../../../web/library',
             'module'    => __DIR__ . '/../../../web/module',
             'template'  => __DIR__ . '/../../../web/template',
         ]
@@ -47,8 +48,9 @@ class Controller {
      * @param Cache $Cache
      * @param Trigger $Trigger
      * @param Tpl $Tpl
+     * @param array $config
      */
-    public function __construct (Model $Model, Builder $Builder, Cache $Cache, Trigger $Trigger,  Tpl $Tpl) {
+    public function __construct (Model $Model, Builder $Builder, Cache $Cache, Trigger $Trigger,  Tpl $Tpl, array $config = []) {
 
         $this->Model   = $Model;
         $this->Builder = $Builder;
@@ -56,15 +58,16 @@ class Controller {
         $this->Trigger = $Trigger;
         $this->Tpl     = $Tpl;
 
+        $this->config($config);
+        $this->autoload();
+
     }
 
     /**
-     * @param $rout
+     * @param $request
      * @return string
      */
-    public function run ($rout) {
-
-        $this->autoload();
+    public function run ($request) {
 
         $container = (object)[
             'Builder' => $this->Builder,
@@ -146,7 +149,9 @@ class Controller {
 
         spl_autoload_register(function ($className) {
 
+
             $directory[] = $this->config['directory']['extension'];
+            $directory[] = $this->config['directory']['library'];
             $directory[] = $this->config['directory']['module'];
             foreach ($directory as $dir) {
 
@@ -162,6 +167,18 @@ class Controller {
             }
 
         });
+
+    }
+
+    /**
+     * Задаёт конфигурацию
+     *
+     * @param array $config
+     */
+    public function config (array $config) {
+
+        $this->config = array_merge($this->config, $config);
+
     }
 
 }
