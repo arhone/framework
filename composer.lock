@@ -52,12 +52,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/arhone/cache.git",
-                "reference": "32d37706cff556660a270d4483d141ca1708965a"
+                "reference": "9019fffb126dd9449e5094ff169ec08c49f6b79e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/arhone/cache/zipball/32d37706cff556660a270d4483d141ca1708965a",
-                "reference": "32d37706cff556660a270d4483d141ca1708965a",
+                "url": "https://api.github.com/repos/arhone/cache/zipball/9019fffb126dd9449e5094ff169ec08c49f6b79e",
+                "reference": "9019fffb126dd9449e5094ff169ec08c49f6b79e",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
             ],
             "description": "Работы с кешем (PHP 7)",
             "homepage": "https://github.com/arhone/cache",
-            "time": "2017-10-09T15:47:27+00:00"
+            "time": "2017-10-11T13:14:23+00:00"
         },
         {
             "name": "arhone/controller",
@@ -92,12 +92,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/arhone/controller.git",
-                "reference": "f1faf61eeed589b058711b194d6c23251aa41ba8"
+                "reference": "154b8dd8082eb9205546586f0b7a639f6e797e8a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/arhone/controller/zipball/f1faf61eeed589b058711b194d6c23251aa41ba8",
-                "reference": "f1faf61eeed589b058711b194d6c23251aa41ba8",
+                "url": "https://api.github.com/repos/arhone/controller/zipball/154b8dd8082eb9205546586f0b7a639f6e797e8a",
+                "reference": "154b8dd8082eb9205546586f0b7a639f6e797e8a",
                 "shasum": ""
             },
             "require": {
@@ -124,7 +124,7 @@
             ],
             "description": "Главный контроллер приложения (PHP 7)",
             "homepage": "https://github.com/arhone/controller",
-            "time": "2017-10-11T09:59:43+00:00"
+            "time": "2017-10-11T14:26:09+00:00"
         },
         {
             "name": "arhone/tpl",
@@ -132,12 +132,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/arhone/tpl.git",
-                "reference": "828e4b72db3ac73395a4b7cb675f2a0ec9b92026"
+                "reference": "ff8171c727ff71423e9b138579dcfa240b64ac1f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/arhone/tpl/zipball/828e4b72db3ac73395a4b7cb675f2a0ec9b92026",
-                "reference": "828e4b72db3ac73395a4b7cb675f2a0ec9b92026",
+                "url": "https://api.github.com/repos/arhone/tpl/zipball/ff8171c727ff71423e9b138579dcfa240b64ac1f",
+                "reference": "ff8171c727ff71423e9b138579dcfa240b64ac1f",
                 "shasum": ""
             },
             "require": {
@@ -164,7 +164,7 @@
             ],
             "description": "Нативный PHP шаблонизатор",
             "homepage": "https://github.com/arhone/tpl",
-            "time": "2017-10-09T15:57:55+00:00"
+            "time": "2017-10-11T14:25:25+00:00"
         },
         {
             "name": "arhone/trigger",
@@ -172,12 +172,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/arhone/trigger.git",
-                "reference": "fac78b239ba96844d3c3cfd7bb4e12dce14f16f7"
+                "reference": "04f992d15f5fa6da6258bd2c43d01c726fb1af3f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/arhone/trigger/zipball/fac78b239ba96844d3c3cfd7bb4e12dce14f16f7",
-                "reference": "fac78b239ba96844d3c3cfd7bb4e12dce14f16f7",
+                "url": "https://api.github.com/repos/arhone/trigger/zipball/04f992d15f5fa6da6258bd2c43d01c726fb1af3f",
+                "reference": "04f992d15f5fa6da6258bd2c43d01c726fb1af3f",
                 "shasum": ""
             },
             "require": {
@@ -204,7 +204,7 @@
             ],
             "description": "Триггер (PHP 7)",
             "homepage": "https://github.com/arhone/trigger",
-            "time": "2017-10-10T15:21:05+00:00"
+            "time": "2017-10-11T14:25:37+00:00"
         }
     ],
     "packages-dev": [],
