@@ -1,25 +1,11 @@
 <?php
 namespace console\controller;
 
-use arhone\cache\Cache;
-
 /**
  * Class ConsoleHelpController
  * @package console\controller
  */
 class ConsoleHelpController {
-
-    protected $Cache;
-
-    /**
-     * ConsoleHelpController constructor.
-     * @param Cache $Cache
-     */
-    public function __construct (Cache $Cache) {
-
-        $this->Cache = $Cache;
-
-    }
 
     /**
      * Выводи информацию у консоле

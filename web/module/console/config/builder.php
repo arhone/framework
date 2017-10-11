@@ -2,10 +2,7 @@
 
 return [
     'ConsoleHelpController' => [
-        'class' => 'console\controller\ConsoleHelpController',
-        'construct' => [
-            ['Cache']
-        ]
+        'class' => 'console\controller\ConsoleHelpController'
     ],
     'ConsoleCacheController' => [
         'class' => 'console\controller\ConsoleCacheController',
