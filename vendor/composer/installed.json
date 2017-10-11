@@ -42,6 +42,48 @@
         "homepage": "https://github.com/arhone/builder"
     },
     {
+        "name": "arhone/cache",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/arhone/cache.git",
+            "reference": "32d37706cff556660a270d4483d141ca1708965a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/arhone/cache/zipball/32d37706cff556660a270d4483d141ca1708965a",
+            "reference": "32d37706cff556660a270d4483d141ca1708965a",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7.0"
+        },
+        "time": "2017-10-09T15:47:27+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "arhone\\cache\\": ""
+            },
+            "classmap": [
+                "Cache.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Алексей Арх",
+                "email": "info@arh.one"
+            }
+        ],
+        "description": "Работы с кешем (PHP 7)",
+        "homepage": "https://github.com/arhone/cache"
+    },
+    {
         "name": "arhone/controller",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
@@ -166,47 +208,5 @@
         ],
         "description": "Триггер (PHP 7)",
         "homepage": "https://github.com/arhone/trigger"
-    },
-    {
-        "name": "arhone/cache",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/arhone/cache.git",
-            "reference": "32d37706cff556660a270d4483d141ca1708965a"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/arhone/cache/zipball/32d37706cff556660a270d4483d141ca1708965a",
-            "reference": "32d37706cff556660a270d4483d141ca1708965a",
-            "shasum": ""
-        },
-        "require": {
-            "php": "^7.0"
-        },
-        "time": "2017-10-09T15:47:27+00:00",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "arhone\\cache\\": ""
-            },
-            "classmap": [
-                "Cache.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Алексей Арх",
-                "email": "info@arh.one"
-            }
-        ],
-        "description": "Работы с кешем (PHP 7)",
-        "homepage": "https://github.com/arhone/cache"
     }
 ]
