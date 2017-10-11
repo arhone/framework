@@ -4,15 +4,15 @@ namespace console\controller;
 use arhone\cache\Cache;
 
 /**
- * Class ConsoleController
+ * Class ConsoleCacheController
  * @package console\controller
  */
-class ConsoleController {
+class ConsoleCacheController {
 
     protected $Cache;
 
     /**
-     * ConsoleController constructor.
+     * ConsoleCacheController constructor.
      * @param Cache $Cache
      */
     public function __construct (Cache $Cache) {
@@ -29,7 +29,7 @@ class ConsoleController {
      */
     public function cacheClear () {
 
-        return $this->Cache->clear();
+        return ($this->Cache->clear() == true ? 'Кэш очищен' . PHP_EOL : '');
 
     }
 

@@ -1,9 +1,15 @@
 <?php
 
 return [
-    'console:cache-clear' => [
+    'console:[-]*(help|h|man)' => [
         [
-            'controller' => 'ConsoleController',
+            'controller' => 'ConsoleHelpController',
+            'method'     => 'help'
+        ]
+    ],
+    'console:[-]*(cache-clear|cc)' => [
+        [
+            'controller' => 'ConsoleCacheController',
             'method'     => 'cacheClear'
         ]
     ]
