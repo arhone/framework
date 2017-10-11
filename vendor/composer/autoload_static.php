@@ -11,6 +11,7 @@ class ComposerStaticInit8d6ad3d8dba7c3f6f6bddeb3da9b91e2
         array (
             'arhone\\trigger\\' => 15,
             'arhone\\tpl\\' => 11,
+            'arhone\\controller\\' => 18,
             'arhone\\cache\\' => 13,
             'arhone\\builder\\' => 15,
         ),
@@ -25,6 +26,10 @@ class ComposerStaticInit8d6ad3d8dba7c3f6f6bddeb3da9b91e2
         array (
             0 => __DIR__ . '/..' . '/arhone/tpl',
         ),
+        'arhone\\controller\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/arhone/controller',
+        ),
         'arhone\\cache\\' => 
         array (
             0 => __DIR__ . '/..' . '/arhone/cache',
@@ -38,6 +43,7 @@ class ComposerStaticInit8d6ad3d8dba7c3f6f6bddeb3da9b91e2
     public static $classMap = array (
         'arhone\\builder\\Builder' => __DIR__ . '/..' . '/arhone/builder/Builder.php',
         'arhone\\cache\\Cache' => __DIR__ . '/..' . '/arhone/cache/Cache.php',
+        'arhone\\controller\\Controller' => __DIR__ . '/..' . '/arhone/controller/Controller.php',
         'arhone\\tpl\\Tpl' => __DIR__ . '/..' . '/arhone/tpl/Tpl.php',
         'arhone\\trigger\\Trigger' => __DIR__ . '/..' . '/arhone/trigger/Trigger.php',
     );
