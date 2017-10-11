@@ -217,10 +217,10 @@ class Controller {
 
         spl_autoload_register(function ($className) {
 
-
             $directory[] = $this->config['directory']['extension'];
             $directory[] = $this->config['directory']['library'];
             $directory[] = $this->config['directory']['module'];
+
             foreach ($directory as $dir) {
 
                 $file = $dir . DIRECTORY_SEPARATOR . str_replace('\\', DIRECTORY_SEPARATOR, $className) . '.php';
