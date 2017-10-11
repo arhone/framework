@@ -22,7 +22,12 @@ return [
         ]
     ],
     'Cache' => [
-        'class' => 'arhone\cache\CacheFile'
+        'class' => 'arhone\cache\CacheFile',
+        'construct' => [
+            ['array' => [
+                'directory' => __DIR__ . '/../cache'
+            ]]
+        ]
     ],
     'Trigger' => [
         'class' => 'arhone\trigger\Trigger'

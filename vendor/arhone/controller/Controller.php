@@ -20,8 +20,9 @@ class Controller {
      */
     protected $config = [
         'directory' => [
-            'extension' => __DIR__ . '/../../../web/extension',
-            'library'   => __DIR__ . '/../../../web/library',
+            'config'    => __DIR__ . '/../../../config',
+            'extension' => __DIR__ . '/../../../extension',
+            'library'   => __DIR__ . '/../../../library',
             'module'    => __DIR__ . '/../../../web/module',
             'template'  => __DIR__ . '/../../../web/template',
         ]
@@ -56,6 +57,7 @@ class Controller {
 
         $this->config($config);
         $this->autoload();
+        $this->makeModuleConfiguration();
 
     }
 
@@ -65,68 +67,81 @@ class Controller {
      */
     public function run ($request) {
 
-        $container = (object)[
-            'Builder' => $this->Builder,
-            'Tpl'     => $this->Tpl
-        ];
+        $response = $this->Trigger->run($request);
 
-        if(!$data = $this->Cache->get('arhone.framework.config')) {
-
-            $data = $this->searchConfigurationFiles();
-
-        }
-
-        if ($this->Tpl->hasBlock('CONTENT')) {
-            $this->Tpl->display($this->config['directory']['template'] . DIRECTORY_SEPARATOR . 'default/index.tpl');
+        if ($response !== null) {
+            echo $response;
+        } elseif ($this->Tpl->hasBlock('CONTENT')) {
+            echo $this->Tpl->get($this->config['directory']['template'] . DIRECTORY_SEPARATOR . 'default/index.tpl');
         } else {
-            $this->Trigger->run('HTTP:GET:/404.html');
+            echo $this->Trigger->run('HTTP:GET:/404');
         }
-
 
     }
 
     /**
+     * Применяет конфигурацию модулей
      *
+     * @return array
      */
-    protected function searchConfigurationFiles () {
+    public function makeModuleConfiguration () {
 
-        foreach (array_diff(scandir($this->config['directory']['module']), ['..', '.']) as $module) {
+        $data = $this->getModuleConfiguration();
 
-            if (is_dir($this->config['directory']['module'] . '/' . $module . '/config')) {
+        if (isset($data['config'])) {
 
-                foreach (array_diff(scandir($this->config['directory']['module'] . '/' . $module . '/config'), ['..', '.']) as $config) {
+            foreach ($data['builder'] as $config) {
 
-                    if ($config == 'builder.php') {
-                        $this->Builder->instruction(include $this->config['directory']['module'] . '/' . $module . '/config/builder.php');
-                    } elseif ($config == 'config.php') {
-                        //$this->Config->add(include $this->config['directory']['module'] . '/' . $module . '/config/config.php');
-                    } elseif ($config == 'handler.php') {
+                //$this->Config->add($config);
 
-                        $handlerList = include $this->config['directory']['module'] . '/' . $module . '/config/handler.php';
-                        foreach ($handlerList as $action => $instruction) {
+            }
 
-                            $this->Trigger->add($action, function ($match, $data) use ($instruction, $container) {
+        }
 
-                                if (isset($instruction['controller']) && isset($instruction['method'])) {
+        if (isset($data['builder'])) {
 
-                                    $Module = $container->Builder->make($instruction['controller']);
-                                    $data = $Module->{$instruction['method']}(...array_intersect_key($match, array_flip($instruction['argument'] ?? array_flip($match))));
+            foreach ($data['builder'] as $instruction) {
 
-                                    if (isset($instruction['blog']) && is_string($data)) {
+                $this->Builder->instruction($instruction);
 
-                                        $container->Tpl->block($instruction['blog'], $data);
+            }
 
-                                    } elseif (is_object($data)) {
+        }
 
-                                        return 'response';
+        if (isset($data['handler'])) {
 
-                                    }
+            $container = (object)[
+                'Builder' => $this->Builder,
+                'Tpl'     => $this->Tpl
+            ];
+
+            foreach ($data['handler'] as $config) {
+
+                foreach ($config as $action => $item) {
+
+                    foreach ($item as $instruction) {
+
+                        $this->Trigger->add($action, function ($match, $data) use ($instruction, $container) {
+
+                            if (isset($instruction['controller']) && isset($instruction['method'])) {
+
+                                $Module = $container->Builder->make($instruction['controller']);
+
+                                $data = $Module->{$instruction['method']}(...array_intersect_key($match, array_flip($instruction['argument'] ?? array_flip($match))));
+
+                                if (isset($instruction['blog']) && is_string($data)) {
+
+                                    $container->Tpl->block($instruction['blog'], $data);
+
+                                } else {
+
+                                    return $data;
 
                                 }
 
-                            });
+                            }
 
-                        }
+                        });
 
                     }
 
@@ -135,6 +150,62 @@ class Controller {
             }
 
         }
+
+    }
+
+    /**
+     * Возвращает конфигурацию модулей
+     *
+     * @return array
+     */
+    protected function getModuleConfiguration () : array {
+
+        if (!$data = $this->Cache->get('arhone.framework.module.configuration')) {
+
+            $configFileList = [
+                'config'  => [
+                    $this->config['directory']['config'] . '/config.php'
+                ],
+                'builder' => [
+                    $this->config['directory']['config'] . '/builder.php'
+                ],
+                'handler' => [
+                    $this->config['directory']['config'] . '/handler.php'
+                ]
+            ];
+
+            foreach (array_diff(scandir($this->config['directory']['module']), ['..', '.']) as $module) {
+
+                foreach (['config', 'handler', 'builder'] as $type) {
+
+                    if (is_file($this->config['directory']['module'] . '/' . $module . '/config/' . $type . '.php')) {
+                        $configFileList[$type][] = $this->config['directory']['module'] . '/' . $module . '/config/' . $type . '.php';
+                    }
+
+                }
+
+            }
+
+            $data = [];
+            foreach ($configFileList as $type => $list) {
+
+                foreach ($list as $file) {
+
+                    if (is_file($file)) {
+                        $data[$type][] = include $file;
+                    }
+
+                }
+
+            }
+
+            if (!empty($data)) {
+                $this->Cache->set('arhone.framework.module.configuration', $data);
+            }
+
+        }
+
+        return $data;
 
     }
 

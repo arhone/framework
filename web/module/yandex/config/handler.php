@@ -1,17 +1,17 @@
 <?php
 
 return [
-    'HTTP:GET:/' => [
+    'HTTP:GET:/yandex/(news)' => [
         [
             'controller' => 'YandexNewsController',
             'method'     => 'get',
-            'argument'   => [2],
+            'argument'   => [1],
             'block'      => 'body'
         ],
         [
             'controller' => 'YandexNewsController',
             'method'     => 'get',
-            'argument'   => [1],
+            //'argument'   => [1],
             'block'      => 'title'
         ]
     ]

@@ -3,7 +3,7 @@ namespace yandex\controller;
 
 class YandexNewsController {
 
-    public function get ($method) {
+    public function get ($method = 1) {
 
         return 'YandexNewsController:' . $method;
 
