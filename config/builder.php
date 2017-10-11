@@ -26,7 +26,7 @@ return [
         'class' => 'arhone\cache\CacheFile',
         'construct' => [
             ['array' => [
-                'status'    => false,
+                'status'    => true,
                 'directory' => __DIR__ . '/../cache'
             ]]
         ]

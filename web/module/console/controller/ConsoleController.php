@@ -1,12 +1,35 @@
 <?php
 namespace console\controller;
 
+use arhone\cache\Cache;
+
+/**
+ * Class ConsoleController
+ * @package console\controller
+ */
 class ConsoleController {
 
-    public function argument ($arg) {
+    protected $Cache;
 
-        print_r($arg);
-        return 111;
+    /**
+     * ConsoleController constructor.
+     * @param Cache $Cache
+     */
+    public function __construct (Cache $Cache) {
+
+        $this->Cache = $Cache;
+
+    }
+
+    /**
+     * Console cache-clear
+     *
+     * Очищает кеш командой
+     * @return bool
+     */
+    public function cacheClear () {
+
+        return $this->Cache->clear();
 
     }
 

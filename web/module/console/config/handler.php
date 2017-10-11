@@ -1,10 +1,10 @@
 <?php
 
 return [
-    'console' => [
+    'console:cache-clear' => [
         [
             'controller' => 'ConsoleController',
-            'method'     => 'argument'
+            'method'     => 'cacheClear'
         ]
     ]
 ];

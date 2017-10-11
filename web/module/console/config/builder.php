@@ -2,6 +2,9 @@
 
 return [
     'ConsoleController' => [
-        'class' => 'console\controller\ConsoleController'
+        'class' => 'console\controller\ConsoleController',
+        'construct' => [
+            ['Cache']
+        ]
     ]
 ];
