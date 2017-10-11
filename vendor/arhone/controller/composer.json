@@ -1,0 +1,25 @@
+{
+    "name": "arhone/controller",
+    "description": "Главный контроллер приложения (PHP 7)",
+    "homepage": "https://github.com/arhone/controller",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Алексей Арх",
+            "email": "info@arh.one"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "arhone\\controller\\": ""
+        },
+        "classmap": [
+            "Controller.php"
+        ]
+    },
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^7.0"
+    }
+}
