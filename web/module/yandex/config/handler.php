@@ -11,7 +11,7 @@ return [
         [
             'controller' => 'YandexNewsController',
             'method'     => 'get',
-            //'argument'   => [1],
+            'argument'   => [1],
             'block'      => 'title'
         ]
     ]

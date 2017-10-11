@@ -5,13 +5,12 @@
 ?>
 <html>
 <head>
-    <title><?=$title ?? 'Сайт'?></title>
+    <title><?=$this->block('title')?></title>
 </head>
 <body>
-    <?=$Trigger->event('ad')?>
-    <?=$this->content ?? ''?>
+    <?=$this->block('content')?>
 </body>
 <footer>
-    <?=$footer ?? ''?>
+    <?=$this->block('footer')?>
 </footer>
 </html>
