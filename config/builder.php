@@ -13,6 +13,7 @@ return [
             ['Tpl'],
             ['array' => [
                 'directory' => [
+                    'config'    => __DIR__ . '/../web/config',
                     'extension' => __DIR__ . '/../web/extension',
                     'library'   => __DIR__ . '/../web/library',
                     'module'    => __DIR__ . '/../web/module',
