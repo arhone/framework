@@ -6,7 +6,7 @@ return [
             'controller' => 'YandexNewsController',
             'method'     => 'get',
             'argument'   => [1],
-            'block'      => 'body'
+            'block'      => 'content'
         ],
         [
             'controller' => 'YandexNewsController',

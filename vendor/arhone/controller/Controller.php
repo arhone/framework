@@ -71,7 +71,7 @@ class Controller {
 
         if ($response !== null) {
             echo $response;
-        } elseif ($this->Tpl->hasBlock('CONTENT')) {
+        } elseif ($this->Tpl->hasBlock('content')) {
             echo $this->Tpl->get($this->config['directory']['template'] . DIRECTORY_SEPARATOR . 'default/index.tpl');
         } else {
             echo $this->Trigger->run('HTTP:GET:/404');
@@ -121,17 +121,18 @@ class Controller {
 
                     foreach ($item as $instruction) {
 
-                        $this->Trigger->add($action, function ($match, $data) use ($instruction, $container) {
+                        if (isset($instruction['controller']) && isset($instruction['method'])) {
 
-                            if (isset($instruction['controller']) && isset($instruction['method'])) {
+                            $this->Trigger->add($action, function ($match, $data) use ($instruction, $container) {
 
-                                $Module = $container->Builder->make($instruction['controller']);
+                                $Controller = $container->Builder->make($instruction['controller']);
 
-                                $data = $Module->{$instruction['method']}(...array_intersect_key($match, array_flip($instruction['argument'] ?? array_flip($match))));
+                                $match[0] = $data;
+                                $data = $Controller->{$instruction['method']}(...array_intersect_key($match, array_flip($instruction['argument'] ?? array_keys($match))));
 
-                                if (isset($instruction['blog']) && is_string($data)) {
+                                if (isset($instruction['block']) && is_string($data)) {
 
-                                    $container->Tpl->block($instruction['blog'], $data);
+                                    $container->Tpl->block($instruction['block'], $data);
 
                                 } else {
 
@@ -139,9 +140,9 @@ class Controller {
 
                                 }
 
-                            }
+                            }, $instruction['break'] ?? false);
 
-                        });
+                        }
 
                     }
 
