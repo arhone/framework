@@ -1,8 +1,9 @@
 {
     "require": {
         "arhone/builder": "dev-master",
-        "arhone/tpl": "dev-master",
+        "arhone/controller": "dev-master",
+        "arhone/cache": "dev-master",
         "arhone/trigger": "dev-master",
-        "arhone/cache": "dev-master"
+        "arhone/tpl": "dev-master"
     }
 }

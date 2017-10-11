@@ -1,47 +1,5 @@
 [
     {
-        "name": "arhone/tpl",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/arhone/tpl.git",
-            "reference": "d68ebc8e18c638b8183320c1217599b70ba080d7"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/arhone/tpl/zipball/d68ebc8e18c638b8183320c1217599b70ba080d7",
-            "reference": "d68ebc8e18c638b8183320c1217599b70ba080d7",
-            "shasum": ""
-        },
-        "require": {
-            "php": "^7.0"
-        },
-        "time": "2017-09-27T12:45:10+00:00",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "arhone\\tpl\\": ""
-            },
-            "classmap": [
-                "Tpl.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Алексей Арх",
-                "email": "info@arh.one"
-            }
-        ],
-        "description": "Нативный PHP шаблонизатор",
-        "homepage": "https://github.com/arhone/tpl"
-    },
-    {
         "name": "arhone/builder",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
@@ -166,5 +124,89 @@
         ],
         "description": "Работы с кешем (PHP 7)",
         "homepage": "https://github.com/arhone/cache"
+    },
+    {
+        "name": "arhone/controller",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/arhone/controller.git",
+            "reference": "f1faf61eeed589b058711b194d6c23251aa41ba8"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/arhone/controller/zipball/f1faf61eeed589b058711b194d6c23251aa41ba8",
+            "reference": "f1faf61eeed589b058711b194d6c23251aa41ba8",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7.0"
+        },
+        "time": "2017-10-11T09:59:43+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "arhone\\controller\\": ""
+            },
+            "classmap": [
+                "Controller.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Алексей Арх",
+                "email": "info@arh.one"
+            }
+        ],
+        "description": "Главный контроллер приложения (PHP 7)",
+        "homepage": "https://github.com/arhone/controller"
+    },
+    {
+        "name": "arhone/tpl",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/arhone/tpl.git",
+            "reference": "828e4b72db3ac73395a4b7cb675f2a0ec9b92026"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/arhone/tpl/zipball/828e4b72db3ac73395a4b7cb675f2a0ec9b92026",
+            "reference": "828e4b72db3ac73395a4b7cb675f2a0ec9b92026",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7.0"
+        },
+        "time": "2017-10-09T15:57:55+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "arhone\\tpl\\": ""
+            },
+            "classmap": [
+                "Tpl.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Алексей Арх",
+                "email": "info@arh.one"
+            }
+        ],
+        "description": "Нативный PHP шаблонизатор",
+        "homepage": "https://github.com/arhone/tpl"
     }
 ]
