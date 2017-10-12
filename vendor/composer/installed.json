@@ -42,90 +42,6 @@
         "homepage": "https://github.com/arhone/builder"
     },
     {
-        "name": "arhone/tpl",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/arhone/tpl.git",
-            "reference": "ff8171c727ff71423e9b138579dcfa240b64ac1f"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/arhone/tpl/zipball/ff8171c727ff71423e9b138579dcfa240b64ac1f",
-            "reference": "ff8171c727ff71423e9b138579dcfa240b64ac1f",
-            "shasum": ""
-        },
-        "require": {
-            "php": "^7.0"
-        },
-        "time": "2017-10-11T14:25:25+00:00",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "arhone\\tpl\\": ""
-            },
-            "classmap": [
-                "Tpl.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Алексей Арх",
-                "email": "info@arh.one"
-            }
-        ],
-        "description": "Нативный PHP шаблонизатор",
-        "homepage": "https://github.com/arhone/tpl"
-    },
-    {
-        "name": "arhone/trigger",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/arhone/trigger.git",
-            "reference": "04f992d15f5fa6da6258bd2c43d01c726fb1af3f"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/arhone/trigger/zipball/04f992d15f5fa6da6258bd2c43d01c726fb1af3f",
-            "reference": "04f992d15f5fa6da6258bd2c43d01c726fb1af3f",
-            "shasum": ""
-        },
-        "require": {
-            "php": "^7.0"
-        },
-        "time": "2017-10-11T14:25:37+00:00",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "arhone\\trigger\\": ""
-            },
-            "classmap": [
-                "Trigger.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Алексей Арх",
-                "email": "info@arh.one"
-            }
-        ],
-        "description": "Триггер (PHP 7)",
-        "homepage": "https://github.com/arhone/trigger"
-    },
-    {
         "name": "arhone/cache",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
@@ -208,5 +124,89 @@
         ],
         "description": "Главный контроллер приложения (PHP 7)",
         "homepage": "https://github.com/arhone/controller"
+    },
+    {
+        "name": "arhone/tpl",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/arhone/tpl.git",
+            "reference": "ff8171c727ff71423e9b138579dcfa240b64ac1f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/arhone/tpl/zipball/ff8171c727ff71423e9b138579dcfa240b64ac1f",
+            "reference": "ff8171c727ff71423e9b138579dcfa240b64ac1f",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7.0"
+        },
+        "time": "2017-10-11T14:25:25+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "arhone\\tpl\\": ""
+            },
+            "classmap": [
+                "Tpl.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Алексей Арх",
+                "email": "info@arh.one"
+            }
+        ],
+        "description": "Нативный PHP шаблонизатор",
+        "homepage": "https://github.com/arhone/tpl"
+    },
+    {
+        "name": "arhone/trigger",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/arhone/trigger.git",
+            "reference": "04f992d15f5fa6da6258bd2c43d01c726fb1af3f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/arhone/trigger/zipball/04f992d15f5fa6da6258bd2c43d01c726fb1af3f",
+            "reference": "04f992d15f5fa6da6258bd2c43d01c726fb1af3f",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7.0"
+        },
+        "time": "2017-10-11T14:25:37+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "arhone\\trigger\\": ""
+            },
+            "classmap": [
+                "Trigger.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Алексей Арх",
+                "email": "info@arh.one"
+            }
+        ],
+        "description": "Триггер (PHP 7)",
+        "homepage": "https://github.com/arhone/trigger"
     }
 ]
