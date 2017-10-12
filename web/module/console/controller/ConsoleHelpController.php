@@ -12,10 +12,10 @@ class ConsoleHelpController {
      */
     public function help () {
 
-        $info = 'cache-clear - Очищает весь кеш' . PHP_EOL;
-        $info = 'help - Выводит подсказку' . PHP_EOL;
+        $info[] = 'cache-clear, cc - Очищает весь кэш';
+        $info[] = 'help, h - Выводит подсказку';
 
-        return $info;
+        return implode(PHP_EOL, $info) . PHP_EOL;
 
     }
 

@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'console:[-]*(help|h|man)' => [
+    'console:([-]*(help|h|man))?' => [
         [
             'controller' => 'ConsoleHelpController',
             'method'     => 'help'
