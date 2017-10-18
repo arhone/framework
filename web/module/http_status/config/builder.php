@@ -2,6 +2,9 @@
 
 return [
     'HTTPStatusController' => [
-        'class' => 'http_status\controller\HTTPStatusController'
+        'class' => 'http_status\controller\HTTPStatusController',
+        'construct' => [
+            ['Tpl']
+        ]
     ]
 ];

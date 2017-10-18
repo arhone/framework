@@ -1,10 +1,11 @@
 <?php
 
 return [
-    'HTTP:GET:/404' => [
+    'HTTP:GET:/(0|404)' => [
         [
             'controller' => 'HTTPStatusController',
-            'method'     => 'notFound'
+            'method'     => 'code',
+            'argument'   => [1]
         ]
     ]
 ];
