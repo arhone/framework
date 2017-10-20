@@ -1,7 +1,7 @@
 <?php declare(strict_types = 1);
 namespace arhone\framework;
 use arhone\builder\Builder;
-use arhone\cache\Cache;
+use arhone\cache\CacheInterface;
 use arhone\trigger\Trigger;
 use arhone\tpl\Tpl;
 
@@ -48,7 +48,7 @@ class Controller {
      * @param Trigger $Trigger
      * @param Tpl $Tpl
      */
-    public function __construct (Model $Model, Builder $Builder, Cache $Cache, Trigger $Trigger,  Tpl $Tpl) {
+    public function __construct (Model $Model, Builder $Builder, CacheInterface $Cache, Trigger $Trigger,  Tpl $Tpl) {
 
         $this->Model   = $Model;
         $this->Builder = $Builder;
