@@ -2,6 +2,7 @@
 
 return [
     'yandex' => [
+        'status' => 1,
         'title' => '',
         'description' => '',
         'news' => [

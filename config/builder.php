@@ -4,33 +4,37 @@ return [
     'Builder' => [
         'class' => 'arhone\builder\Builder'
     ],
-    'Model' => [
-        'require' => __DIR__ . '/../vendor/arhone/framework/Model.php',
-        'class' => 'arhone\framework\Model',
+    'Controller' => [
+        'class' => 'arhone\controller\Controller',
         'construct' => [
             ['Builder'],
             ['Cache'],
             ['Trigger'],
-            ['Tpl']
-        ]
-    ],
-    'Controller' => [
-        'require' => __DIR__ . '/../vendor/arhone/framework/Controller.php',
-        'class' => 'arhone\framework\Controller',
-        'construct' => [
-            ['Model'],
-            ['Builder'],
-            ['Router'],
-            ['Tpl']
+            ['Tpl'],
+            ['array' => [
+                'directory' => [
+                    'config'    => __DIR__ . '/../web/config',
+                    'extension' => __DIR__ . '/../web/extension',
+                    'library'   => __DIR__ . '/../web/library',
+                    'module'    => __DIR__ . '/../web/module',
+                    'template'  => __DIR__ . '/../web/template',
+                ]
+            ]]
         ]
     ],
     'Cache' => [
-        'class' => 'arhone\cache\CacheFile'
-    ],
-    'Tpl' => [
-        'class' => 'arhone\tpl\Tpl'
+        'class' => 'arhone\cache\CacheFile',
+        'construct' => [
+            ['array' => [
+                'status'    => true,
+                'directory' => __DIR__ . '/../cache'
+            ]]
+        ]
     ],
     'Trigger' => [
         'class' => 'arhone\trigger\Trigger'
+    ],
+    'Tpl' => [
+        'class' => 'arhone\tpl\Tpl'
     ]
 ];

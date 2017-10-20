@@ -1,12 +1,12 @@
 <?php
 
 return [
-    'POST:/(yandex)/(news)' => [
+    'HTTP:GET:/yandex/(news)' => [
         [
             'controller' => 'YandexNewsController',
             'method'     => 'get',
-            'argument'   => [2],
-            'block'      => 'body'
+            'argument'   => [1],
+            'block'      => 'content'
         ],
         [
             'controller' => 'YandexNewsController',
