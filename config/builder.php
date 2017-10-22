@@ -10,7 +10,7 @@ return [
             ['Builder'],
             ['Cache'],
             ['Trigger'],
-            ['Tpl'],
+            ['Template'],
             ['array' => [
                 'directory' => [
                     'config'    => __DIR__ . '/../web/config',
@@ -34,7 +34,7 @@ return [
     'Trigger' => [
         'class' => 'arhone\trigger\Trigger'
     ],
-    'Tpl' => [
-        'class' => 'arhone\tpl\Tpl'
+    'Template' => [
+        'class' => 'arhone\template\Template'
     ]
 ];
