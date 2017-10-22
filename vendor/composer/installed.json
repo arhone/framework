@@ -1,31 +1,31 @@
 [
     {
-        "name": "arhone/builder",
+        "name": "arhone/tpl",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
-            "url": "https://github.com/arhone/builder.git",
-            "reference": "179ce7e953133b337c75fbbb4c47fcabfda47b27"
+            "url": "https://github.com/arhone/tpl.git",
+            "reference": "ff8171c727ff71423e9b138579dcfa240b64ac1f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/arhone/builder/zipball/179ce7e953133b337c75fbbb4c47fcabfda47b27",
-            "reference": "179ce7e953133b337c75fbbb4c47fcabfda47b27",
+            "url": "https://api.github.com/repos/arhone/tpl/zipball/ff8171c727ff71423e9b138579dcfa240b64ac1f",
+            "reference": "ff8171c727ff71423e9b138579dcfa240b64ac1f",
             "shasum": ""
         },
         "require": {
             "php": "^7.0"
         },
-        "time": "2017-09-20T13:01:46+00:00",
+        "time": "2017-10-11T14:25:25+00:00",
         "type": "library",
         "installation-source": "source",
         "autoload": {
             "psr-4": {
-                "arhone\\builder\\": ""
+                "arhone\\tpl\\": ""
             },
             "classmap": [
-                "Builder.php"
+                "Tpl.php"
             ]
         },
         "notification-url": "https://packagist.org/downloads/",
@@ -38,8 +38,8 @@
                 "email": "info@arh.one"
             }
         ],
-        "description": "Сборщик пакетов - Внедрение зависимостей (PHP)",
-        "homepage": "https://github.com/arhone/builder"
+        "description": "Нативный PHP шаблонизатор",
+        "homepage": "https://github.com/arhone/tpl"
     },
     {
         "name": "arhone/cache",
@@ -126,32 +126,32 @@
         "homepage": "https://github.com/arhone/controller"
     },
     {
-        "name": "arhone/tpl",
+        "name": "arhone/builder",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
-            "url": "https://github.com/arhone/tpl.git",
-            "reference": "ff8171c727ff71423e9b138579dcfa240b64ac1f"
+            "url": "https://github.com/arhone/builder.git",
+            "reference": "6f8629bf14e0b58ff68d19caf24f51045fa66742"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/arhone/tpl/zipball/ff8171c727ff71423e9b138579dcfa240b64ac1f",
-            "reference": "ff8171c727ff71423e9b138579dcfa240b64ac1f",
+            "url": "https://api.github.com/repos/arhone/builder/zipball/6f8629bf14e0b58ff68d19caf24f51045fa66742",
+            "reference": "6f8629bf14e0b58ff68d19caf24f51045fa66742",
             "shasum": ""
         },
         "require": {
             "php": "^7.0"
         },
-        "time": "2017-10-11T14:25:25+00:00",
+        "time": "2017-10-22T11:32:52+00:00",
         "type": "library",
         "installation-source": "source",
         "autoload": {
             "psr-4": {
-                "arhone\\tpl\\": ""
+                "arhone\\builder\\": ""
             },
             "classmap": [
-                "Tpl.php"
+                "Builder.php"
             ]
         },
         "notification-url": "https://packagist.org/downloads/",
@@ -164,8 +164,8 @@
                 "email": "info@arh.one"
             }
         ],
-        "description": "Нативный PHP шаблонизатор",
-        "homepage": "https://github.com/arhone/tpl"
+        "description": "Сборщик пакетов - Внедрение зависимостей (PHP)",
+        "homepage": "https://github.com/arhone/builder"
     },
     {
         "name": "arhone/trigger",
@@ -174,18 +174,18 @@
         "source": {
             "type": "git",
             "url": "https://github.com/arhone/trigger.git",
-            "reference": "04f992d15f5fa6da6258bd2c43d01c726fb1af3f"
+            "reference": "eb64b76e11921ca533a562c4e96d85b0534526ec"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/arhone/trigger/zipball/04f992d15f5fa6da6258bd2c43d01c726fb1af3f",
-            "reference": "04f992d15f5fa6da6258bd2c43d01c726fb1af3f",
+            "url": "https://api.github.com/repos/arhone/trigger/zipball/eb64b76e11921ca533a562c4e96d85b0534526ec",
+            "reference": "eb64b76e11921ca533a562c4e96d85b0534526ec",
             "shasum": ""
         },
         "require": {
             "php": "^7.0"
         },
-        "time": "2017-10-11T14:25:37+00:00",
+        "time": "2017-10-22T11:23:00+00:00",
         "type": "library",
         "installation-source": "source",
         "autoload": {

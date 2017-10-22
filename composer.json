@@ -4,6 +4,6 @@
         "arhone/controller": "dev-master",
         "arhone/cache": "dev-master",
         "arhone/trigger": "dev-master",
-        "arhone/tpl": "dev-master"
+        "arhone/template": "dev-master"
     }
 }
