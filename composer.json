@@ -1,9 +1,22 @@
 {
+    "name": "arhone/framework",
+    "description": "Стартовый набор для разработка приложений на PHP 7",
+    "homepage": "https://github.com/arhone/framework",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Алексей Арх",
+            "email": "info@arh.one"
+        }
+    ],
+    "minimum-stability": "stable",
     "require": {
-        "arhone/builder": "dev-master",
+        "php": "^7.0",
+        "arhone/builder": "1.0.*",
         "arhone/controller": "dev-master",
-        "arhone/cache": "dev-master",
-        "arhone/trigger": "dev-master",
-        "arhone/template": "dev-master"
+        "arhone/cache": "1.0.*",
+        "arhone/trigger": "1.0.*",
+        "arhone/template": "1.0.*"
     }
 }

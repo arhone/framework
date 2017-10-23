@@ -5,6 +5,7 @@ return [
         'class' => 'arhone\builder\Builder'
     ],
     'Controller' => [
+        'require' => __DIR__ . '/../library/arhone/contoller/Controller.php',
         'class' => 'arhone\controller\Controller',
         'construct' => [
             ['Builder'],
