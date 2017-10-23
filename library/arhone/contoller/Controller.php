@@ -2,9 +2,8 @@
 namespace arhone\controller;
 use arhone\builder\BuilderInterface;
 use arhone\cache\CacheInterface;
-use arhone\template\TemplateInterface;
 use arhone\trigger\TriggerInterface;
-
+use arhone\template\TemplateInterface;
 
 /**
  * Front Controller

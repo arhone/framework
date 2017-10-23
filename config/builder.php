@@ -4,6 +4,21 @@ return [
     'Builder' => [
         'class' => 'arhone\builder\Builder'
     ],
+    'Cache' => [
+        'class' => 'arhone\cache\CacheFile',
+        'construct' => [
+            ['array' => [
+                'status'    => true,
+                'directory' => __DIR__ . '/../cache'
+            ]]
+        ]
+    ],
+    'Trigger' => [
+        'class' => 'arhone\trigger\Trigger'
+    ],
+    'Template' => [
+        'class' => 'arhone\template\Template'
+    ],
     'Controller' => [
         'require' => __DIR__ . '/../library/arhone/contoller/Controller.php',
         'class' => 'arhone\controller\Controller',
@@ -22,20 +37,5 @@ return [
                 ]
             ]]
         ]
-    ],
-    'Cache' => [
-        'class' => 'arhone\cache\CacheFile',
-        'construct' => [
-            ['array' => [
-                'status'    => true,
-                'directory' => __DIR__ . '/../cache'
-            ]]
-        ]
-    ],
-    'Trigger' => [
-        'class' => 'arhone\trigger\Trigger'
-    ],
-    'Template' => [
-        'class' => 'arhone\template\Template'
     ]
 ];
