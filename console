@@ -1,0 +1,14 @@
+#!/usr/bin/env php
+<?php
+include __DIR__ . '/vendor/autoload.php';
+include __DIR__ . '/autoload.php';
+
+if (!empty($argv)) {
+
+    array_shift($argv);
+
+    $Builder = new arhone\builder\Builder();
+    $Builder->instruction(include __DIR__ . '/config/builder.php');
+    echo $Builder->make('Controller')->run('console:' . implode(' ', $argv));
+
+}

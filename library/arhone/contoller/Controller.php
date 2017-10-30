@@ -24,8 +24,7 @@ class Controller {
             'extension' => __DIR__ . '/../../../extension',
             'library'   => __DIR__ . '/../../../library',
             'module'    => __DIR__ . '/../../../web/module',
-        ],
-        'template'  => __DIR__ . '/../../../web/template/default/index.tpl'
+        ]
     ];
 
     /**
