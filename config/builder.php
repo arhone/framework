@@ -20,7 +20,6 @@ return [
         'class' => 'arhone\template\Template'
     ],
     'Controller' => [
-        'require' => __DIR__ . '/../library/arhone/contoller/Controller.php',
         'class' => 'arhone\controller\Controller',
         'construct' => [
             ['Builder'],

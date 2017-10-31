@@ -2,7 +2,6 @@
 
 spl_autoload_register(function ($className) {
 
-
     $directory[] = __DIR__ . '/extension';
     $directory[] = __DIR__ . '/library';
     $directory[] = __DIR__ . '/web/module';

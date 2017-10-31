@@ -1,6 +1,6 @@
 <?php
 namespace http_status\controller;
-use \arhone\tpl\Tpl;
+use \arhone\template\Template;
 
 /**
  * Class HTTPStatusController
@@ -9,18 +9,18 @@ use \arhone\tpl\Tpl;
 class HTTPStatusController {
 
     /**
-     * @var $Tpl \arhone\tpl\Tpl
+     * @var $Template \arhone\template\Template
      */
-    protected $Tpl;
+    protected $Template;
 
     /**
      * HTTPStatusController constructor.
      *
-     * @param Tpl $Tpl
+     * @param Template $Template
      */
-    public function __construct (Tpl $Tpl) {
+    public function __construct (Template $Template) {
 
-        $this->Tpl = $Tpl;
+        $this->Template = $Template;
 
     }
 

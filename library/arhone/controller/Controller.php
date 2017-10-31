@@ -20,10 +20,7 @@ class Controller {
      */
     protected $config = [
         'directory' => [
-            'config'    => __DIR__ . '/../../../config',
-            'extension' => __DIR__ . '/../../../extension',
-            'library'   => __DIR__ . '/../../../library',
-            'module'    => __DIR__ . '/../../../web/module',
+            'module' => __DIR__ . '/../../../web/module',
         ]
     ];
 
@@ -66,21 +63,7 @@ class Controller {
      */
     public function run ($request) {
 
-        $response = $this->Trigger->run($request);
-
-        if ($response !== null) {
-
-            echo $response;
-
-        } elseif ($this->Template->has('content')) {
-
-            echo $this->Template->get($this->config['template']);
-
-        } else {
-
-            echo $this->Trigger->run('HTTP:GET:/404');
-
-        }
+        return $this->Trigger->run($request);
 
     }
 
@@ -145,7 +128,9 @@ class Controller {
 
                                 }
 
-                            }, $instruction['break'] ?? false);
+                            }, [
+                                'break' => $instruction['break'] ?? false
+                            ]);
 
                         }
 
