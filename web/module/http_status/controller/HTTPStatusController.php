@@ -1,6 +1,6 @@
 <?php
 namespace http_status\controller;
-use \arhone\template\Template;
+use arhone\template\Template;
 
 /**
  * Class HTTPStatusController
@@ -25,15 +25,16 @@ class HTTPStatusController {
     }
 
     /**
+     * @param $type
      * @param $code
      * @return string
      */
-    public function code ($code) {
+    public function code ($type, $code) {
 
         if (method_exists($this, 'code' . (int)$code)) {
             return $this->{'code' . (int)$code}();
         } else {
-            return $this->code0();
+            return $this->code0($type);
         }
 
     }
@@ -41,7 +42,7 @@ class HTTPStatusController {
     /**
      * @return string
      */
-    public function code404 () {
+    public function code404 ($type) {
 
         return $this->Tpl->get(__DIR__ . '/../template/error.tpl', [
             'title'   => 'Страница не найдена',
@@ -53,7 +54,7 @@ class HTTPStatusController {
     /**
      * @return string
      */
-    public function code0 () {
+    public function code0 ($type) {
 
         return $this->Tpl->get(__DIR__ . '/../template/error.tpl', [
             'title'   => 'Неизвестная ошибка',
