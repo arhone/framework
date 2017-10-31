@@ -96,14 +96,14 @@ class Controller {
 
         }
 
-        if (isset($data['handler'])) {
+        if (isset($data['trigger'])) {
 
             $container = (object)[
                 'Builder'  => $this->Builder,
                 'Template' => $this->Template
             ];
 
-            foreach ($data['handler'] as $config) {
+            foreach ($data['trigger'] as $config) {
 
                 foreach ($config as $action => $item) {
 
@@ -160,14 +160,14 @@ class Controller {
                 'builder' => [
                     $this->config['directory']['config'] . '/builder.php'
                 ],
-                'handler' => [
-                    $this->config['directory']['config'] . '/handler.php'
+                'trigger' => [
+                    $this->config['directory']['config'] . '/trigger.php'
                 ]
             ];
 
             foreach (array_diff(scandir($this->config['directory']['module']), ['..', '.']) as $module) {
 
-                foreach (['config', 'handler', 'builder'] as $type) {
+                foreach (['config', 'trigger', 'builder'] as $type) {
 
                     if (is_file($this->config['directory']['module'] . '/' . $module . '/config/' . $type . '.php')) {
                         $configFileList[$type][] = $this->config['directory']['module'] . '/' . $module . '/config/' . $type . '.php';

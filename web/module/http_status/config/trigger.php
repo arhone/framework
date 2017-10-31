@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'http:(.*):/(0|404)' => [
+    'http:(.*):/([0-9]+)' => [
         [
             'controller' => 'HTTPStatusController',
             'method'     => 'code',

@@ -1,10 +1,10 @@
 <?php
 
 return [
-    'http:get:/' => [
+    'http:get:/hello' => [
         [
             'controller' => 'TestController',
-            'method' => 'middleware'
+            'method'     => 'middleware'
         ]
     ]
 ];

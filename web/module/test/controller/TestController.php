@@ -3,9 +3,9 @@ namespace test\controller;
 
 class TestController {
 
-    public function middleware () {
+    public function middleware ($data) {
 
-        return 'Привет';
+        return $data . 'Привет';
 
     }
 

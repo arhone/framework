@@ -3,8 +3,8 @@
 return [
     'http:(.*)' => [
         [
-            'controller' => 'FrontController',
-            'method'     => 'view',
+            'controller' => 'ResponseController',
+            'method'     => 'run',
             'argument'   => [0],
             'position'   => 1
         ]

@@ -29,22 +29,23 @@ class HTTPStatusController {
      * @param $code
      * @return string
      */
-    public function code ($type, $code) {
+    public function code ($type = 'get', $code) {
 
         if (method_exists($this, 'code' . (int)$code)) {
             return $this->{'code' . (int)$code}();
-        } else {
-            return $this->code0($type);
         }
+
+        return $this->code0($type);
 
     }
 
     /**
-     * @return string
+     * @param string $type
+     * @return mixed
      */
-    public function code404 ($type) {
+    public function code404 ($type = 'get') {
 
-        return $this->Tpl->get(__DIR__ . '/../template/error.tpl', [
+        return $this->Template->render(__DIR__ . '/../template/error.tpl', [
             'title'   => 'Страница не найдена',
             'message' => 'Страница не найдена :('
         ]);
@@ -56,7 +57,7 @@ class HTTPStatusController {
      */
     public function code0 ($type) {
 
-        return $this->Tpl->get(__DIR__ . '/../template/error.tpl', [
+        return $this->Template->render(__DIR__ . '/../template/error.tpl', [
             'title'   => 'Неизвестная ошибка',
             'message' => 'Ой :('
         ]);

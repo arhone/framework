@@ -1,14 +1,14 @@
 <?php declare(strict_types=1);
-namespace front\controller;
+namespace response\controller;
 use arhone\template\TemplateInterface;
 use arhone\trigger\TriggerInterface;
 
-class FrontController {
+class ResponseController {
 
     protected $Template;
 
     /**
-     * FrontController constructor.
+     * ResponseController constructor.
      *
      * @param TriggerInterface $Trigger
      * @param TemplateInterface $Template
@@ -24,11 +24,11 @@ class FrontController {
      * @param $data
      * @return string
      */
-    public function view ($data) {
+    public function run ($data) {
 
         if (!$data) {
 
-            return $this->Trigger->run('http:get:404');
+            return $this->Trigger->run('http:get:/404');
 
         }
 

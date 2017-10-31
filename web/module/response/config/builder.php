@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'FrontController' => [
-        'class'     => 'front\controller\FrontController',
+    'ResponseController' => [
+        'class'     => 'response\controller\ResponseController',
         'construct' => [
             ['Trigger'],
             ['Template']
