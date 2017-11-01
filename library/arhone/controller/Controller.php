@@ -1,9 +1,7 @@
 <?php declare(strict_types = 1);
 namespace arhone\controller;
 use arhone\builder\BuilderInterface;
-use arhone\cache\CacheInterface;
 use arhone\trigger\TriggerInterface;
-use arhone\template\TemplateInterface;
 
 /**
  * Front Controller
@@ -26,33 +24,24 @@ class Controller {
 
     /**
      * @var BuilderInterface  $Builder
-     * @var TemplateInterface $Cache
      * @var TriggerInterface  $Trigger
-     * @var TemplateInterface $Template
      */
     protected $Builder;
-    protected $Cache;
     protected $Trigger;
-    protected $Template;
 
     /**
      * Controller constructor.
      *
      * @param BuilderInterface  $Builder
-     * @param CacheInterface    $Cache
      * @param TriggerInterface  $Trigger
-     * @param TemplateInterface $Template
      * @param array $config
      */
-    public function __construct (BuilderInterface $Builder, CacheInterface $Cache, TriggerInterface $Trigger,  TemplateInterface $Template, array $config = []) {
+    public function __construct (BuilderInterface $Builder, TriggerInterface $Trigger, array $config = []) {
 
         $this->Builder  = $Builder;
-        $this->Cache    = $Cache;
         $this->Trigger  = $Trigger;
-        $this->Template = $Template;
 
         $this->config($config);
-        $this->autoload();
         $this->makeModuleConfiguration();
 
     }
@@ -100,8 +89,7 @@ class Controller {
         if (isset($data['trigger'])) {
 
             $container = (object)[
-                'Builder'  => $this->Builder,
-                'Template' => $this->Template
+                'Builder'  => $this->Builder
             ];
 
             foreach ($data['trigger'] as $config) {
@@ -154,80 +142,44 @@ class Controller {
      */
     protected function getModuleConfiguration () : array {
 
-        if (!$data = $this->Cache->get('arhone.framework.module.configuration')) {
+        $configFileList = [
+            'config'  => [
+                $this->config['directory']['config'] . '/config.php'
+            ],
+            'builder' => [
+                $this->config['directory']['config'] . '/builder.php'
+            ],
+            'trigger' => [
+                $this->config['directory']['config'] . '/trigger.php'
+            ]
+        ];
 
-            $configFileList = [
-                'config'  => [
-                    $this->config['directory']['config'] . '/config.php'
-                ],
-                'builder' => [
-                    $this->config['directory']['config'] . '/builder.php'
-                ],
-                'trigger' => [
-                    $this->config['directory']['config'] . '/trigger.php'
-                ]
-            ];
+        foreach (array_diff(scandir($this->config['directory']['module']), ['..', '.']) as $module) {
 
-            foreach (array_diff(scandir($this->config['directory']['module']), ['..', '.']) as $module) {
+            foreach (['config', 'trigger', 'builder'] as $type) {
 
-                foreach (['config', 'trigger', 'builder'] as $type) {
-
-                    if (is_file($this->config['directory']['module'] . '/' . $module . '/config/' . $type . '.php')) {
-                        $configFileList[$type][] = $this->config['directory']['module'] . '/' . $module . '/config/' . $type . '.php';
-                    }
-
+                if (is_file($this->config['directory']['module'] . '/' . $module . '/config/' . $type . '.php')) {
+                    $configFileList[$type][] = $this->config['directory']['module'] . '/' . $module . '/config/' . $type . '.php';
                 }
 
             }
 
-            $data = [];
-            foreach ($configFileList as $type => $list) {
+        }
 
-                foreach ($list as $file) {
+        $data = [];
+        foreach ($configFileList as $type => $list) {
 
-                    if (is_file($file)) {
-                        $data[$type][] = include $file;
-                    }
+            foreach ($list as $file) {
 
+                if (is_file($file)) {
+                    $data[$type][] = include $file;
                 }
 
-            }
-
-            if (!empty($data)) {
-                $this->Cache->set('arhone.framework.module.configuration', $data);
             }
 
         }
 
         return $data;
-
-    }
-
-    /**
-     * Автозагрузка классов
-     */
-    protected function autoload () {
-
-        spl_autoload_register(function ($className) {
-
-
-            $directory[] = $this->config['directory']['extension'];
-            $directory[] = $this->config['directory']['library'];
-            $directory[] = $this->config['directory']['module'];
-            foreach ($directory as $dir) {
-
-                $file = $dir . DIRECTORY_SEPARATOR . str_replace('\\', DIRECTORY_SEPARATOR, $className) . '.php';
-
-                if(is_file($file)) {
-
-                    include_once $file;
-                    break;
-
-                }
-
-            }
-
-        });
 
     }
 

@@ -8,7 +8,7 @@ return [
         'class' => 'arhone\cache\CacheFile',
         'construct' => [
             ['array' => [
-                'status'    => false,
+                'status'    => true,
                 'directory' => __DIR__ . '/../cache'
             ]]
         ]
@@ -23,9 +23,7 @@ return [
         'class' => 'arhone\controller\Controller',
         'construct' => [
             ['Builder'],
-            ['Cache'],
             ['Trigger'],
-            ['Template'],
             ['array' => [
                 'directory' => [
                     'config'    => __DIR__ . '/../web/config',
