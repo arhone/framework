@@ -63,6 +63,7 @@ class Controller {
      */
     public function run ($request) {
 
+        //print_r($this->Trigger->plan($request));
         return $this->Trigger->run($request);
 
     }
@@ -129,7 +130,9 @@ class Controller {
                                 }
 
                             }, [
-                                'break' => $instruction['break'] ?? false
+                                'name'     => $instruction['name'] ?? null,
+                                'position' => $instruction['position'] ?? null,
+                                'break'    => $instruction['break'] ?? null
                             ]);
 
                         }
