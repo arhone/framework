@@ -23,8 +23,8 @@ class Controller {
     ];
 
     /**
-     * @var BuilderInterface  $Builder
-     * @var TriggerInterface  $Trigger
+     * @var BuilderInterface $Builder
+     * @var TriggerInterface $Trigger
      */
     protected $Builder;
     protected $Trigger;
@@ -32,8 +32,8 @@ class Controller {
     /**
      * Controller constructor.
      *
-     * @param BuilderInterface  $Builder
-     * @param TriggerInterface  $Trigger
+     * @param BuilderInterface $Builder
+     * @param TriggerInterface $Trigger
      * @param array $config
      */
     public function __construct (BuilderInterface $Builder, TriggerInterface $Trigger, array $config = []) {
@@ -47,6 +47,8 @@ class Controller {
     }
 
     /**
+     * Запускает событие
+     *
      * @param $request
      * @return string
      */
@@ -64,16 +66,6 @@ class Controller {
     public function makeModuleConfiguration () {
 
         $data = $this->getModuleConfiguration();
-
-        if (isset($data['config'])) {
-
-            foreach ($data['builder'] as $config) {
-
-                //$this->Config->add($config);
-
-            }
-
-        }
 
         if (isset($data['builder'])) {
 
@@ -142,9 +134,6 @@ class Controller {
     protected function getModuleConfiguration () : array {
 
         $configFileList = [
-            'config'  => [
-                $this->config['directory']['config'] . '/config.php'
-            ],
             'builder' => [
                 $this->config['directory']['config'] . '/builder.php'
             ],
@@ -155,7 +144,7 @@ class Controller {
 
         foreach (array_diff(scandir($this->config['directory']['module']), ['..', '.']) as $module) {
 
-            foreach (['config', 'handler', 'builder'] as $type) {
+            foreach (['handler', 'builder'] as $type) {
 
                 if (is_file($this->config['directory']['module'] . '/' . $module . '/config/' . $type . '.php')) {
                     $configFileList[$type][] = $this->config['directory']['module'] . '/' . $module . '/config/' . $type . '.php';
