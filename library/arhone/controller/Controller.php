@@ -52,7 +52,6 @@ class Controller {
      */
     public function run ($request) {
 
-        //print_r($this->Trigger->plan($request));
         return $this->Trigger->run($request);
 
     }
