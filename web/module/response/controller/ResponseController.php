@@ -5,6 +5,13 @@ use arhone\trigger\TriggerInterface;
 
 class ResponseController {
 
+    protected $config = [
+        'path' => [
+            'template' => __DIR__ . '/../../../template/default/index.tpl'
+        ]
+    ];
+
+    protected $Trigger;
     protected $Template;
 
     /**
@@ -32,7 +39,16 @@ class ResponseController {
 
         }
 
-        return $data;
+        if ($this->Template->has('content')) {
+print_r($this->Template->render($this->config['path']['template']));
+            return 1;
+
+        } else {
+
+            return $data;
+
+        }
+
 
     }
 

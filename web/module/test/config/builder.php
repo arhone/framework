@@ -2,6 +2,9 @@
 
 return [
     'TestController' => [
-        'class' => 'test\controller\TestController'
+        'class' => 'test\controller\TestController',
+        'construct' => [
+            ['Template']
+        ]
     ]
 ];
