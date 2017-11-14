@@ -1,9 +1,9 @@
 <?php
 
 return [
-    'http:get:/hello' => [
+    'http:get:/' => [
         [
-            'controller' => 'TestController',
+            'controller' => 'HelloWorldController',
             'method'     => 'middleware'
         ]
     ]

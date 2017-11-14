@@ -1,7 +1,7 @@
 <?php
 namespace console\controller;
 
-use arhone\cache\Cache;
+use arhone\cache\CacheInterface;
 
 /**
  * Class ConsoleCacheController
@@ -13,9 +13,9 @@ class ConsoleCacheController {
 
     /**
      * ConsoleCacheController constructor.
-     * @param Cache $Cache
+     * @param CacheInterface $Cache
      */
-    public function __construct (Cache $Cache) {
+    public function __construct (CacheInterface $Cache) {
 
         $this->Cache = $Cache;
 

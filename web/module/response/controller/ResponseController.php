@@ -6,6 +6,7 @@ use arhone\trigger\TriggerInterface;
 class ResponseController {
 
     protected $config = [
+        'tag'  => 'content', // Главный тег
         'path' => [
             'template' => __DIR__ . '/../../../template/default/index.tpl'
         ]
@@ -33,22 +34,17 @@ class ResponseController {
      */
     public function run ($data) {
 
-        if (!$data) {
+        if ($this->Template->has($this->config['tag'])) {
 
-            return $this->Trigger->run('http:get:/404');
+            return $this->Template->render($this->config['path']['template']);
 
-        }
-
-        if ($this->Template->has('content')) {
-print_r($this->Template->render($this->config['path']['template']));
-            return 1;
-
-        } else {
+        } elseif ($data) {
 
             return $data;
 
         }
 
+        return $this->Trigger->run('http:get:/404');
 
     }
 
