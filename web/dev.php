@@ -1,6 +1,8 @@
 <?php
 include __DIR__ . '/../core/start.php';
 
+ini_set('display_errors', true); // Вывод ошибок
+
 $Builder = new arhone\builder\Builder();
 $Builder->instruction(include __DIR__ . '/../config/builder.php');
 
