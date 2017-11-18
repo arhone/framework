@@ -1,4 +1,6 @@
 .idea/
 cache/
+log/*.log
+log/nginx/*.log
 vendor/
 composer.lock
