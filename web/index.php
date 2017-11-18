@@ -1,5 +1,4 @@
 <?php
-exit;
 include __DIR__ . '/../core/start.php';
 
 $Builder = new arhone\builder\Builder();
