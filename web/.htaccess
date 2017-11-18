@@ -6,7 +6,7 @@ Options -Indexes
     RewriteBase /
     RewriteCond %{SCRIPT_FILENAME} !-d
     RewriteCond %{SCRIPT_FILENAME} !-f
-    RewriteRule ^(.*)$ dev.php [QSA,L]
+    RewriteRule ^(.*)$ index.php [QSA,L]
 </IfModule>
 
 php_flag log_errors on

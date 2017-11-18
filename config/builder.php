@@ -23,16 +23,7 @@ return [
         'class' => 'arhone\controller\Controller',
         'construct' => [
             ['Builder'],
-            ['Trigger'],
-            ['array' => [
-                'directory' => [
-                    'config'    => __DIR__ . '/../web/config',
-                    'extension' => __DIR__ . '/../web/extension',
-                    'library'   => __DIR__ . '/../web/library',
-                    'module'    => __DIR__ . '/../web/module',
-                    'template'  => __DIR__ . '/../web/template',
-                ]
-            ]]
+            ['Trigger']
         ]
     ]
 ];
