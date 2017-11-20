@@ -1,22 +1,17 @@
-<?php
-/**
- * @var arhone\template\Template $this
- */
-?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8" />
-    <title><?=$this->title?></title>
+    <title>Ошибка сервера</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="icon" type="image/x-icon" href="/web/favicon.ico" />
-    <?=$this->header?>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link href="/template/error/css/style.css" rel="stylesheet" />
 </head>
 <body>
-    <?=$this->content?>
+    <div class="code">50x</div>
 </body>
 <footer>
-    <?=$this->footer?>
+
 </footer>
 </html>

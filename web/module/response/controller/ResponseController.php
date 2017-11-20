@@ -20,11 +20,14 @@ class ResponseController {
      *
      * @param TriggerInterface $Trigger
      * @param TemplateInterface $Template
+     * @param array $config
      */
-    public function __construct (TriggerInterface $Trigger, TemplateInterface $Template) {
+    public function __construct (TriggerInterface $Trigger, TemplateInterface $Template, array $config = []) {
 
         $this->Trigger  = $Trigger;
         $this->Template = $Template;
+
+        $this->config($config);
 
     }
 
@@ -45,6 +48,17 @@ class ResponseController {
         }
 
         return $this->Trigger->run('http:get:/404');
+
+    }
+
+    /**
+     * Задаёт конфигурацию
+     *
+     * @param array $config
+     */
+    public function config (array $config) {
+
+        $this->config = array_merge($this->config, $config);
 
     }
 

@@ -5,7 +5,10 @@ return [
         'class'     => 'response\controller\ResponseController',
         'construct' => [
             ['Trigger'],
-            ['Template']
+            ['Template'],
+            [
+                'array' => include __DIR__ . '/config.php'
+            ]
         ]
     ]
 ];

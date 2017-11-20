@@ -1,0 +1,26 @@
+AddDefaultCharset UTF-8
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    RewriteCond %{SCRIPT_FILENAME} !-d
+    RewriteCond %{SCRIPT_FILENAME} !-f
+    RewriteRule ^(.*)$ index.php [QSA,L]
+</IfModule>
+
+php_flag log_errors on
+php_value error_log /var/www/project/log/apache/error.log
+
+ErrorDocument 400 /template/error/40x.html
+ErrorDocument 401 /template/error/40x.html
+ErrorDocument 403 /template/error/40x.html
+ErrorDocument 404 /template/error/40x.html
+ErrorDocument 405 /template/error/40x.html
+ErrorDocument 408 /template/error/40x.html
+ErrorDocument 414 /template/error/40x.html
+ErrorDocument 500 /template/error/50x.html
+ErrorDocument 501 /template/error/50x.html
+ErrorDocument 502 /template/error/50x.html
+ErrorDocument 503 /template/error/50x.html
+ErrorDocument 504 /template/error/50x.html

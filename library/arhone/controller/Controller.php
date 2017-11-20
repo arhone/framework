@@ -17,8 +17,16 @@ class Controller {
      * @var array
      */
     protected $config = [
-        'directory' => [
-            'module' => __DIR__ . '/../../../web/module',
+        'cache' => [
+            'status' => true
+        ],
+        'path' => [
+            'config'   => __DIR__ . '/../../../config',
+            'module'   => __DIR__ . '/../../../web/module',
+            'template' => __DIR__ . '/../web/template/default/index.tpl',
+            'cache'    => [
+                'config' => __DIR__ . '/../../../cache/arhone/config/config.php'
+            ]
         ]
     ];
 
@@ -42,7 +50,7 @@ class Controller {
         $this->Trigger  = $Trigger;
 
         $this->config($config);
-        $this->makeModuleConfiguration();
+        $this->setConfiguration($this->getConfiguration());
 
     }
 
@@ -59,19 +67,76 @@ class Controller {
     }
 
     /**
-     * Применяет конфигурацию модулей
+     * Возвращает конфигурацию модулей
      *
      * @return array
      */
-    public function makeModuleConfiguration () {
+    public function getConfiguration () {
 
-        $data = $this->getModuleConfiguration();
+        $data = $this->getCache($this->config['path']['cache']['config']);
+        if (empty($data)) {
+
+            $configFileList = [
+                'builder' => [
+                    $this->config['path']['config'] . '/builder.php'
+                ],
+                'handler' => [
+                    $this->config['path']['config'] . '/handler.php'
+                ]
+            ];
+
+            foreach (array_diff(scandir($this->config['path']['module']), ['..', '.']) as $module) {
+
+                foreach (['builder', 'handler'] as $type) {
+
+                    if (is_file($this->config['path']['module'] . '/' . $module . '/config/' . $type . '.php')) {
+                        $configFileList[$type][] = $this->config['path']['module'] . '/' . $module . '/config/' . $type . '.php';
+                    }
+
+                }
+
+            }
+
+            $cache = '<?php' . PHP_EOL;
+            $cache .= '$data = [\'builder\' => [], \'handler\' => []];' . PHP_EOL;
+            foreach ($configFileList as $type => $list) {
+
+                foreach ($list as $file) {
+
+                    if (is_file($file)) {
+                        $cache .= '$data[\'' . $type . '\'][] = function () {' . PHP_EOL . trim(
+                            str_replace(
+                                ['<?php', '?>', '__DIR__', '__FILE'],
+                                ['', '', '\'' . dirname($file) . '\'', '\'' . $file . '\''],
+                                file_get_contents($file))
+                            ) . PHP_EOL . '};' . PHP_EOL;
+                    }
+
+                }
+
+            }
+
+            $this->setCache($this->config['path']['cache']['config'],$cache . PHP_EOL . 'return $data;');
+            $data = $this->getCache($this->config['path']['cache']['config']);
+
+        }
+
+        return is_array($data) ? $data : [];
+
+    }
+
+    /**
+     * Задаёт конфигурацию модулей
+     *
+     * @param array $data
+     */
+    public function setConfiguration (array $data) {
 
         if (isset($data['builder'])) {
 
             foreach ($data['builder'] as $instruction) {
 
-                $this->Builder->instruction($instruction);
+                $this->Builder->instruction($instruction());
 
             }
 
@@ -85,6 +150,7 @@ class Controller {
 
             foreach ($data['handler'] as $config) {
 
+                $config = $config();
                 foreach ($config as $action => $item) {
 
                     foreach ($item as $instruction) {
@@ -127,47 +193,49 @@ class Controller {
     }
 
     /**
-     * Возвращает конфигурацию модулей
+     * Возвращает значение кэша
      *
+     * @param string $path
      * @return array
      */
-    protected function getModuleConfiguration () : array {
+    public function getCache (string $path) : array {
 
-        $configFileList = [
-            'builder' => [
-                $this->config['directory']['config'] . '/builder.php'
-            ],
-            'handler' => [
-                $this->config['directory']['config'] . '/handler.php'
-            ]
-        ];
+        if (!$this->config['cache']['status']) {
+            return [];
+        }
 
-        foreach (array_diff(scandir($this->config['directory']['module']), ['..', '.']) as $module) {
+        if (is_file($path)) {
 
-            foreach (['handler', 'builder'] as $type) {
-
-                if (is_file($this->config['directory']['module'] . '/' . $module . '/config/' . $type . '.php')) {
-                    $configFileList[$type][] = $this->config['directory']['module'] . '/' . $module . '/config/' . $type . '.php';
-                }
-
-            }
+            $data = include $path;
 
         }
 
-        $data = [];
-        foreach ($configFileList as $type => $list) {
+        return $data ?? [];
 
-            foreach ($list as $file) {
+    }
 
-                if (is_file($file)) {
-                    $data[$type][] = include $file;
-                }
+    /**
+     * Записывает кэш в файл
+     *
+     * @param string $path
+     * @param $data
+     * @return bool
+     */
+    public function setCache (string $path, $data) : bool {
 
-            }
+        if (!$this->config['cache']['status']) {
+            return false;
+        }
+
+        $dir = dirname($path);
+
+        if (!is_dir($dir)) {
+
+            mkdir($dir, 0700, true);
 
         }
 
-        return $data;
+        return file_put_contents($path, $data, LOCK_EX) == true;
 
     }
 
