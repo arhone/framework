@@ -22,6 +22,7 @@ return [
     'Controller' => [
         'class' => 'arhone\controller\Controller',
         'construct' => [
+            ['Cache'],
             ['Builder'],
             ['Trigger']
         ]

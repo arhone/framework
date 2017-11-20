@@ -1,6 +1,7 @@
 <?php declare(strict_types = 1);
 namespace arhone\controller;
 use arhone\builder\BuilderInterface;
+use arhone\cache\CacheInterface;
 use arhone\trigger\TriggerInterface;
 
 /**
@@ -17,9 +18,6 @@ class Controller {
      * @var array
      */
     protected $config = [
-        'cache' => [
-            'status' => true
-        ],
         'path' => [
             'config'   => __DIR__ . '/../../../config',
             'module'   => __DIR__ . '/../../../web/module',
@@ -31,9 +29,11 @@ class Controller {
     ];
 
     /**
+     * @var CacheInterface $Cache
      * @var BuilderInterface $Builder
      * @var TriggerInterface $Trigger
      */
+    protected $Cache;
     protected $Builder;
     protected $Trigger;
 
@@ -44,10 +44,11 @@ class Controller {
      * @param TriggerInterface $Trigger
      * @param array $config
      */
-    public function __construct (BuilderInterface $Builder, TriggerInterface $Trigger, array $config = []) {
+    public function __construct (CacheInterface $Cache, BuilderInterface $Builder, TriggerInterface $Trigger, array $config = []) {
 
-        $this->Builder  = $Builder;
-        $this->Trigger  = $Trigger;
+        $this->Cache   = $Cache;
+        $this->Builder = $Builder;
+        $this->Trigger = $Trigger;
 
         $this->config($config);
         $this->setConfiguration($this->getConfiguration());
