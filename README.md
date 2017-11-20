@@ -22,6 +22,10 @@ composer install
 ##### Настройка веб сервера 
 Шаг второй. Настроить веб сервер
 
-Появится папка /var/www/project_name/web, на неё нужно настроить веб сервер.
-
-##### Шат третий.  
+Настройте виртуальный хост своего веб сервера как, что бы его корневой директорией была /var/www/project_name/web
+Если у вас nginx, подключите /var/www/project_name/config/nginx.conf в качестве настройки,
+в Ubuntu например это делается примерно так:
+```bash
+ln -s /var/www/project_name/config/nginx.conf /etc/nginx/sites-enabled/project_name.conf
+``` 
+  
