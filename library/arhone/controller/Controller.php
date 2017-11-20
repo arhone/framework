@@ -26,27 +26,27 @@ class Controller {
     ];
 
     /**
-     * @var CacheInterface $Cache
      * @var BuilderInterface $Builder
      * @var TriggerInterface $Trigger
+     * @var CacheInterface $Cache
      */
-    protected $Cache;
     protected $Builder;
     protected $Trigger;
+    protected $Cache;
 
     /**
      * Controller constructor.
      *
-     * @param CacheInterface $Cache
      * @param BuilderInterface $Builder
      * @param TriggerInterface $Trigger
+     * @param CacheInterface $Cache
      * @param array $config
      */
-    public function __construct (CacheInterface $Cache, BuilderInterface $Builder, TriggerInterface $Trigger, array $config = []) {
+    public function __construct (BuilderInterface $Builder, TriggerInterface $Trigger, CacheInterface $Cache,  array $config = []) {
 
-        $this->Cache   = $Cache;
         $this->Builder = $Builder;
         $this->Trigger = $Trigger;
+        $this->Cache   = $Cache;
 
         $this->config($config);
         $this->prepare();
