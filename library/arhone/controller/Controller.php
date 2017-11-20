@@ -19,12 +19,9 @@ class Controller {
      */
     protected $config = [
         'path' => [
-            'config'   => __DIR__ . '/../../../config',
-            'module'   => __DIR__ . '/../../../web/module',
-            'template' => __DIR__ . '/../web/template/default/index.tpl',
-            'cache'    => [
-                'config' => 'arhone.config'
-            ]
+            'config' => __DIR__ . '/../../../config',
+            'module' => __DIR__ . '/../../../web/module',
+            'cache'  => 'arhone.config'
         ]
     ];
 
@@ -120,10 +117,10 @@ class Controller {
      */
     public function prepare () {
 
-        if (!$data = $this->Cache->get($this->config['path']['cache']['config'])) {
+        if (!$data = $this->Cache->get($this->config['path']['cache'])) {
 
             $data = $this->getConfigurationList();
-            $this->Cache->set($this->config['path']['cache']['config'], $data);
+            $this->Cache->set($this->config['path']['cache'], $data);
 
         }
 
