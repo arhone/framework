@@ -40,6 +40,7 @@ class Controller {
     /**
      * Controller constructor.
      *
+     * @param CacheInterface $Cache
      * @param BuilderInterface $Builder
      * @param TriggerInterface $Trigger
      * @param array $config
