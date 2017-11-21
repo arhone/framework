@@ -17,6 +17,7 @@
     "arhone/trigger": "1.0.*",
     "arhone/cache": "1.0.*",
     "arhone/controller": "1.0.*",
+    "arhone/header": "1.0.*",
     "arhone/template": "1.0.*"
   }
 }
