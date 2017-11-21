@@ -4,6 +4,7 @@ return [
     'ResponseController' => [
         'class'     => 'response\controller\ResponseController',
         'construct' => [
+            ['Header'],
             ['Trigger'],
             ['Template'],
             [

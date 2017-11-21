@@ -1,5 +1,6 @@
 <?php
 namespace http_status\controller;
+use arhone\header\Header;
 use arhone\template\Template;
 
 /**
@@ -9,8 +10,10 @@ use arhone\template\Template;
 class HTTPStatusController {
 
     /**
+     * @var $Header \arhone\header\Header
      * @var $Template \arhone\template\Template
      */
+    protected $Header;
     protected $Template;
 
     /**
@@ -18,8 +21,9 @@ class HTTPStatusController {
      *
      * @param Template $Template
      */
-    public function __construct (Template $Template) {
+    public function __construct (Header $Header,Template $Template) {
 
+        $this->Header   = $Header;
         $this->Template = $Template;
 
     }
@@ -44,6 +48,9 @@ class HTTPStatusController {
      * @return mixed
      */
     public function code404 ($type = 'get') {
+
+        $this->Header->add('HTTP/1.x 404 Not Found');
+        $this->Header->add('Status:', '404 Not Found');
 
         return $this->Template->render(__DIR__ . '/../template/error.tpl', [
             'title'   => 'Страница не найдена',
