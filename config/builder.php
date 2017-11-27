@@ -16,6 +16,9 @@ return [
     'Trigger' => [
         'class' => 'arhone\trigger\Trigger'
     ],
+    'Config' => [
+        'class' => 'arhone\config\Config'
+    ],
     'Template' => [
         'class' => 'arhone\template\Template'
     ],
@@ -24,6 +27,7 @@ return [
         'construct' => [
             ['Builder'],
             ['Trigger'],
+            ['Config'],
             ['Cache']
         ]
     ],
