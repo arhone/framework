@@ -15,6 +15,7 @@
     "php": "^7.0",
     "arhone/builder": "^1.0",
     "arhone/trigger": "^1.0",
+    "arhone/config": "^1.0",
     "arhone/cache": "^1.0",
     "arhone/controller": "^1.0",
     "arhone/header": "^1.0",
