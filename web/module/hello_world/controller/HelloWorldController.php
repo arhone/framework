@@ -21,7 +21,7 @@ class HelloWorldController {
         $this->Template->title   = 'Заголовок страницы';
         $this->Template->content = 'Тестовое содержимое';
 
-        //return $data . 'Привет';
+        return $data . 'Привет';
 
     }
 
