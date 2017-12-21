@@ -21,6 +21,7 @@
     "arhone/http": "^1.0",
     "arhone/registry": "^1.0",
     "arhone/storage": "^1.0",
-    "arhone/template": "^1.0"
+    "arhone/template": "^1.0",
+    "arhone/session": "^1.0"
   }
 }

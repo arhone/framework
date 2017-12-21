@@ -22,6 +22,9 @@ return [
     'Template' => [
         'class' => 'arhone\template\Template'
     ],
+    'Session' => [
+        'class' => 'arhone\session\Session'
+    ],
     'Controller' => [
         'class' => 'arhone\controller\Controller',
         'construct' => [
