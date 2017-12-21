@@ -32,6 +32,6 @@ return [
         ]
     ],
     'Header' => [
-        'class' => 'arhone\header\Header'
+        'class' => 'arhone\http\Header'
     ]
 ];
