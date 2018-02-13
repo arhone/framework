@@ -12,5 +12,12 @@ return [
             'controller' => 'ConsoleCacheController',
             'method'     => 'cacheClear'
         ]
+    ],
+    'console:test' => [
+        [
+            'controller' => 'ConsoleHelpController',
+            'method'     => 'test',
+            //'argument'   => ['ConsoleCacheController']
+        ]
     ]
 ];
