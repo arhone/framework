@@ -1,13 +1,16 @@
 <?php
 
 return [
-    'ConsoleHelpController' => [
-        'class' => 'console\controller\ConsoleHelpController'
+    'console:([-]*(help|h|man))?' => [
+        [
+            'controller' => 'ConsoleHelpController',
+            'method'     => 'help'
+        ]
     ],
-    'ConsoleCacheController' => [
-        'class' => 'console\controller\ConsoleCacheController',
-        'construct' => [
-            ['Cache']
+    'console:[-]*(cache-clear|cc)' => [
+        [
+            'controller' => 'ConsoleCacheController',
+            'method'     => 'cacheClear'
         ]
     ]
 ];
