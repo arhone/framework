@@ -1,6 +1,8 @@
 #!/usr/bin/env php
 <?php
-include __DIR__ . '/core/start.php';
+include __DIR__ . '/autoload.php';
+
+set_time_limit(0);
 
 if (!empty($argv)) {
 

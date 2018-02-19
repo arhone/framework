@@ -19,4 +19,10 @@ class ConsoleHelpController {
 
     }
 
+    public function test (ConsoleCacheController $consoleCacheController) {
+
+        var_dump($consoleCacheController);exit;
+
+    }
+
 }
