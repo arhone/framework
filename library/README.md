@@ -38,3 +38,43 @@ new arhone\cache\CacheFileExtension();
 ```
 'Cache' => ['CacheExtension']
 ```
+
+#### Расширение библиотек модулей
+
+Например вы хотите раширить класс
+
+```
+hello_world\library\controller\HelloWorldController
+```
+
+который находиться по адресу
+
+```
+web/module/hello_world/library/controller/HelloWorldController.php
+```
+
+Для этого вы можете создать файл
+
+```
+library/extension/module/hello_world/controller/HelloWorldControllerExtension.php
+```
+
+И создать класс HelloWorldControllerExtension в пространстве имён
+
+```
+module\hello_world\controller
+```
+
+После этого описать настройки билдера в модуле hello_word:
+
+```
+'HelloWorldControllerExtension' => [
+    'class' => 'module\hello_world\controller\HelloWorldControllerExtension',
+]
+```
+
+и при желании поменять HelloWorldController на HelloWorldControllerExtension:
+
+```
+'HelloWorldController' => ['HelloWorldControllerExtension']
+```

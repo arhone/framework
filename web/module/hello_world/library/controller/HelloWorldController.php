@@ -1,5 +1,5 @@
 <?php declare(strict_types=1);
-namespace hello_world\controller;
+namespace hello_world\library\controller;
 
 use arhone\header\Header;
 use arhone\template\Template;
