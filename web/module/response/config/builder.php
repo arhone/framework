@@ -2,7 +2,7 @@
 
 return [
     'ResponseController' => [
-        'class'     => 'response\controller\ResponseController',
+        'class'     => 'response\library\controller\ResponseController',
         'construct' => [
             ['Header'],
             ['Trigger'],

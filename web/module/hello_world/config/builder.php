@@ -1,13 +1,7 @@
 <?php
 
 return [
-    'HelloWorldController' => [
-        'class' => 'hello_world\library\controller\HelloWorldController',
-        'construct' => [
-            ['Header'],
-            ['Template']
-        ]
-    ],
+    'HelloWorldController' => ['HelloWorldControllerExtension'],
     'HelloWorldControllerExtension' => [
         'class' => 'module\hello_world\controller\HelloWorldControllerExtension',
         'construct' => [

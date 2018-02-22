@@ -1,5 +1,5 @@
 <?php
-namespace http_status\controller;
+namespace http_status\library\controller;
 use arhone\header\Header;
 use arhone\template\Template;
 
