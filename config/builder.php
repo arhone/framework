@@ -4,7 +4,7 @@ return [
     'Builder' => [
         'class' => 'arhone\builder\Builder'
     ],
-    'Cache' => [
+    'CacheFile' => [
         'class' => 'arhone\cache\CacheFile',
         'construct' => [
             ['array' => [
@@ -13,6 +13,7 @@ return [
             ]]
         ]
     ],
+    'Cache' => ['CacheFile'],
     'Trigger' => [
         'class' => 'arhone\trigger\Trigger'
     ],

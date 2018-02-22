@@ -11,6 +11,9 @@
     }
   ],
   "minimum-stability": "stable",
+  "config": {
+    "vendor-dir": "library/composer"
+  },
   "require": {
     "php": "^7.0",
     "arhone/builder": "^1.0",

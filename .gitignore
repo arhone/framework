@@ -5,5 +5,5 @@ cache/
 log/*.log
 log/nginx/*.log
 
-vendor/
+library/composer/
 composer.lock

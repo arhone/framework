@@ -1,19 +1,22 @@
 <?php
 
-include __DIR__ . '/vendor/autoload.php';
+$config = include __DIR__ . '/config/config.php';
 
-spl_autoload_register(function ($className) {
+include $config['directory']['library']['composer'] . '/autoload.php';
 
-    $directory[] = __DIR__ . '/extension';
-    $directory[] = __DIR__ . '/library';
-    $directory[] = __DIR__ . '/web/module';
+spl_autoload_register(function ($className) use ($config) {
+
+    $directory[] = $config['directory']['module'];
+    $directory[] = $config['directory']['library']['custom'];
+    $directory[] = $config['directory']['library']['extension'];
+
     foreach ($directory as $dir) {
 
-        $file = $dir . DIRECTORY_SEPARATOR . str_replace('\\', DIRECTORY_SEPARATOR, $className) . '.php';
+        $file = $dir . '/' . str_replace('\\', '/', $className) . '.php';
 
         if(is_file($file)) {
 
-            include_once $file;
+            require_once $file;
             break;
 
         }

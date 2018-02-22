@@ -1,5 +1,5 @@
 <?php
-namespace console\controller;
+namespace console\library\controller;
 
 use arhone\cache\CacheInterface;
 
