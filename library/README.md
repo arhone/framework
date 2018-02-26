@@ -44,13 +44,13 @@ new arhone\cache\CacheFileExtension();
 Например вы хотите раширить класс
 
 ```
-hello_world\library\controller\HelloWorldController
+hello_world\controller\HelloWorldController
 ```
 
 который находиться по адресу
 
 ```
-web/module/hello_world/library/controller/HelloWorldController.php
+web/module/hello_world/source/controller/HelloWorldController.php
 ```
 
 Для этого вы можете создать файл
@@ -62,14 +62,14 @@ library/extension/module/hello_world/controller/HelloWorldControllerExtension.ph
 И создать класс HelloWorldControllerExtension в пространстве имён
 
 ```
-module\hello_world\controller
+hello_world\controller
 ```
 
 После этого описать настройки билдера в модуле hello_word:
 
 ```
 'HelloWorldControllerExtension' => [
-    'class' => 'module\hello_world\controller\HelloWorldControllerExtension',
+    'class' => 'hello_world\controller\HelloWorldControllerExtension',
 ]
 ```
 
@@ -79,12 +79,20 @@ module\hello_world\controller
 'HelloWorldController' => ['HelloWorldControllerExtension']
 ```
 
-#### library в директории модуля
+#### source в директории модуля
 
-Так же рекомендуется все библиотеки модуля размещать в директории module_name/library
+Так же рекомендуется все исходные классы модуля размещать в директории module_name/source
 
 Это сделано по двум простым причинам:
 
 1) Вы не раздувате директорию модуля и не перемашиваете ваши библиотеки с другими директориями вроде config и template
-2) Иногда разработчики модуля сами предоставляют расширения своих библиотек, создавая директорию test или extension рядом c library в папке модуля.
-Таким образом сохраняется целостность модуля и появляется возможность переключения версий (обычная / расширенная / тестовая).
+2) Иногда разработчики модуля сами предоставляют расширения своих классов, создавая директорию test или extension рядом c source в папке модуля.
+Таким образом сохраняется целостность модуля и появляется возможность переключения версий (исходная / расширенная / тестовая).
+
+source - Для исходных классов модуль
+
+library - Для сторонних библиотек или собственных библитек разработчика модуля
+
+extension - Для расширений классов модуль
+
+test - Для тестовых классов модуля
