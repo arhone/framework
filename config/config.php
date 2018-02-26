@@ -6,7 +6,8 @@ return [
         'library'  => [
             'composer'  => __DIR__ . '/../library/composer',
             'custom'    => __DIR__ . '/../library/custom',
-            'extension' => __DIR__ . '/../library/extension'
+            'extension' => __DIR__ . '/../library/extension',
+            'subdirectory' => ['source', 'library', 'extension', 'test']
         ],
         'log'      => __DIR__ . '/../log',
         'cache'    => __DIR__ . '/../cache',
