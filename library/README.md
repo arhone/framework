@@ -56,7 +56,7 @@ web/module/hello_world/source/controller/HelloWorldController.php
 Для этого вы можете создать файл
 
 ```
-library/extension/module/hello_world/controller/HelloWorldControllerExtension.php
+library/extension/hello_world/controller/HelloWorldControllerExtension.php
 ```
 
 И создать класс HelloWorldControllerExtension в пространстве имён
