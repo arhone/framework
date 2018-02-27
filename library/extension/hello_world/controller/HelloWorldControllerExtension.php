@@ -1,8 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace module\hello_world\controller;
-
-use hello_world\library\controller\HelloWorldController;
+namespace hello_world\controller;
 
 class HelloWorldControllerExtension extends HelloWorldController {
 

@@ -1,5 +1,7 @@
 <?php
 
+$config = include __DIR__ . '/config.php';
+
 return [
     'Builder' => [
         'class' => 'arhone\builder\Builder'
@@ -8,8 +10,8 @@ return [
         'class' => 'arhone\cache\CacheFile',
         'construct' => [
             ['array' => [
-                'status'    => false,
-                'directory' => __DIR__ . '/../cache'
+                'status'    => $config['cache']['status'],
+                'directory' =>  $config['cache']['directory']
             ]]
         ]
     ],
@@ -32,7 +34,14 @@ return [
             ['Builder'],
             ['Trigger'],
             ['Config'],
-            ['Cache']
+            ['Cache'],
+            ['array' => [
+                'path' => [
+                    'config' => $config['directory']['config'],
+                    'module' => $config['directory']['module'],
+                    'cache'  => $config['cache']['key']['config']
+                ]
+            ]]
         ]
     ],
     'Header' => [

@@ -3,7 +3,7 @@
 return [
     'HelloWorldController' => ['HelloWorldControllerExtension'],
     'HelloWorldControllerExtension' => [
-        'class' => 'module\hello_world\controller\HelloWorldControllerExtension',
+        'class' => 'hello_world\controller\HelloWorldControllerExtension',
         'construct' => [
             ['Header'],
             ['Template']
