@@ -2,7 +2,7 @@
 
 return [
     'HTTPStatusController' => [
-        'class'     => 'http_status\library\controller\HTTPStatusController',
+        'class'     => 'http_status\controller\HTTPStatusController',
         'construct' => [
             ['Header'],
             ['Template']

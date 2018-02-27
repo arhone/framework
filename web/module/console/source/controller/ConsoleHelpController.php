@@ -1,5 +1,5 @@
 <?php
-namespace console\library\controller;
+namespace console\controller;
 
 /**
  * Class ConsoleHelpController

@@ -1,5 +1,5 @@
 <?php declare(strict_types=1);
-namespace response\library\controller;
+namespace response\controller;
 use arhone\header\HeaderInterface;
 use arhone\template\TemplateInterface;
 use arhone\trigger\TriggerInterface;
