@@ -36,11 +36,11 @@ return [
             ['Config'],
             ['Cache'],
             ['array' => [
-                'path' => [
+                'directory' => [
                     'config' => $config['directory']['config'],
                     'module' => $config['directory']['module'],
-                    'cache'  => $config['cache']['key']['config']
-                ]
+                ],
+                'cache' => $config['cache']['key']['config']
             ]]
         ]
     ],
