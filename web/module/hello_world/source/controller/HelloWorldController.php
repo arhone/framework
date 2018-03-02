@@ -4,6 +4,10 @@ namespace hello_world\controller;
 use arhone\header\Header;
 use arhone\template\Template;
 
+/**
+ * Class HelloWorldController
+ * @package hello_world\controller
+ */
 class HelloWorldController {
 
     protected $Header;
