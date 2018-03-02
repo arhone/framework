@@ -9,7 +9,7 @@ if (!empty($argv)) {
     array_shift($argv);
 
     $Builder = new arhone\builder\Builder();
-    $Builder->instruction(include __DIR__ . '/config/builder.php');
+    $Builder->instruction(include __DIR__ . '/../config/builder.php');
     echo $Builder->make('Controller')->run('console:' . implode(' ', $argv));
 
 }

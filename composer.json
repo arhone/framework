@@ -21,10 +21,13 @@
     "arhone/config": "^1.0",
     "arhone/cache": "^1.0",
     "arhone/controller": "^1.0",
-    "arhone/http": "^1.0",
     "arhone/registry": "^1.0",
-    "arhone/storage": "^1.0",
     "arhone/template": "^1.0",
     "arhone/session": "^1.0"
+  },
+  "scripts": {
+    "post-create-project-cmd": [
+      "sudo cp arhone /bin/arhone"
+    ]
   }
 }
