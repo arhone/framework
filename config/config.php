@@ -20,7 +20,7 @@ return [
         'status'    => false,
         'directory' => __DIR__ . '/../cache',
         'key' => [
-            'config' => 'arhone:config'
+            'config' => 'arhone.config'
         ]
     ]
 ];
