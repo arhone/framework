@@ -9,7 +9,7 @@ return [
             'custom'       => __DIR__ . '/../library/custom',
             'extension'    => __DIR__ . '/../library/extension',
             'test'         => __DIR__ . '/../library/test',
-            'subdirectory' => ['source', 'library', 'extension', 'test']
+            'subdirectory' => ['custom', 'library', 'extension', 'test']
         ],
         'log'      => __DIR__ . '/../log',
         'cache'    => __DIR__ . '/../cache',
