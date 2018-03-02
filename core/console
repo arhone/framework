@@ -4,7 +4,7 @@ include __DIR__ . '/autoload.php';
 
 set_time_limit(0);
 
-if (!empty($argv)) {
+if (!empty($argv[1])) {
 
     array_shift($argv);
 
@@ -12,4 +12,18 @@ if (!empty($argv)) {
     $Builder->instruction(include __DIR__ . '/../config/builder.php');
     echo $Builder->make('Controller')->run('console:' . implode(' ', $argv));
 
+} else {
+
+    ob_start();
+    system('echo $HOME');
+    $bashrc = ob_get_clean() . '/.bashrc';
+
+var_dump(!file_exists('/bin/arhone'));
+var_dump(file_exists($bashrc));
+var_dump(!strripos(file_get_contents($bashrc), 'alias arhone="php core/console"'));
+
+    if (!file_exists('/bin/arhone') && file_exists($bashrc) && !strripos(file_get_contents($bashrc), 'alias arhone="php core/console"')) {
+
+        file_put_contents($bashrc, 'alias arhone="php core/console"', FILE_APPEND);
+    }
 }

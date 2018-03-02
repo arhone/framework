@@ -26,8 +26,14 @@
     "arhone/session": "^1.0"
   },
   "scripts": {
+    "arhone-install": [
+      "bash ./arhone"
+    ],
     "post-create-project-cmd": [
-      "sudo cp arhone /bin/arhone"
+      "@arhone-install"
+    ],
+    "post-install-cmd": [
+      "bash; if [ ! -f /bin/arhone ]; then sudo cp ./arhone /bin/arhone; fi;"
     ]
   }
 }
