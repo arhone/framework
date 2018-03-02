@@ -24,16 +24,5 @@
     "arhone/registry": "^1.0",
     "arhone/template": "^1.0",
     "arhone/session": "^1.0"
-  },
-  "scripts": {
-    "arhone-install": [
-      "./arhone"
-    ],
-    "post-create-project-cmd": [
-      "@arhone-install"
-    ],
-    "post-install-cmd": [
-      "@arhone-install"
-    ]
   }
 }
