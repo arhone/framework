@@ -27,13 +27,13 @@
   },
   "scripts": {
     "arhone-install": [
-      "bash ./arhone"
+      "./arhone"
     ],
     "post-create-project-cmd": [
       "@arhone-install"
     ],
     "post-install-cmd": [
-      "bash; if [ ! -f /bin/arhone ]; then sudo cp ./arhone /bin/arhone; fi;"
+      "@arhone-install"
     ]
   }
 }
