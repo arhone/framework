@@ -1,7 +1,6 @@
 <?php declare(strict_types=1);
 namespace hello_world\controller;
 
-use arhone\header\Header;
 use arhone\template\Template;
 
 /**
@@ -10,12 +9,10 @@ use arhone\template\Template;
  */
 class HelloWorldController {
 
-    protected $Header;
     protected $Template;
 
-    public function __construct (Header $Header, Template $Template) {
+    public function __construct (Template $Template) {
 
-        $this->Header   = $Header;
         $this->Template = $Template;
 
     }
