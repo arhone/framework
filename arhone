@@ -1,2 +1,2 @@
 #!/bin/bash
-if ! which arhone > /dev/null; then sudo cp ./arhone /bin/arhone; else php script/php/console $#; fi;
+if ! which arhone > /dev/null; then sudo cp ./arhone /bin/arhone; else php script/bash/console $#; fi;
