@@ -20,7 +20,7 @@ return [
                 'array' => $_SERVER,
             ],
             [
-                'array' => getallheaders()
+                'array' => [], //getallheaders()
             ],
             [
                 'array' => $_GET,

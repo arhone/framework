@@ -56,7 +56,7 @@
       "url": "https://github.com/arhone/storage"
     }
   ],
-  "require-dev": {
+  "require": {
     "php": "^7.0",
     "arhone/builder": "dev-master",
     "arhone/http": "dev-master",
@@ -68,19 +68,6 @@
     "arhone/template": "dev-master",
     "arhone/session": "dev-master",
     "arhone/storage": "dev-master"
-  },
-  "require": {
-    "php": "^7.0",
-    "arhone/builder": "^1.0",
-    "arhone/http": "^1.0",
-    "arhone/trigger": "^1.0",
-    "arhone/config": "^1.0",
-    "arhone/cache": "^1.0",
-    "arhone/controller": "^1.0",
-    "arhone/registry": "^1.0",
-    "arhone/template": "^1.0",
-    "arhone/session": "^1.0",
-    "arhone/storage": "^1.0"
   },
   "scripts": {
     "arhone-install": [
