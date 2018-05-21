@@ -1,6 +1,6 @@
 <?php
 
-$config = include __DIR__ . '/../../config/arhone/config.php';
+$config = include __DIR__ . '/../config/arhone/config.php';
 
 include $config['directory']['library']['composer'] . DIRECTORY_SEPARATOR . 'autoload.php';
 

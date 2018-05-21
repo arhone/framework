@@ -1,6 +1,6 @@
 #!/usr/bin/env php
 <?php
-include __DIR__ . '/../php/autoload.php';
+include __DIR__ . '/../include/arhone/autoload.php';
 
 set_time_limit(0);
 
@@ -9,7 +9,7 @@ if (!empty($argv)) {
     array_shift($argv);
 
     $Builder = new arhone\builder\Builder();
-    $Builder->instruction(include __DIR__ . '/../../config/arhone/builder.php');
+    $Builder->instruction(include __DIR__ . '/../config/arhone/builder.php');
     echo $Builder->make('Controller')->run('console:' . implode(' ', $argv));
 
 }

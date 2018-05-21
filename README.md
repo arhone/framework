@@ -6,26 +6,23 @@
 Шаг первый. Получить необходимые файлы.
 
 ```bash
-cd /var/www;
-composer create-project arhone/framework framework
+cd /srv
+composer create-project arhone/framework project
 ```
 
 Или скачайте и распакуйте архив самостоятельно, после чего выполните
 
 ```bash
-cd /var/www/framework;
+mkdir /srv/project
+cd /srv/project
 composer install
 ```
 
 ##### Настройка веб сервера 
 Шаг второй. Настроить веб сервер
 
-Настройте виртуальный хост своего веб сервера как, что бы его корневой директорией была /var/www/framework/web
-Если у вас nginx, подключите /var/www/framework/config/nginx.conf в качестве настройки,
-в Ubuntu например это делается примерно так:
-```bash
-ln -s /var/www/framework/config/nginx.conf /etc/nginx/sites-enabled/framework.conf
-``` 
+Настройте виртуальный хост своего веб сервера как, что бы его корневой директорией была /srv/project/web
+Если у вас nginx, подключите /srv/project/config/nginx/develop.conf в качестве настройки сервера.
 
 ##### Помощь
 
