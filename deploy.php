@@ -12,7 +12,9 @@ set('shared_files', []); // Общие файлы проекта
 set('shared_dirs', [
     'log'
 ]);  // Общие папки проекта
-set('writable_dirs', []); // Папки, в которые приложение должно иметь возможность писать данные
+set('writable_dirs', [
+    'cache'
+]); // Папки, в которые приложение должно иметь возможность писать данные
 set('allow_anonymous_stats', false);
 
 # Настройки серверов
@@ -55,8 +57,8 @@ task('deploy', [
     'deploy:update_code', // Скачать последний код с репозитория
     'deploy:shared',      // Создать ссылки на общие данные
     'deploy:writable',
-    //'deploy:vendors',   // Обновить компоненты композера
-    'composer:install',   // Обновить компоненты композера
+    //'deploy:vendors',   // Установить компоненты приложения
+    'composer:install',   // Установить компоненты приложения
     'deploy:clear_paths',
     'deploy:symlink',     // Создать ссылку текущего релиза на этот
     'deploy:unlock',
