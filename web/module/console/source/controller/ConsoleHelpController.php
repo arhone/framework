@@ -12,6 +12,8 @@ class ConsoleHelpController {
      */
     public function help () {
 
+        $info[] = 'Arhone (develop: ' . (defined('DEVELOP') ?  "\033[32m" . 'true' : "\033[31m" . 'false')  . "\033[37m" . ', test: ' . (defined('TEST') ? "\033[32m" . 'true' : "\033[31m" . 'false') . "\033[37m" . ')';
+        $info[] = '';
         $info[] = "\033[32m" . ' -h, --help       ' . "\033[37m". '- Выводит подсказку';
         $info[] = "\033[32m" . ' -d, --develop    ' . "\033[37m". '- Добавляет в проект константу DEVELOP (arh cron -d)';
         $info[] = "\033[32m" . ' -t, --test       ' . "\033[37m". '- Добавляет в проект константу TEST';

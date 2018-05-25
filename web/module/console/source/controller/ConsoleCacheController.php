@@ -29,7 +29,10 @@ class ConsoleCacheController {
      */
     public function cacheClear () {
 
-        return ($this->Cache->clear() == true ? 'Кэш очищен' : 'Кэш не был очищен') . PHP_EOL;
+        if (!$this->Cache->status()) {
+            return ' Кэширование отключено' . PHP_EOL;
+        }
+        return ($this->Cache->clear() == true ? ' Кэш очищен' : ' Кэш не был очищен') . PHP_EOL;
 
     }
 

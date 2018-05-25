@@ -9,37 +9,27 @@ if (!empty($argv)) {
     array_shift($argv);
     $argv = array_flip($argv);
 
-    if (isset($argv['--develop'])) {
+    if (isset($argv['--develop']) || isset($argv['-d'])) {
         define('DEVELOP', true);
         unset($argv['--develop']);
-    } elseif (isset($argv['-d'])) {
-        define('DEVELOP', true);
         unset($argv['-d']);
     }
 
-    if (isset($argv['--test'])) {
+    if (isset($argv['--test']) || isset($argv['-t'])) {
         define('TEST', true);
         unset($argv['--test']);
-    } elseif (isset($argv['-t'])) {
-        define('TEST', true);
         unset($argv['-t']);
     }
 
-    if (isset($argv['-td'])) {
+    if (isset($argv['-td']) || isset($argv['-dt'])) {
         define('DEVELOP', true);
         define('TEST', true);
         unset($argv['-td']);
-    } elseif (isset($argv['-dt'])) {
-        define('DEVELOP', true);
-        define('TEST', true);
         unset($argv['-dt']);
     }
 
     $Builder = new arhone\builder\Builder();
     $Builder->instruction(include __DIR__ . '/../../config/arhone/builder.php');
-    echo 'Arhone (develop: ' . (defined('DEVELOP') ?  "\033[32m" . 'true' : "\033[31m" . 'false')  . "\033[37m" . ', test: ' . (defined('TEST') ? "\033[32m" . 'true' : "\033[31m" . 'false') . "\033[37m" . ')' . PHP_EOL;
-    echo PHP_EOL;
     echo $Builder->make('Controller')->run('console:' . implode(' ', array_flip($argv)));
-    echo PHP_EOL;
 
 }

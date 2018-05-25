@@ -7,7 +7,7 @@ return [
             'method'     => 'help'
         ]
     ],
-    'console:[-]*(cache-clear|cc)' => [
+    'console:(cache:clear)' => [
         [
             'controller' => 'ConsoleCacheController',
             'method'     => 'cacheClear'
@@ -17,7 +17,7 @@ return [
         [
             'controller' => 'ConsoleHelpController',
             'method'     => 'test',
-            //'argument'   => ['ConsoleCacheController']
+            'argument'   => ['ConsoleCacheController']
         ]
     ]
 ];
