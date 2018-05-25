@@ -25,8 +25,19 @@ if (!empty($argv)) {
         unset($argv['-t']);
     }
 
+    if (isset($argv['-td'])) {
+        define('DEVELOP', true);
+        define('TEST', true);
+        unset($argv['-td']);
+    } elseif (isset($argv['-dt'])) {
+        define('DEVELOP', true);
+        define('TEST', true);
+        unset($argv['-dt']);
+    }
+
     $Builder = new arhone\builder\Builder();
     $Builder->instruction(include __DIR__ . '/../../config/arhone/builder.php');
+    echo 'Arhone (develop: ' . (defined('DEVELOP') ?  "\033[32m" . 'true' : "\033[31m" . 'false')  . "\033[37m" . ', test: ' . (defined('TEST') ? "\033[32m" . 'true' : "\033[31m" . 'false') . "\033[37m" . ')' . PHP_EOL;
     echo PHP_EOL;
     echo $Builder->make('Controller')->run('console:' . implode(' ', array_flip($argv)));
     echo PHP_EOL;
