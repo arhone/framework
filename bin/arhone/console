@@ -7,9 +7,14 @@ set_time_limit(0);
 if (!empty($argv)) {
 
     array_shift($argv);
+    $argv = array_flip($argv);
+    if (isset($argv['--develop'])) {
+        define('DEVELOP', true);
+        unset($argv['--develop']);
+    }
 
     $Builder = new arhone\builder\Builder();
     $Builder->instruction(include __DIR__ . '/../../config/arhone/builder.php');
-    echo $Builder->make('Controller')->run('console:' . implode(' ', $argv));
+    echo $Builder->make('Controller')->run('console:' . implode(' ', array_flip($argv)));
 
 }
