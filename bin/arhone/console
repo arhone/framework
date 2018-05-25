@@ -8,13 +8,27 @@ if (!empty($argv)) {
 
     array_shift($argv);
     $argv = array_flip($argv);
+
     if (isset($argv['--develop'])) {
         define('DEVELOP', true);
         unset($argv['--develop']);
+    } elseif (isset($argv['-d'])) {
+        define('DEVELOP', true);
+        unset($argv['-d']);
+    }
+
+    if (isset($argv['--test'])) {
+        define('TEST', true);
+        unset($argv['--test']);
+    } elseif (isset($argv['-t'])) {
+        define('TEST', true);
+        unset($argv['-t']);
     }
 
     $Builder = new arhone\builder\Builder();
     $Builder->instruction(include __DIR__ . '/../../config/arhone/builder.php');
+    echo PHP_EOL;
     echo $Builder->make('Controller')->run('console:' . implode(' ', array_flip($argv)));
+    echo PHP_EOL;
 
 }
