@@ -1,0 +1,11 @@
+# Специальная настройка, которая должна быть на самом верху конфига. Если установлена в true, парсер не будет искать другие конфиги родительских папках
+root = true
+
+# Для всех файлов
+[*]
+end_of_line = LF
+indent_style = space
+indent_size = 4
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
