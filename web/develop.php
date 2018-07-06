@@ -1,5 +1,5 @@
 <?php
-define('DEVELOP', true); // Режим разрабочика
+$_SERVER['DEVELOP'] = true; // Режим разрабочика
 
 ini_set('error_reporting', E_ALL | E_STRICT); // Типы ошибок, на которые надо ругаться
 ini_set('display_errors', true); // Вывод ошибок
