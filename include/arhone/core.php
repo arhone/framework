@@ -8,8 +8,15 @@ ini_set('error_log', __DIR__ . '/../log/error.log'); // Файл для сохр
 
 include __DIR__ . 'autoload.php';
 
-$config  = include __DIR__ . '/../../config/arhone/config.php';
-$Builder = include __DIR__ . '/../../config/arhone/builder.php';
-$Trigger = include __DIR__ . '/../../config/arhone/trigger.php';
+$Builder = new \arhone\builder\Builder();
+$Builder->instruction(include __DIR__ . '/../../config/arhone/builder.php');
 
-return $Trigger;
+try {
+
+    return $Builder->make('Controller');
+
+} catch (Exception $Exception) {
+
+    echo $Exception->getMessage();
+
+}

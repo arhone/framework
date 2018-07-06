@@ -55,7 +55,12 @@ return [
         'class' => 'arhone\trigger\Trigger'
     ],
     'Config' => [
-        'class' => 'arhone\config\Config'
+        'class' => 'arhone\config\Config',
+        'construct' => [
+            [
+                'array' => $config
+            ]
+        ]
     ],
     'Template' => [
         'class' => 'arhone\template\Template'
