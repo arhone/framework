@@ -3,7 +3,7 @@
 return [
     'directory' => [
         'config'   => __DIR__,
-        'module'   => __DIR__ . '/../../web/module',
+        'module'   => __DIR__ . '/../../root/module',
         'library'  => [
             'composer'     => __DIR__ . '/../../library/composer',
             'custom'       => __DIR__ . '/../../library/custom',
@@ -13,8 +13,8 @@ return [
         ],
         'log'      => __DIR__ . '/../../log',
         'cache'    => __DIR__ . '/../../cache',
-        'template' => __DIR__ . '/../../web/template',
-        'upload'   => __DIR__ . '/../../web/upload'
+        'template' => __DIR__ . '/../../root/template',
+        'upload'   => __DIR__ . '/../../root/upload'
     ],
     'cache' => [
         'status'    => false,
