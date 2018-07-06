@@ -1,6 +1,7 @@
 <?php
-
-$config = include __DIR__ . '/config.php';
+/**
+ * @var array $config Настройки из файла config.php
+ */
 
 return [
     'Builder' => [

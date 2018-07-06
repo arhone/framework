@@ -3,8 +3,8 @@
 return [
     'http:get:/' => [
         [
-            'controller' => 'HelloWorldController',
-            'method'     => 'middleware'
+            'class'  => 'HelloWorldController',
+            'method' => 'middleware'
         ]
     ]
 ];
