@@ -28,8 +28,16 @@ if (!empty($argv)) {
         unset($argv['-dt']);
     }
 
-    $Builder = new arhone\builder\Builder();
-    $Builder->instruction(include __DIR__ . '/../../config/arhone/builder.php');
-    echo $Builder->make('Controller')->run('console:' . implode(' ', array_flip($argv)));
+    $Builder = new arhone\builder\Builder(include __DIR__ . '/../../config/arhone/builder.php');
+    try {
+
+        echo $Builder->make('Controller')->run('console:' . implode(' ', array_flip($argv)));
+
+    } catch (Exception $Exception) {
+
+        echo $Exception->getMessage();
+
+    }
+
 
 }

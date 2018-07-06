@@ -1,4 +1,7 @@
 <?php
+/**
+ * @var \arhone\controller\ControllerInterface $this
+ */
 
 return [
     'console:(--help|-h)?' => [
@@ -15,9 +18,9 @@ return [
     ],
     'console:test' => [
         [
-            'class'     => 'ConsoleHelpController',
-            'method'    => 'test',
-            'argument'  => ['ConsoleCacheController']
+            'class'    => 'ConsoleHelpController',
+            'method'   => 'test',
+            'argument' => ['ConsoleCacheController']
         ]
     ]
 ];
