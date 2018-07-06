@@ -1,7 +1,13 @@
 <?php
 /**
- * @var \arhone\controller\ControllerInterface $this
+ * @var \arhone\controller\Controller $this
  */
+
+$Builder = $this->Builder;
+
+$this->Trigger->add('console:(--help|-h)?', function () use ($Builder) {
+    return $Builder->make('ConsoleHelpController')->help();
+});
 
 return [
     'console:(--help|-h)?' => [
