@@ -5,8 +5,16 @@
 ## internal
 Библиотеки написанные под этот проект
 
+```
+library\internal\projectName\ProjectName.php
+```
+
 ## external
 Внешние библиотеки установленные пользователем вручную
+
+```
+library\external\vendorName\ClassName.php
+```
 
 ## composer
 Библиотеки загруженные через композер
@@ -43,61 +51,3 @@ new arhone\cache\CacheFileExtension();
 ```
 'Cache' => ['CacheExtension']
 ```
-
-#### Расширение библиотек модулей
-
-Например вы хотите раширить класс
-
-```
-hello_world\controller\HelloWorldController
-```
-
-который находиться по адресу
-
-```
-web/module/hello_world/source/controller/HelloWorldController.php
-```
-
-Для этого вы можете создать файл
-
-```
-library/extension/hello_world/controller/HelloWorldControllerExtension.php
-```
-
-И создать класс HelloWorldControllerExtension в пространстве имён
-
-```
-hello_world\controller
-```
-
-После этого описать настройки билдера в модуле hello_word:
-
-```
-'HelloWorldControllerExtension' => [
-    'class' => 'hello_world\controller\HelloWorldControllerExtension',
-]
-```
-
-и при желании поменять HelloWorldController на HelloWorldControllerExtension:
-
-```
-'HelloWorldController' => ['HelloWorldControllerExtension']
-```
-
-#### source в директории модуля
-
-Так же рекомендуется все исходные классы модуля размещать в директории module_name/source
-
-Это сделано по двум простым причинам:
-
-1) Вы не раздувате директорию модуля и не перемашиваете ваши библиотеки с другими директориями вроде config и template
-2) Иногда разработчики модуля сами предоставляют расширения своих классов, создавая директорию test или extension рядом c source в папке модуля.
-Таким образом сохраняется целостность модуля и появляется возможность переключения версий (исходная / расширенная / тестовая).
-
-source - Для исходных классов модуль
-
-library - Для сторонних библиотек или собственных библитек разработчика модуля
-
-extension - Для расширений классов модуль
-
-test - Для тестовых классов модуля

@@ -6,7 +6,8 @@ return [
         'module'   => __DIR__ . '/../../module',
         'library'  => [
             'composer'     => __DIR__ . '/../../library/composer',
-            'custom'       => __DIR__ . '/../../library/custom',
+            'internal'     => __DIR__ . '/../../library/internal',
+            'external'     => __DIR__ . '/../../library/external',
             'extension'    => __DIR__ . '/../../library/extension',
             'test'         => __DIR__ . '/../../library/test',
             'subdirectory' => ['source', 'library', 'extension', 'test']

@@ -6,7 +6,8 @@ include $config['directory']['library']['composer'] . DIRECTORY_SEPARATOR . 'aut
 
 spl_autoload_register(function ($className) use ($config) {
 
-    $directory[] = $config['directory']['library']['custom'];
+    $directory[] = $config['directory']['library']['internal'];
+    $directory[] = $config['directory']['library']['external'];
     $directory[] = $config['directory']['library']['extension'];
     $directory[] = $config['directory']['library']['test'];
     $directory[] = $config['directory']['module'];
