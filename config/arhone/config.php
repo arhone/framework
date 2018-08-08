@@ -13,8 +13,8 @@ return [
         ],
         'log'      => __DIR__ . '/../../log',
         'cache'    => __DIR__ . '/../../cache',
-        'template' => __DIR__ . '/../../web/template',
-        'upload'   => __DIR__ . '/../../web/upload'
+        'template' => __DIR__ . '/../../public/template',
+        'upload'   => __DIR__ . '/../../public/upload'
     ],
     'cache' => [
         'status'    => false,
