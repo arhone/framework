@@ -41,13 +41,13 @@ new arhone\cache\CacheFileExtension();
 После этого его можно описать в настройка билдера:
 
 ```
-'CacheExtension' => [
+'CacheFileExtension' => [
     'class' => 'arhone\cache\CacheFileExtension'
 ]
 ```
 
-и при желании поменять родной Cache на CacheExtension:
+и при желании поменять родной Cache на CacheFileExtension:
 
 ```
-'Cache' => ['CacheExtension']
+'Cache' => ['CacheFileExtension']
 ```
