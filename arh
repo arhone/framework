@@ -1,2 +1,2 @@
 #!/bin/bash
-if ! which arh > /dev/null; then sudo cp ./arh /bin/arh; else php bin/arhone/console $@; fi;
+if ! which arh > /dev/null; then sudo cp ./arh /bin/arh; else php console/arhone/console $@; fi;
