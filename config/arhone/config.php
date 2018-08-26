@@ -14,7 +14,7 @@ return [
         ],
         'log'      => __DIR__ . '/../../log',
         'cache'    => __DIR__ . '/../../cache',
-        'template' => __DIR__ . '/../../public/template',
+        'view' => __DIR__ . '/../../public/template',
         'upload'   => __DIR__ . '/../../public/upload'
     ],
     'cache' => [

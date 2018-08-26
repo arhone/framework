@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
-namespace hello_world\controller;
+namespace exemple\controller;
 
 use arhone\template\Template;
 
 /**
- * Class HelloWorldController
- * @package hello_world\controller
+ * Class ExampleController
+ * @package exemple\controller
  */
-class HelloWorldController {
+class ExampleController {
 
     protected $Template;
 

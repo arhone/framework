@@ -30,9 +30,10 @@ class HTTPStatusController {
     }
 
     /**
-     * @param $type
+     * @param string $type
      * @param $code
      * @return string
+     * @throws \Exception
      */
     public function code ($type = 'get', $code) {
 
@@ -46,14 +47,15 @@ class HTTPStatusController {
 
     /**
      * @param string $type
-     * @return mixed
+     * @return string
+     * @throws \Exception
      */
     public function code404 ($type = 'get') {
 
         $this->Header->add('HTTP/1.x 404 Not Found');
         $this->Header->add('Status:', '404 Not Found');
 
-        return $this->Template->render(__DIR__ . '/../template/error.tpl', [
+        return $this->Template->render(__DIR__ . '/../view/error.tpl', [
             'title'   => 'Страница не найдена',
             'message' => 'Страница не найдена :('
         ]);
@@ -61,11 +63,13 @@ class HTTPStatusController {
     }
 
     /**
+     * @param $type
      * @return string
+     * @throws \Exception
      */
     public function code0 ($type) {
 
-        return $this->Template->render(__DIR__ . '/../template/error.tpl', [
+        return $this->Template->render(__DIR__ . '/../view/error.tpl', [
             'title'   => 'Неизвестная ошибка',
             'message' => 'Ой :('
         ]);

@@ -9,7 +9,7 @@ class ResponseController {
     protected $config = [
         'tag'  => 'content', // Главный тег
         'path' => [
-            'template' => __DIR__ . '/../../../../template/default/index.tpl'
+            'view' => __DIR__ . '/../../../../view/view/index.tpl'
         ]
     ];
 
@@ -43,7 +43,7 @@ class ResponseController {
 
         if ($this->Template->has($this->config['tag'])) {
 
-            return $this->Template->render($this->config['path']['template']);
+            return $this->Template->render($this->config['path']['view']);
 
         } elseif ($data) {
 

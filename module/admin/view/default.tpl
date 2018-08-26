@@ -14,7 +14,7 @@
     <?=$this->header?>
 </head>
 <body>
-    <?=$this->content?>
+<?=$this->content?>
 </body>
 <footer>
     <?=$this->footer?>
