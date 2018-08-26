@@ -3,21 +3,21 @@
 return [
     'console:(--help|-h)?' => [
         [
-            'class'  => 'ConsoleHelpController',
-            'method' => 'help'
+            'controller' => 'ConsoleHelpController',
+            'method'     => 'help'
         ]
     ],
     'console:(cache:clear)' => [
         [
-            'class'  => 'ConsoleCacheController',
-            'method' => 'cacheClear'
+            'controller' => 'ConsoleCacheController',
+            'method'     => 'cacheClear'
         ]
     ],
     'console:test' => [
         [
             'class'    => 'ConsoleHelpController',
             'method'   => 'test',
-            'argument' => ['ConsoleCacheController']
+            'argument' => ['Trigger']
         ]
     ]
 ];

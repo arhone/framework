@@ -3,14 +3,17 @@
 return [
     '(http[s]?):get:/admin/' => [
         [
-            'class'  => 'ExampleAdminController',
-            'method' => 'middleware'
+            'controller' => 'ExampleAdminController',
+            'method'     => 'middleware',
+            'argument'   => [0],
+            'break'      => false
         ]
     ],
-    '(http[s]?):get:/' => [
+    '(http):get:/' => [
         [
-            'class'  => 'ExampleFrontController',
-            'method' => 'middleware'
+            'controller' => 'ExampleFrontController',
+            'method'     => 'middleware',
+            'argument'   => [0]
         ]
     ]
 ];

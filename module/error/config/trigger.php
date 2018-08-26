@@ -5,7 +5,7 @@ return [
         [
             'controller' => 'ErrorController',
             'method'     => 'code',
-            'argument'   => [1, 2],
+            'argument'   => [1, 3],
             'position'   => -1,
             'break'      => true
         ]

@@ -2,7 +2,7 @@
 
 namespace error\controller;
 
-use arhone\header\Header;
+use arhone\http\Header;
 use arhone\template\Template;
 
 /**
@@ -38,7 +38,7 @@ class ErrorController {
      * @return string
      * @throws \Exception
      */
-    public function code ($type = 'get', $code) {
+    public function code ($type = 'get', $code = 0) {
 
         if (method_exists($this, 'code' . (int)$code)) {
             return $this->{'code' . (int)$code}();
@@ -66,11 +66,10 @@ class ErrorController {
     }
 
     /**
-     * @param $type
      * @return string
      * @throws \Exception
      */
-    public function code0 ($type) {
+    public function code0 () {
 
         return $this->Template->render(__DIR__ . '/../view/error.tpl', [
             'title'   => 'Неизвестная ошибка',

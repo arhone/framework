@@ -1,6 +1,8 @@
 <?php
 namespace console\controller;
 
+use arhone\trigger\Trigger;
+
 /**
  * Class ConsoleHelpController
  * @package console\controller
@@ -26,9 +28,9 @@ class ConsoleHelpController {
 
     }
 
-    public function test (ConsoleCacheController $consoleCacheController) {
+    public function test (Trigger $Trigger) {
 
-        var_dump($consoleCacheController);exit;
+        print_r($Trigger->plan('http:get:/admin/'));exit;
 
     }
 

@@ -1,11 +1,12 @@
 <?php declare(strict_types=1);
-namespace exemple\controller;
+
+namespace example\controller;
 
 use arhone\template\Template;
 
 /**
  * Class ExampleFrontController
- * @package exemple\controller
+ * @package example\controller
  * @author Алексей Арх <info@arh.one>
  */
 class ExampleFrontController {
