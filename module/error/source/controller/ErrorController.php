@@ -25,7 +25,7 @@ class ErrorController {
      * @param Header $Header
      * @param Template $Template
      */
-    public function __construct (Header $Header,Template $Template) {
+    public function __construct (Header $Header, Template $Template) {
 
         $this->Header   = $Header;
         $this->Template = $Template;

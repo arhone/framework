@@ -19,7 +19,7 @@ class FrontController {
     protected $config = [
         'tag'  => 'content', // Главный тег
         'path' => [
-            'view' => __DIR__ . '/../../../../view/default.tpl'
+            'view' => __DIR__ . '/../view/default.tpl'
         ]
     ];
 
