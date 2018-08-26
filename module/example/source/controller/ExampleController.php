@@ -5,7 +5,7 @@ use arhone\template\Template;
 
 /**
  * Class ExampleController
- * @package exemple\controller
+ * @package example\controller
  */
 class ExampleController {
 

@@ -3,7 +3,7 @@
 return [
     'ExampleController' => ['ExampleControllerExtension'],
     'ExampleControllerExtension' => [
-        'class' => 'exemple\controller\ExampleControllerExtension',
+        'class' => 'example\controller\ExampleControllerExtension',
         'construct' => [
             ['Template']
         ]
