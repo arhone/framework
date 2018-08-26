@@ -1,5 +1,6 @@
 .idea/
 cache/
+public/resource/*
 log/*.log
 log/*/*.log
 library/composer/

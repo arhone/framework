@@ -37,10 +37,6 @@
     },
     {
       "type": "git",
-      "url": "https://github.com/arhone/controller"
-    },
-    {
-      "type": "git",
       "url": "https://github.com/arhone/registry"
     },
     {
@@ -70,11 +66,11 @@
     "arhone/storage": "dev-master"
   },
   "scripts": {
-    "arhone-install": [
-      "./arhone"
+    "arh-install": [
+      "./arh"
     ],
     "post-create-project-cmd": [
-      "@arhone-install"
+      "@arh-install"
     ]
   }
 }

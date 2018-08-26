@@ -34,14 +34,54 @@ if (!empty($argv)) {
 
     }
 
-    $Builder = new arhone\builder\Builder(include __DIR__ . '/../../config/arhone/builder.php');
+    $Builder = new arhone\builder\Builder();
+    $Builder->instruction(include __DIR__ . '/../../config/arhone/builder.php');
     try {
 
-        echo $Builder->make('Controller')->run('console:' . implode(' ', array_flip($argv)));
+        // Регистрация триггеров
+        $Trigger = $Builder->make('Trigger');
+        foreach (include __DIR__ . '/../../config/arhone/trigger.php' as $action => $item) {
+
+            foreach ($item as $instruction) {
+
+                if (isset($instruction['class']) && isset($instruction['method'])) {
+
+                    $Trigger->add($action, function ($match, $data) use ($instruction, $Builder) {
+
+                        $Class = $Builder->make($instruction['class']);
+
+                        $match[0] = $data;
+                        return $Class->{$instruction['method']}(...array_intersect_key($match, array_flip($instruction['argument'] ?? array_keys($match))));
+
+                    }, [
+                        'name'     => $instruction['name'] ?? null,
+                        'position' => $instruction['position'] ?? null,
+                        'break'    => $instruction['break'] ?? null,
+                        'status'   => $instruction['status'] ?? true
+                    ]);
+
+                }
+
+            }
+
+        }
+
+        // Создание символических ссылок
+        foreach (include __DIR__ . '/../../config/arhone/symlink.php' as $target => $link) {
+
+            if (file_exists($target) && !file_exists($link)) {
+                symlink ($target , $link);
+            }
+
+        }
+
+        echo $Trigger->run('console:' . implode(' ', array_flip($argv)));
 
     } catch (Exception $Exception) {
 
-        echo $Exception->getMessage();
+        echo $Exception->getMessage() ,
+        PHP_EOL , $Exception->getTraceAsString() ,
+        PHP_EOL;
 
     }
 

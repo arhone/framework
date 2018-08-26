@@ -13,7 +13,44 @@ $Builder->instruction(include __DIR__ . '/../../config/arhone/builder.php');
 
 try {
 
-    return $Builder->make('Controller');
+    // Регистрация триггеров
+    $Trigger = $Builder->make('Trigger');
+    foreach (include __DIR__ . '/../../config/arhone/trigger.php' as $action => $item) {
+
+        foreach ($item as $instruction) {
+
+            if (isset($instruction['class']) && isset($instruction['method'])) {
+
+                $Trigger->add($action, function ($match, $data) use ($instruction, $Builder) {
+
+                    $Class = $Builder->make($instruction['class']);
+
+                    $match[0] = $data;
+                    return $Class->{$instruction['method']}(...array_intersect_key($match, array_flip($instruction['argument'] ?? array_keys($match))));
+
+                }, [
+                    'name'     => $instruction['name'] ?? null,
+                    'position' => $instruction['position'] ?? null,
+                    'break'    => $instruction['break'] ?? null,
+                    'status'   => $instruction['status'] ?? true
+                ]);
+
+            }
+
+        }
+
+    }
+
+    // Создание символических ссылок
+    foreach (include __DIR__ . '/../../config/arhone/symlink.php' as $target => $link) {
+
+        if (file_exists($target) && !file_exists($link)) {
+            symlink ($target , $link);
+        }
+
+    }
+
+    return $Trigger;
 
 } catch (Exception $Exception) {
 
