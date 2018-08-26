@@ -30,8 +30,8 @@ try {
 
                         if ($value === 0) {
                             $array[$key] = $data;
-                        } elseif ((int)$value && isset($match[$key])) {
-                            $array[$key] = $match[$key];
+                        } elseif ((int)$value && isset($match[$value])) {
+                            $array[$key] = $match[$value];
                         } elseif ($Builder->has($value)) {
                             $array[$key] = $Builder->make($value);
                         }
