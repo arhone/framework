@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'ResponseController' => [
-        'class'     => 'response\controller\ResponseController',
+    'AdminController' => [
+        'class'     => 'admin\controller\AdminController',
         'construct' => [
             ['Trigger'],
             ['Template'],

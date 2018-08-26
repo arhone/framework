@@ -1,9 +1,9 @@
 <?php
 
 return [
-    'http:(.*)' => [
+    '(http[s]?):(post|get):/admin/(.*?)' => [
         [
-            'controller' => 'ResponseController',
+            'controller' => 'AdminController',
             'method'     => 'run',
             'argument'   => [0],
             'position'   => 1

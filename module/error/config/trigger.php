@@ -1,9 +1,9 @@
 <?php
 
 return [
-    'http:(.*):/([0-9]+)' => [
+    '(http[s]?):(.*):/error/code/([0-9]+)' => [
         [
-            'controller' => 'HTTPStatusController',
+            'controller' => 'ErrorController',
             'method'     => 'code',
             'argument'   => [1, 2],
             'position'   => -1,

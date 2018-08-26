@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'HTTPStatusController' => [
-        'class'     => 'http_status\controller\HTTPStatusController',
+    'ErrorController' => [
+        'class'     => 'error\controller\ErrorController',
         'construct' => [
             ['Header'],
             ['Template']

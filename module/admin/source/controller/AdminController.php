@@ -1,20 +1,36 @@
 <?php declare(strict_types=1);
-namespace response\controller;
+namespace admin\controller;
 
 use arhone\template\TemplateInterface;
 use arhone\trigger\TriggerInterface;
 
-class ResponseController {
+/**
+ * Class AdminController
+ * @package admin\controller
+ * @author Алексей Арх <info@arh.one>
+ */
+class AdminController {
 
+    /**
+     * Настройки класса
+     *
+     * @var array
+     */
     protected $config = [
         'tag'  => 'content', // Главный тег
         'path' => [
-            'view' => __DIR__ . '/../../../../view/view/index.tpl'
+            'view' => __DIR__ . '/../../../../view/default.tpl'
         ]
     ];
 
-    protected $Http;
+    /**
+     * @var TriggerInterface
+     */
     protected $Trigger;
+
+    /**
+     * @var TemplateInterface
+     */
     protected $Template;
 
     /**
@@ -34,24 +50,20 @@ class ResponseController {
     }
 
     /**
+     * Запуск
+     *
      * @param $data
      * @return string
      */
     public function run ($data) {
 
-        //$this->Http->Response->send();
-
         if ($this->Template->has($this->config['tag'])) {
 
             return $this->Template->render($this->config['path']['view']);
 
-        } elseif ($data) {
-
-            return $data;
-
         }
 
-        return $this->Trigger->run('http:get:/404');
+        return $this->Trigger->run('https:get:/error/code/404');
 
     }
 

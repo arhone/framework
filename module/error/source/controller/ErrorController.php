@@ -1,13 +1,16 @@
-<?php
-namespace http_status\controller;
+<?php declare(strict_types=1);
+
+namespace error\controller;
+
 use arhone\header\Header;
 use arhone\template\Template;
 
 /**
- * Class HTTPStatusController
- * @package http_status\controller
+ * Class ErrorController
+ * @package error\controller
+ * @author Алексей Арх <info@arh.one>
  */
-class HTTPStatusController {
+class ErrorController {
 
     /**
      * @var $Header \arhone\header\Header
@@ -17,8 +20,8 @@ class HTTPStatusController {
     protected $Template;
 
     /**
-     * HTTPStatusController constructor.
-     * HTTPStatusController constructor.
+     * ErrorController constructor.
+     * ErrorController constructor.
      * @param Header $Header
      * @param Template $Template
      */
