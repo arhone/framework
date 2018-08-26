@@ -1,9 +1,15 @@
 <?php
 
 return [
-    'http:get:/' => [
+    '(http[s]?):get:/admin/' => [
         [
-            'class'  => 'ExampleController',
+            'class'  => 'ExampleAdminController',
+            'method' => 'middleware'
+        ]
+    ],
+    '(http[s]?):get:/' => [
+        [
+            'class'  => 'ExampleFrontController',
             'method' => 'middleware'
         ]
     ]
