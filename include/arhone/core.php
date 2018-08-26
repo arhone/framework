@@ -45,7 +45,7 @@ try {
     foreach (include __DIR__ . '/../../config/arhone/symlink.php' as $target => $link) {
 
         if (file_exists($target) && !file_exists($link)) {
-            symlink ($target , $link);
+            symlink($target, $link);
         }
 
     }
