@@ -6,7 +6,11 @@ $config = include __DIR__ . '/config.php';
 
 return [
     'Builder' => [
-        'class' => 'arhone\builder\Builder'
+        'class' => 'arhone\builder\Builder',
+        'construct' => [
+            'new'   => false,
+            'clone' => true
+        ]
     ],
     'Http' => [
         'class' => 'arhone\http\Http',
