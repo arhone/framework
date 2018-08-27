@@ -15,39 +15,35 @@ try {
 
     // Регистрация триггеров
     $Trigger = $Builder->make('Trigger');
-    foreach (include __DIR__ . '/../../config/arhone/trigger.php' as $action => $item) {
+    foreach (include __DIR__ . '/../../config/arhone/trigger.php' as $instruction) {
 
-        foreach ($item as $instruction) {
+        if (isset($instruction['pattern']) && isset($instruction['controller']) && isset($instruction['method'])) {
 
-            if (isset($instruction['controller']) && isset($instruction['method'])) {
+            $Trigger->add($instruction['pattern'], function ($match, $data) use ($instruction, $Builder) {
 
-                $Trigger->add($action, function ($match, $data) use ($instruction, $Builder) {
+                $Class = $Builder->make($instruction['controller']);
 
-                    $Class = $Builder->make($instruction['controller']);
+                $array = [];
+                foreach ($instruction['argument'] ?? [] as $key => $value) {
 
-                    $array = [];
-                    foreach ($instruction['argument'] ?? [] as $key => $value) {
-
-                        if ($value === 0) {
-                            $array[$key] = $data;
-                        } elseif ((int)$value && isset($match[$value])) {
-                            $array[$key] = $match[$value];
-                        } elseif ($Builder->has($value)) {
-                            $array[$key] = $Builder->make($value);
-                        }
-
+                    if ($value === 0) {
+                        $array[$key] = $data;
+                    } elseif ((int)$value && isset($match[(int)$value])) {
+                        $array[$key] = $match[(int)$value];
+                    } elseif ($Builder->has($value)) {
+                        $array[$key] = $Builder->make($value);
                     }
 
-                    return $Class->{$instruction['method']}(...$array);
+                }
 
-                }, [
-                    'name'     => $instruction['name']     ?? $instruction['controller'],
-                    'position' => $instruction['position'] ?? null,
-                    'break'    => $instruction['break']    ?? null,
-                    'status'   => $instruction['status']   ?? true
-                ]);
+                return $Class->{$instruction['method']}(...$array);
 
-            }
+            }, [
+                'name'     => $instruction['name']     ?? $instruction['controller'],
+                'position' => $instruction['position'] ?? null,
+                'break'    => $instruction['break']    ?? null,
+                'status'   => $instruction['status']   ?? true
+            ]);
 
         }
 

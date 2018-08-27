@@ -1,23 +1,20 @@
 <?php
 
 return [
-    'console:(--help|-h)?' => [
-        [
-            'controller' => 'ConsoleHelpController',
-            'method'     => 'help'
-        ]
+    [
+        'pattern'    => 'console:(--help|-h)?',
+        'controller' => 'ConsoleHelpController',
+        'method'     => 'help'
     ],
-    'console:(cache:clear)' => [
-        [
-            'controller' => 'ConsoleCacheController',
-            'method'     => 'cacheClear'
-        ]
+    [
+        'pattern'    => 'console:(cache:clear)',
+        'controller' => 'ConsoleCacheController',
+        'method'     => 'cacheClear'
     ],
-    'console:test' => [
-        [
-            'class'    => 'ConsoleHelpController',
-            'method'   => 'test',
-            'argument' => ['Trigger']
-        ]
+    [
+        'pattern'  => 'console:test',
+        'class'    => 'ConsoleHelpController',
+        'method'   => 'test',
+        'argument' => ['Trigger']
     ]
 ];

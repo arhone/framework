@@ -1,6 +1,6 @@
 <?php
 
-return array_merge_recursive(
+return array_merge(
     include __DIR__ . '/project/trigger.php',
 
     include __DIR__ . '/../../module/admin/config/trigger.php',
