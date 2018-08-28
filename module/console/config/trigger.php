@@ -9,7 +9,12 @@ return [
     [
         'pattern'    => 'console:(cache:clear)',
         'controller' => 'ConsoleCacheController',
-        'method'     => 'cacheClear'
+        'method'     => 'clear'
+    ],
+    [
+        'pattern'    => 'console:(symlink:create)',
+        'controller' => 'ConsoleSymlinkController',
+        'method'     => 'create'
     ],
     [
         'pattern'  => 'console:test',

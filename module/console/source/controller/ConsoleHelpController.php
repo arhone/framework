@@ -1,4 +1,5 @@
-<?php
+<?php declare(strict_types=1);
+
 namespace console\controller;
 
 use arhone\trigger\Trigger;
@@ -23,6 +24,7 @@ class ConsoleHelpController {
         $info[] = "\033[33m" . '# команды';
         $info[] = "\033[32m" . ' cron             ' . "\033[37m". '- Для запуска кода по расписанию (arh cron (1h, 1D, 1W, 1M, 1Y) / arh module_name cron)';
         $info[] = "\033[32m" . ' cache:clear      ' . "\033[37m". '- Очищает весь кэш';
+        $info[] = "\033[32m" . ' symlink:create   ' . "\033[37m". '- Создать символические ссылки';
 
         return implode(PHP_EOL, $info) . PHP_EOL;
 

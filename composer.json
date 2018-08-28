@@ -53,7 +53,11 @@
     }
   ],
   "require": {
-    "php": "^7.0",
+    "php": ">=7.1",
+    "ext-pdo": "*",
+    "ext-curl": "*",
+    "ext-json": "*",
+    "ext-intl": "*",
     "arhone/builder": "dev-master",
     "arhone/http": "dev-master",
     "arhone/trigger": "dev-master",

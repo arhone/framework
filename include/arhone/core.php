@@ -49,18 +49,6 @@ try {
 
     }
 
-    // Создание символических ссылок
-    foreach (include __DIR__ . '/../../config/arhone/symlink.php' as $target => $link) {
-
-        $target = str_replace('/', '\\', $target);
-        $link   = str_replace('/', '\\', $link);
-
-        if (file_exists($target) && !file_exists($link)) {
-            symlink($target, $link);
-        }
-
-    }
-
     return $Trigger;
 
 } catch (Exception $Exception) {

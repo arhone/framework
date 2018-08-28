@@ -1,4 +1,5 @@
-<?php
+<?php declare(strict_types=1);
+
 namespace console\controller;
 
 use arhone\cache\CacheInterface;
@@ -22,12 +23,12 @@ class ConsoleCacheController {
     }
 
     /**
-     * Console cache-clear
+     * Console cache:clear
      *
      * Очищает кеш командой
      * @return bool
      */
-    public function cacheClear () {
+    public function clear () {
 
         if (!$this->Cache->status()) {
             return ' Кэширование отключено' . PHP_EOL;

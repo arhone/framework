@@ -74,15 +74,6 @@ if (!empty($argv)) {
 
         }
 
-        // Создание символических ссылок
-        foreach (include __DIR__ . '/../../config/arhone/symlink.php' as $target => $link) {
-
-            if (file_exists($target) && !file_exists($link)) {
-                symlink($target, $link);
-            }
-
-        }
-
         echo $Trigger->run('console:' . implode(' ', array_flip($argv)));
 
     } catch (Exception $Exception) {

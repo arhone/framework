@@ -9,5 +9,8 @@ return [
         'construct' => [
             ['Cache']
         ]
+    ],
+    'ConsoleSymlinkController' => [
+        'class' => 'console\controller\ConsoleSymlinkController'
     ]
 ];
