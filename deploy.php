@@ -32,6 +32,10 @@ task('composer:install', function() {
     run('cd {{release_path}} && {{bin/composer}} {{composer_options}}');
 }); // Установить пакеты
 
+task('symlink:create', function() {
+    run('cd {{release_path}} && arh symlink:create');
+}); // Создаёт симлинки
+
 task('reload:php-fpm', function() {
     run('sudo /usr/sbin/service php7.1-fpm restart');
 }); // Перезапустить PHP
