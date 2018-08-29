@@ -21,8 +21,10 @@ class ConsoleSymlinkController {
         // Создание символических ссылок
         foreach (include __DIR__ . '/../../../../config/arhone/symlink.php' as $target => $link) {
 
-            $target = str_replace('/', '\\', $target);
-            $link   = str_replace('/', '\\', $link);
+            $target = str_replace('/', DIRECTORY_SEPARATOR , $target);
+            $link   = str_replace('/', DIRECTORY_SEPARATOR , $link);
+
+            $linkList = [];
 
             if (file_exists($target) && !file_exists($link)) {
                 symlink($target, $link);

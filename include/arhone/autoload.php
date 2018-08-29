@@ -30,10 +30,12 @@ spl_autoload_register(function ($className) use ($config) {
                 $vendor  = explode(DIRECTORY_SEPARATOR, $data[1])[0];
                 $data[1] = str_replace($vendor . DIRECTORY_SEPARATOR, '', $data[1]);
 
-                $fileList[] = implode('module' . DIRECTORY_SEPARATOR . $vendor . DIRECTORY_SEPARATOR . 'source'    . DIRECTORY_SEPARATOR, $data);
-                $fileList[] = implode('module' . DIRECTORY_SEPARATOR . $vendor . DIRECTORY_SEPARATOR . 'library'   . DIRECTORY_SEPARATOR, $data);
-                $fileList[] = implode('module' . DIRECTORY_SEPARATOR . $vendor . DIRECTORY_SEPARATOR . 'test'      . DIRECTORY_SEPARATOR, $data);
-                $fileList[] = implode('module' . DIRECTORY_SEPARATOR . $vendor . DIRECTORY_SEPARATOR . 'extension' . DIRECTORY_SEPARATOR, $data);
+                $fileList = [
+                    implode('module' . DIRECTORY_SEPARATOR . $vendor . DIRECTORY_SEPARATOR . 'source'    . DIRECTORY_SEPARATOR, $data),
+                    implode('module' . DIRECTORY_SEPARATOR . $vendor . DIRECTORY_SEPARATOR . 'library'   . DIRECTORY_SEPARATOR, $data),
+                    implode('module' . DIRECTORY_SEPARATOR . $vendor . DIRECTORY_SEPARATOR . 'test'      . DIRECTORY_SEPARATOR, $data),
+                    implode('module' . DIRECTORY_SEPARATOR . $vendor . DIRECTORY_SEPARATOR . 'extension' . DIRECTORY_SEPARATOR, $data)
+                ];
 
                 foreach ($fileList as $file) {
 
