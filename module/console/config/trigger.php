@@ -2,19 +2,19 @@
 
 return [
     [
-        'pattern'    => 'console:(--help|-h)?',
-        'controller' => 'ConsoleHelpController',
-        'method'     => 'help'
+        'pattern' => 'console:(--help|-h)?',
+        'class'   => 'ConsoleHelpController',
+        'method'  => 'help'
     ],
     [
-        'pattern'    => 'console:(cache:clear)',
-        'controller' => 'ConsoleCacheController',
-        'method'     => 'clear'
+        'pattern' => 'console:(cache:clear)',
+        'class'   => 'ConsoleCacheController',
+        'method'  => 'clear'
     ],
     [
-        'pattern'    => 'console:(symlink:create)',
-        'controller' => 'ConsoleSymlinkController',
-        'method'     => 'create'
+        'pattern' => 'console:(symlink:create)',
+        'class'   => 'ConsoleSymlinkController',
+        'method'  => 'create'
     ],
     [
         'pattern'  => 'console:test',

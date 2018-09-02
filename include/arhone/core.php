@@ -17,11 +17,11 @@ try {
     $Trigger = $Builder->make('Trigger');
     foreach (include __DIR__ . '/../../config/arhone/trigger.php' as $instruction) {
 
-        if (isset($instruction['pattern']) && isset($instruction['controller']) && isset($instruction['method'])) {
+        if (isset($instruction['pattern']) && isset($instruction['class']) && isset($instruction['method'])) {
 
             $Trigger->add($instruction['pattern'], function ($match, $data) use ($instruction, $Builder) {
 
-                $Class = $Builder->make($instruction['controller']);
+                $Class = $Builder->make($instruction['class']);
 
                 $array = [];
                 foreach ($instruction['argument'] ?? [] as $key => $value) {
@@ -39,7 +39,7 @@ try {
                 return $Class->{$instruction['method']}(...$array);
 
             }, [
-                'name'     => $instruction['name']     ?? $instruction['controller'],
+                'name'     => $instruction['name']     ?? $instruction['class'],
                 'position' => $instruction['position'] ?? null,
                 'break'    => $instruction['break']    ?? null,
                 'status'   => $instruction['status']   ?? true

@@ -2,16 +2,16 @@
 
 return [
     [
-        'pattern'    => '(http[s]?):get:/admin',
-        'controller' => 'ExampleAdminController',
-        'method'     => 'middleware',
-        'argument'   => [0],
-        'break'      => false
+        'pattern'  => '(http[s]?):get:/admin',
+        'class'    => 'ExampleAdminController',
+        'method'   => 'middleware',
+        'argument' => [0],
+        'break'    => false
     ],
     [
-        'pattern'    => '(http):get:/',
-        'controller' => 'ExampleFrontController',
-        'method'     => 'middleware',
-        'argument'   => [0]
+        'pattern'  => '(http):get:/',
+        'class'    => 'ExampleFrontController',
+        'method'   => 'middleware',
+        'argument' => [0]
     ]
 ];
