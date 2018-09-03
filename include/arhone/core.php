@@ -15,7 +15,7 @@ try {
 
     // Регистрация триггеров
     $Trigger = $Builder->make('Trigger');
-    foreach (include __DIR__ . '/../../config/arhone/trigger.php' as $instruction) {
+    foreach (include __DIR__ . '/../../config/arhone/handler.php' as $instruction) {
 
         if (isset($instruction['pattern']) && isset($instruction['class']) && isset($instruction['method'])) {
 
