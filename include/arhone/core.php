@@ -8,7 +8,7 @@ ini_set('error_log', __DIR__ . '/../log/error.log'); // Файл для сохр
 
 include __DIR__ . '/autoload.php';
 
-$Builder = new \arhone\builder\Builder();
+$Builder = new \arhone\construction\Builder();
 $Builder->instruction(include __DIR__ . '/../../config/arhone/builder.php');
 
 try {
@@ -17,9 +17,9 @@ try {
     $Trigger = $Builder->make('Trigger');
     foreach (include __DIR__ . '/../../config/arhone/handler.php' as $instruction) {
 
-        if (isset($instruction['trigger']) && isset($instruction['class']) && isset($instruction['method'])) {
+        if (isset($instruction['pattern']) && isset($instruction['class']) && isset($instruction['method'])) {
 
-            $Trigger->add($instruction['trigger'], function ($match, $data) use ($instruction, $Builder) {
+            $Trigger->add($instruction['pattern'], function ($match, $data) use ($instruction, $Builder) {
 
                 $Class = $Builder->make($instruction['class']);
 

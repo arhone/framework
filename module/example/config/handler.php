@@ -2,14 +2,14 @@
 
 return [
     [
-        'trigger'  => '(http[s]?):get:/admin',
+        'pattern'  => '(http[s]?):get:/admin',
         'class'    => 'ExampleAdminController',
         'method'   => 'middleware',
         'argument' => [0],
         'break'    => false
     ],
     [
-        'trigger'  => '(http):get:/',
+        'pattern'  => '(http):get:/',
         'class'    => 'ExampleFrontController',
         'method'   => 'middleware',
         'argument' => [0]

@@ -2,22 +2,22 @@
 
 return [
     [
-        'trigger' => 'console:(--help|-h)?',
+        'pattern' => 'console:(--help|-h)?',
         'class'   => 'ConsoleHelpController',
         'method'  => 'help'
     ],
     [
-        'trigger' => 'console:(cache:clear)',
+        'pattern' => 'console:(cache:clear)',
         'class'   => 'ConsoleCacheController',
         'method'  => 'clear'
     ],
     [
-        'trigger' => 'console:(symlink:create)',
+        'pattern' => 'console:(symlink:create)',
         'class'   => 'ConsoleSymlinkController',
         'method'  => 'create'
     ],
     [
-        'trigger'  => 'console:test',
+        'pattern'  => 'console:test',
         'class'    => 'ConsoleHelpController',
         'method'   => 'test',
         'argument' => ['Trigger']

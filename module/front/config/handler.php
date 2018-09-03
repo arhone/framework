@@ -2,7 +2,7 @@
 
 return [
     [
-        'trigger'  => '(http[s]?):(post|get):/(?!admin|api)(.*)',
+        'pattern'  => '(http[s]?):(post|get):/(?!admin|api)(.*)',
         'class'    => 'FrontController',
         'method'   => 'run',
         'argument' => [0],
