@@ -15,11 +15,11 @@ try {
 
     // Регистрация триггеров
     $Trigger = $Builder->make('Trigger');
-    foreach (include __DIR__ . '/../../config/arhone/trigger.php' as $instruction) {
+    foreach (include __DIR__ . '/../../config/arhone/handler.php' as $instruction) {
 
-        if (isset($instruction['pattern']) && isset($instruction['class']) && isset($instruction['method'])) {
+        if (isset($instruction['trigger']) && isset($instruction['class']) && isset($instruction['method'])) {
 
-            $Trigger->add($instruction['pattern'], function ($match, $data) use ($instruction, $Builder) {
+            $Trigger->add($instruction['trigger'], function ($match, $data) use ($instruction, $Builder) {
 
                 $Class = $Builder->make($instruction['class']);
 

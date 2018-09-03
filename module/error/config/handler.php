@@ -2,7 +2,7 @@
 
 return [
     [
-        'pattern'  => '(http[s]?):(.*):/error/code/([0-9]+)',
+        'trigger'  => '(http[s]?):(.*):/error/code/([0-9]+)',
         'class'    => 'ErrorController',
         'method'   => 'code',
         'argument' => [1, 3],
