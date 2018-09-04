@@ -34,7 +34,7 @@ if (!empty($argv)) {
 
     }
 
-    $Builder = new arhone\builder\Builder();
+    $Builder = new arhone\construction\Builder();
     $Builder->instruction(include __DIR__ . '/../../config/arhone/builder.php');
     try {
 

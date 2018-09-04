@@ -17,7 +17,7 @@
   "repositories": [
     {
       "type": "git",
-      "url": "https://github.com/arhone/builder"
+      "url": "https://github.com/arhone/construction"
     },
     {
       "type": "git",
@@ -25,23 +25,19 @@
     },
     {
       "type": "git",
-      "url": "https://github.com/arhone/trigger"
+      "url": "https://github.com/arhone/commutation"
     },
     {
       "type": "git",
-      "url": "https://github.com/arhone/config"
+      "url": "https://github.com/arhone/configuration"
     },
     {
       "type": "git",
-      "url": "https://github.com/arhone/cache"
+      "url": "https://github.com/arhone/caching"
     },
     {
       "type": "git",
-      "url": "https://github.com/arhone/registry"
-    },
-    {
-      "type": "git",
-      "url": "https://github.com/arhone/template"
+      "url": "https://github.com/arhone/templating"
     },
     {
       "type": "git",
@@ -49,7 +45,7 @@
     },
     {
       "type": "git",
-      "url": "https://github.com/arhone/storage"
+      "url": "https://github.com/arhone/storing"
     }
   ],
   "require": {
@@ -58,16 +54,14 @@
     "ext-curl": "*",
     "ext-json": "*",
     "ext-intl": "*",
-    "arhone/builder": "dev-master",
+    "arhone/constriction": "dev-master",
     "arhone/http": "dev-master",
-    "arhone/trigger": "dev-master",
-    "arhone/config": "dev-master",
-    "arhone/cache": "dev-master",
-    "arhone/controller": "dev-master",
-    "arhone/registry": "dev-master",
-    "arhone/template": "dev-master",
+    "arhone/commutation": "dev-master",
+    "arhone/configuration": "dev-master",
+    "arhone/caching": "dev-master",
+    "arhone/templating": "dev-master",
     "arhone/session": "dev-master",
-    "arhone/storage": "dev-master"
+    "arhone/storing": "dev-master"
   },
   "scripts": {
     "arh-install": [
