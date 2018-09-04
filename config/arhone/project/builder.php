@@ -57,23 +57,20 @@ return [
     ],
     'Cache' => ['CacheFile'],
     'Trigger' => [
-        'class' => 'arhone\trigger\Trigger'
+        'class' => 'arhone\commutation\Trigger'
     ],
-    'Config' => [
-        'class' => 'arhone\config\Config',
+    'Configuration' => [
+        'class' => 'arhone\storing\ContainerMemoryAdapter',
         'construct' => [
             [
                 'array' => $config
             ]
         ]
     ],
-    'Template' => [
-        'class' => 'arhone\template\Template'
+    'Templater' => [
+        'class' => 'arhone\templating\Templater'
     ],
     'Session' => [
         'class' => 'arhone\session\Session'
-    ],
-    'Header' => [
-        'class' => 'arhone\http\Header'
     ]
 ];
