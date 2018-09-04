@@ -29,10 +29,6 @@
     },
     {
       "type": "git",
-      "url": "https://github.com/arhone/configuration"
-    },
-    {
-      "type": "git",
       "url": "https://github.com/arhone/caching"
     },
     {
@@ -57,7 +53,6 @@
     "arhone/constriction": "dev-master",
     "arhone/http": "dev-master",
     "arhone/commutation": "dev-master",
-    "arhone/configuration": "dev-master",
     "arhone/caching": "dev-master",
     "arhone/templating": "dev-master",
     "arhone/session": "dev-master",

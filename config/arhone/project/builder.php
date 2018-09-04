@@ -6,7 +6,7 @@ $config = include __DIR__ . '/config.php';
 
 return [
     'Builder' => [
-        'class' => 'arhone\builder\Builder',
+        'class' => 'arhone\construction\Builder',
         'construct' => [
             'new'   => false,
             'clone' => true
@@ -22,24 +22,12 @@ return [
     'Request' => [
         'class' => 'arhone\http\Request',
         'construct' => [
-            [
-                'array' => $_SERVER,
-            ],
-            [
-                'array' => [], //getallheaders()
-            ],
-            [
-                'array' => $_GET,
-            ],
-            [
-                'array' => $_POST,
-            ],
-            [
-                'array' => $_COOKIE,
-            ],
-            [
-                'array' => $_FILES
-            ]
+            ['array' => $_SERVER],
+            ['array' => [] /*getallheaders()*/],
+            ['array' => $_GET],
+            ['array' => $_POST],
+            ['array' => $_COOKIE],
+            ['array' => $_FILES]
         ]
     ],
     'Response' => [
@@ -47,7 +35,7 @@ return [
         'construct' => []
     ],
     'CacheFile' => [
-        'class' => 'arhone\cache\CacheFile',
+        'class' => 'arhone\caching\CacheFileSystemAdapter',
         'construct' => [
             ['array' => [
                 'status'    => $config['cache']['status'],
@@ -59,11 +47,11 @@ return [
     'Trigger' => [
         'class' => 'arhone\commutation\Trigger'
     ],
-    'Configuration' => [
-        'class' => 'arhone\storing\ContainerMemoryAdapter',
-        'construct' => [
-            [
-                'array' => $config
+    'Config' => [
+        'class' => 'arhone\storing\StorageMemoryAdapter',
+        'method' => [
+            'fill' => [
+                ['array' => $config]
             ]
         ]
     ],
