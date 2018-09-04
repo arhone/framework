@@ -50,7 +50,7 @@
     "ext-curl": "*",
     "ext-json": "*",
     "ext-intl": "*",
-    "arhone/constriction": "dev-master",
+    "arhone/construction": "dev-master",
     "arhone/http": "dev-master",
     "arhone/commutation": "dev-master",
     "arhone/caching": "dev-master",

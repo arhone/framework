@@ -5,7 +5,7 @@ return [
         'class'     => 'admin\controller\AdminController',
         'construct' => [
             ['Trigger'],
-            ['Template'],
+            ['Templater'],
             [
                 'array' => include __DIR__ . '/config.php'
             ]

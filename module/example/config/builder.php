@@ -4,13 +4,13 @@ return [
     'ExampleAdminController' => [
         'class' => 'example\controller\ExampleAdminController',
         'construct' => [
-            ['Template']
+            ['Templater']
         ]
     ],
     'ExampleFrontController' => [
         'class' => 'example\controller\ExampleFrontController',
         'construct' => [
-            ['Template']
+            ['Templater']
         ]
     ]
 ];

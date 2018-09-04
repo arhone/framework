@@ -5,7 +5,7 @@ return [
         'class'     => 'error\controller\ErrorController',
         'construct' => [
             ['Header'],
-            ['Template']
+            ['Templater']
         ]
     ]
 ];
