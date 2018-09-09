@@ -2,7 +2,7 @@
 
 namespace console\controller;
 
-use arhone\cache\CacheInterface;
+use arhone\caching\CacherInterface;
 
 /**
  * Class ConsoleCacheController
@@ -10,15 +10,18 @@ use arhone\cache\CacheInterface;
  */
 class ConsoleCacheController {
 
-    protected $Cache;
+    /**
+     * @var CacherInterface
+     */
+    protected $Cacher;
 
     /**
      * ConsoleCacheController constructor.
-     * @param CacheInterface $Cache
+     * @param CacherInterface $Cache
      */
-    public function __construct (CacheInterface $Cache) {
+    public function __construct (CacherInterface $Cacher) {
 
-        $this->Cache = $Cache;
+        $this->Cacher = $Cacher;
 
     }
 
@@ -30,10 +33,7 @@ class ConsoleCacheController {
      */
     public function clear () {
 
-        if (!$this->Cache->status()) {
-            return ' Кэширование отключено' . PHP_EOL;
-        }
-        return ($this->Cache->clear() == true ? ' Кэш очищен' : ' Кэш не был очищен') . PHP_EOL;
+        return ($this->Cacher->clear() == true ? ' Кэш очищен' : ' Кэш не был очищен') . PHP_EOL;
 
     }
 

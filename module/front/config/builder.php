@@ -5,7 +5,7 @@ return [
         'class'     => 'front\controller\FrontController',
         'construct' => [
             ['Trigger'],
-            ['Template'],
+            ['Templater'],
             [
                 'array' => include __DIR__ . '/config.php'
             ]

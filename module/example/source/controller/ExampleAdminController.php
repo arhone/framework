@@ -2,7 +2,7 @@
 
 namespace example\controller;
 
-use arhone\template\Template;
+use arhone\templating\Templater;
 
 /**
  * Class ExampleAdminController
@@ -12,17 +12,17 @@ use arhone\template\Template;
 class ExampleAdminController {
 
     /**
-     * @var Template
+     * @var Templater
      */
-    protected $Template;
+    protected $Templater;
 
     /**
      * ExampleAdminController constructor.
-     * @param Template $Template
+     * @param Templater $Templater
      */
-    public function __construct (Template $Template) {
+    public function __construct (Templater $Templater) {
 
-        $this->Template = $Template;
+        $this->Templater = $Templater;
 
     }
 
@@ -32,8 +32,8 @@ class ExampleAdminController {
      */
     public function middleware ($data) {
 
-        $this->Template->title   = 'Пример админка';
-        $this->Template->content = 'Тест админка';
+        $this->Templater->title   = 'Пример админка';
+        $this->Templater->content = 'Тест админка';
 
         return $data . 'Привет';
 

@@ -7,7 +7,7 @@ return [
     'ConsoleCacheController' => [
         'class' => 'console\controller\ConsoleCacheController',
         'construct' => [
-            ['Cache']
+            ['Cacher']
         ]
     ],
     'ConsoleSymlinkController' => [

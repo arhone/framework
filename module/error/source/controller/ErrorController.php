@@ -3,7 +3,7 @@
 namespace error\controller;
 
 use arhone\http\Header;
-use arhone\template\Template;
+use arhone\templating\TemplaterInterface;
 
 /**
  * Class ErrorController
@@ -13,22 +13,18 @@ use arhone\template\Template;
 class ErrorController {
 
     /**
-     * @var $Header \arhone\header\Header
-     * @var $Template \arhone\template\Template
+     * @var $Templater \arhone\templating\Templater
      */
     protected $Header;
-    protected $Template;
+    protected $Templater;
 
     /**
      * ErrorController constructor.
-     * ErrorController constructor.
-     * @param Header $Header
-     * @param Template $Template
+     * @param TemplaterInterface $Templater
      */
-    public function __construct (Header $Header, Template $Template) {
+    public function __construct (TemplaterInterface $Templater) {
 
-        $this->Header   = $Header;
-        $this->Template = $Template;
+        $this->Templater = $Templater;
 
     }
 
@@ -55,10 +51,10 @@ class ErrorController {
      */
     public function code404 ($type = 'get') {
 
-        $this->Header->add('HTTP/1.x 404 Not Found');
-        $this->Header->add('Status:', '404 Not Found');
+        //$this->Header->add('HTTP/1.x 404 Not Found');
+        //$this->Header->add('Status:', '404 Not Found');
 
-        return $this->Template->render(__DIR__ . '/../view/error.tpl', [
+        return $this->Templater->render(__DIR__ . '/../view/error.tpl', [
             'title'   => 'Страница не найдена',
             'message' => 'Страница не найдена :('
         ]);
@@ -71,7 +67,7 @@ class ErrorController {
      */
     public function code0 () {
 
-        return $this->Template->render(__DIR__ . '/../view/error.tpl', [
+        return $this->Templater->render(__DIR__ . '/../view/error.tpl', [
             'title'   => 'Неизвестная ошибка',
             'message' => 'Ой :('
         ]);

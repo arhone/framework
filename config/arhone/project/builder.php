@@ -34,8 +34,8 @@ return [
         'class' => 'arhone\http\Response',
         'construct' => []
     ],
-    'CacheFile' => [
-        'class' => 'arhone\caching\CacheFileSystemAdapter',
+    'CacherFile' => [
+        'class' => 'arhone\caching\CacherFileSystemAdapter',
         'construct' => [
             ['array' => [
                 'status'    => $config['cache']['status'],
@@ -43,7 +43,7 @@ return [
             ]]
         ]
     ],
-    'Cache' => ['CacheFile'],
+    'Cacher' => ['CacherFile'],
     'Trigger' => [
         'class' => 'arhone\commutation\Trigger'
     ],

@@ -2,7 +2,8 @@
 
 namespace example\controller;
 
-use arhone\template\Template;
+use arhone\templating\TemplaterInterface;
+use arhone\caching\CacherInterface;
 
 /**
  * Class ExampleFrontController
@@ -12,17 +13,24 @@ use arhone\template\Template;
 class ExampleFrontController {
 
     /**
-     * @var Template
+     * @var TemplaterInterface
      */
-    protected $Template;
+    protected $Templater;
+
+    /**
+     * @var CacherInterface
+     */
+    protected $Cacher;
 
     /**
      * ExampleFrontController constructor.
-     * @param Template $Template
+     * @param TemplaterInterface $Templater
+     * @param CacherInterface $Cacher
      */
-    public function __construct (Template $Template) {
+    public function __construct (TemplaterInterface $Templater, CacherInterface $Cacher) {
 
-        $this->Template = $Template;
+        $this->Templater = $Templater;
+        $this->Cacher    = $Cacher;
 
     }
 
@@ -32,10 +40,16 @@ class ExampleFrontController {
      */
     public function middleware ($data) {
 
-        $this->Template->title   = 'Пример фронт страницы';
-        $this->Template->content = 'Тест фронт страницы';
+        $this->Templater->title   = 'Пример фронт страницы';
 
-        return $data . 'Привет';
+        if (!$view = $this->Cacher->get('example:front')) {
+            $view = $this->Templater->render(__DIR__ . '/../view/example.tpl');
+            $this->Cacher->set('example:front', $view, 120);
+        }
+
+        $this->Templater->content = $view;
+
+        return $data;
 
     }
 

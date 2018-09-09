@@ -10,7 +10,8 @@ return [
     'ExampleFrontController' => [
         'class' => 'example\controller\ExampleFrontController',
         'construct' => [
-            ['Templater']
+            ['Templater'],
+            ['Cacher']
         ]
     ]
 ];

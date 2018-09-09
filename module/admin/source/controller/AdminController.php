@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 namespace admin\controller;
 
-use arhone\template\TemplateInterface;
-use arhone\trigger\TriggerInterface;
+use arhone\templating\TemplaterInterface;
+use arhone\commutation\TriggerInterface;
 
 /**
  * Class AdminController
@@ -29,21 +29,21 @@ class AdminController {
     protected $Trigger;
 
     /**
-     * @var TemplateInterface
+     * @var TemplaterInterface
      */
-    protected $Template;
+    protected $Templater;
 
     /**
      * ResponseController constructor.
      *
      * @param TriggerInterface $Trigger
-     * @param TemplateInterface $Template
+     * @param TemplaterInterface $Templater
      * @param array $config
      */
-    public function __construct (TriggerInterface $Trigger, TemplateInterface $Template, array $config = []) {
+    public function __construct (TriggerInterface $Trigger, TemplaterInterface $Templater, array $config = []) {
 
-        $this->Trigger  = $Trigger;
-        $this->Template = $Template;
+        $this->Trigger   = $Trigger;
+        $this->Templater = $Templater;
 
         $this->config($config);
 
@@ -57,9 +57,9 @@ class AdminController {
      */
     public function run ($data) {
 
-        if ($this->Template->has($this->config['tag'])) {
+        if ($this->Templater->has($this->config['tag'])) {
 
-            return $this->Template->render($this->config['path']['view']);
+            return $this->Templater->render($this->config['path']['view']);
 
         }
 
