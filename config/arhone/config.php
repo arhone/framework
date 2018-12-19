@@ -1,7 +1,7 @@
 <?php
 
 return array_merge(
-    include __DIR__ . '/project/config.php',
+    include __DIR__ . '/develop/config.php',
 
     include __DIR__ . '/../../module/admin/config/config.php',
     include __DIR__ . '/../../module/front/config/config.php',

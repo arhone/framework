@@ -1,5 +1,12 @@
 #!/usr/bin/env php
 <?php
+
+$_SERVER['ENVIRONMENT'] = 'develop'; // Режим разрабочика
+
+if ($environment = getenv('ARHONE_ENVIRONMENT')) {
+    $_SERVER['ENVIRONMENT'] = $environment;
+}
+
 include __DIR__ . '/../../include/arhone/autoload.php';
 
 set_time_limit(0);
@@ -9,44 +16,35 @@ if (!empty($argv)) {
     array_shift($argv);
     $argv = array_flip($argv);
 
-    if (isset($argv['--develop']) || isset($argv['-d'])) {
+    if ($_SERVER['ENVIRONMENT'] == 'production' || isset($argv['--production']) || isset($argv['-p'])) {
 
-        $_SERVER['DEVELOP'] = true; // Режим разрабочика
-        unset($argv['--develop']);
-        unset($argv['-d']);
+        $_SERVER['ENVIRONMENT'] = 'production';
+        unset($argv['--production']);
+        unset($argv['-p']);
 
     }
 
     if (isset($argv['--test']) || isset($argv['-t'])) {
 
-        $_SERVER['TEST'] = true; // Режим тестирования
+        $_SERVER['ENVIRONMENT'] = 'test'; // Режим тестирования
         unset($argv['--test']);
         unset($argv['-t']);
 
     }
 
-    if (isset($argv['-td']) || isset($argv['-dt'])) {
-
-        $_SERVER['DEVELOP'] = true; // Режим разрабочика
-        $_SERVER['TEST'] = true; // Режим тестирования
-        unset($argv['-td']);
-        unset($argv['-dt']);
-
-    }
-
-    $Builder = new arhone\construction\Builder();
-    $Builder->instruction(include __DIR__ . '/../../config/arhone/builder.php');
+    $builder = new arhone\construction\Builder();
+    $builder->instruction(include __DIR__ . '/../../config/arhone/builder.php');
     try {
 
         // Регистрация триггеров
-        $Trigger = $Builder->make('Trigger');
+        $trigger = $builder->make('Trigger');
         foreach (include __DIR__ . '/../../config/arhone/handler.php' as $instruction) {
 
             if (isset($instruction['pattern']) && isset($instruction['class']) && isset($instruction['method'])) {
 
-                $Trigger->add($instruction['pattern'], function ($match, $data) use ($instruction, $Builder) {
+                $trigger->add($instruction['pattern'], function ($match, $data) use ($instruction, $builder) {
 
-                    $Class = $Builder->make($instruction['class']);
+                    $class = $builder->make($instruction['class']);
 
                     $array = [];
                     foreach ($instruction['argument'] ?? [] as $key => $value) {
@@ -55,13 +53,13 @@ if (!empty($argv)) {
                             $array[$key] = $data;
                         } elseif ((int)$value && isset($match[(int)$value])) {
                            $array[$key] = $match[(int)$value];
-                        } elseif ($Builder->has($value)) {
-                            $array[$key] = $Builder->make($value);
+                        } elseif ($builder->has($value)) {
+                            $array[$key] = $builder->make($value);
                         }
 
                     }
 
-                    return $Class->{$instruction['method']}(...$array);
+                    return $class->{$instruction['method']}(...$array);
 
                 }, [
                     'name'     => $instruction['name']     ?? $instruction['class'],
@@ -74,15 +72,14 @@ if (!empty($argv)) {
 
         }
 
-        echo $Trigger->run('console:' . implode(' ', array_flip($argv)));
+        echo $trigger->run('console:' . implode(' ', array_flip($argv)));
 
-    } catch (Exception $Exception) {
+    } catch (Exception $exception) {
 
-        echo $Exception->getMessage() ,
-        PHP_EOL , $Exception->getTraceAsString() ,
+        echo $exception->getMessage() ,
+        PHP_EOL , $exception->getTraceAsString() ,
         PHP_EOL;
 
     }
-
 
 }

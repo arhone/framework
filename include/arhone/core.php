@@ -1,6 +1,6 @@
 <?php
 
-$_SERVER['DEVELOP'] = !empty($_SERVER['DEVELOP']) ? true : false; // Режим разрабочика
+$_SERVER['ENVIRONMENT'] = !empty($_SERVER['ENVIRONMENT']) ? $_SERVER['ENVIRONMENT'] : null; // Окружение
 
 ini_set('error_reporting', E_ALL | E_STRICT); // Типы ошибок, на которые надо ругаться
 ini_set('display_errors', $_SERVER['DEVELOP']); // Вывод ошибок
@@ -8,20 +8,20 @@ ini_set('error_log', __DIR__ . '/../log/error.log'); // Файл для сохр
 
 include __DIR__ . '/autoload.php';
 
-$Builder = new \arhone\construction\Builder();
-$Builder->instruction(include __DIR__ . '/../../config/arhone/builder.php');
+$builder = new \arhone\construction\Builder();
+$builder->instruction(include __DIR__ . '/../../config/arhone/builder.php');
 
 try {
 
     // Регистрация триггеров
-    $Trigger = $Builder->make('Trigger');
+    $trigger = $builder->make('Trigger');
     foreach (include __DIR__ . '/../../config/arhone/handler.php' as $instruction) {
 
         if (isset($instruction['pattern']) && isset($instruction['class']) && isset($instruction['method'])) {
 
-            $Trigger->add($instruction['pattern'], function ($match, $data) use ($instruction, $Builder) {
+            $trigger->add($instruction['pattern'], function ($match, $data) use ($instruction, $builder) {
 
-                $Class = $Builder->make($instruction['class']);
+                $class = $builder->make($instruction['class']);
 
                 $array = [];
                 foreach ($instruction['argument'] ?? [] as $key => $value) {
@@ -30,13 +30,13 @@ try {
                         $array[$key] = $data;
                     } elseif ((int)$value && isset($match[(int)$value])) {
                         $array[$key] = $match[(int)$value];
-                    } elseif ($Builder->has($value)) {
-                        $array[$key] = $Builder->make($value);
+                    } elseif ($builder->has($value)) {
+                        $array[$key] = $builder->make($value);
                     }
 
                 }
 
-                return $Class->{$instruction['method']}(...$array);
+                return $class->{$instruction['method']}(...$array);
 
             }, [
                 'name'     => $instruction['name']     ?? $instruction['class'],
@@ -49,10 +49,10 @@ try {
 
     }
 
-    return $Trigger;
+    return $trigger;
 
-} catch (Exception $Exception) {
+} catch (Exception $exception) {
 
-    echo $Exception->getMessage();
+    echo $exception->getMessage();
 
 }

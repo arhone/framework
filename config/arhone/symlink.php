@@ -1,7 +1,7 @@
 <?php
 
 return array_merge(
-    include __DIR__ . '/project/symlink.php',
+    include __DIR__ . '/develop/symlink.php',
 
     include __DIR__ . '/../../module/admin/config/symlink.php',
     include __DIR__ . '/../../module/front/config/symlink.php',
