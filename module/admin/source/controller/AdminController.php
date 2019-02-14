@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 namespace admin\controller;
 
-use arhone\templating\TemplaterInterface;
-use arhone\commutation\TriggerInterface;
+use arhone\templating\templater\TemplaterInterface;
+use arhone\commutation\trigger\TriggerInterface;
 
 /**
  * Class AdminController

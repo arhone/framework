@@ -3,7 +3,7 @@
 namespace error\controller;
 
 use arhone\http\Header;
-use arhone\templating\TemplaterInterface;
+use arhone\templating\templater\TemplaterInterface;
 
 /**
  * Class ErrorController
@@ -13,7 +13,7 @@ use arhone\templating\TemplaterInterface;
 class ErrorController {
 
     /**
-     * @var $Templater \arhone\templating\Templater
+     * @var $Templater \arhone\templating\templater\Templater
      */
     protected $Header;
     protected $Templater;

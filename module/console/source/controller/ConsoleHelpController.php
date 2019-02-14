@@ -2,7 +2,7 @@
 
 namespace console\controller;
 
-use arhone\commutation\Trigger;
+use arhone\commutation\trigger\Trigger;
 
 /**
  * Class ConsoleHelpController

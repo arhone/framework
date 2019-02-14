@@ -2,7 +2,7 @@
 
 namespace console\controller;
 
-use arhone\caching\CacherInterface;
+use arhone\caching\cacher\CacherInterface;
 
 /**
  * Class ConsoleCacheController

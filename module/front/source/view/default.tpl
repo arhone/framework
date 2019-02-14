@@ -1,6 +1,6 @@
 <?php
 /**
- * @var arhone\templating\Templater $this
+ * @var arhone\templating\templater\Templater $this
  */
 ?>
 <!DOCTYPE html>

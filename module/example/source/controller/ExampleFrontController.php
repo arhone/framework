@@ -2,8 +2,8 @@
 
 namespace example\controller;
 
-use arhone\templating\TemplaterInterface;
-use arhone\caching\CacherInterface;
+use arhone\templating\templater\TemplaterInterface;
+use arhone\caching\cacher\CacherInterface;
 
 /**
  * Class ExampleFrontController

@@ -2,7 +2,7 @@
 
 namespace example\controller;
 
-use arhone\templating\Templater;
+use arhone\templating\templater\Templater;
 
 /**
  * Class ExampleAdminController

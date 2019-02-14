@@ -8,7 +8,7 @@ ini_set('error_log', __DIR__ . '/../log/error.log'); // Файл для сохр
 
 include __DIR__ . '/autoload.php';
 
-$builder = new \arhone\construction\Builder();
+$builder = new \arhone\construction\builder\Builder();
 $builder->instruction(include __DIR__ . '/../../config/arhone/builder.php');
 
 try {

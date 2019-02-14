@@ -6,7 +6,7 @@ $config = include __DIR__ . '/config.php';
 
 return [
     'Builder' => [
-        'class' => 'arhone\construction\Builder',
+        'class' => 'arhone\construction\builder\Builder',
         'construct' => [
             'new'   => false,
             'clone' => true
@@ -35,7 +35,7 @@ return [
         'construct' => []
     ],
     'CacherFile' => [
-        'class' => 'arhone\caching\CacherFileSystemAdapter',
+        'class' => 'arhone\caching\cacher\CacherFileSystemAdapter',
         'construct' => [
             ['array' => [
                 'status'    => $config['cache']['status'],
@@ -45,7 +45,7 @@ return [
     ],
     'Cacher' => ['CacherFile'],
     'Trigger' => [
-        'class' => 'arhone\commutation\Trigger'
+        'class' => 'arhone\commutation\trigger\Trigger'
     ],
     'Config' => [
         'class' => 'arhone\storing\StorageMemoryAdapter',
@@ -56,7 +56,7 @@ return [
         ]
     ],
     'Templater' => [
-        'class' => 'arhone\templating\Templater'
+        'class' => 'arhone\templating\templater\Templater'
     ],
     'Session' => [
         'class' => 'arhone\session\Session'
